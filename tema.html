@@ -1,448 +1,258 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Tema Undangan — RoyalInvite</title>
+<title>Buat Undangan | RoyalInvite</title>
 
 <meta name="description"
-content="Pilih tema undangan digital premium RoyalInvite.">
+content="Buat undangan digital premium dengan RoyalInvite.">
 
 <link rel="stylesheet" href="assets/css/style.css">
 
 <style>
-/* =========================
-   TEMA PAGE
-========================= */
 
-.theme-page {
-    min-height: 100vh;
-    background:
-        radial-gradient(
-            circle at 50% 0%,
-            rgba(213,170,91,.10),
-            transparent 35%
-        ),
-        var(--bg);
+.order-page{
+    min-height:100vh;
+    padding:130px 20px 80px;
 }
 
-.theme-hero {
-    padding: 100px 0 60px;
-    text-align: center;
+.order-wrap{
+    max-width:1100px;
+    margin:auto;
 }
 
-.theme-hero h1 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(48px, 7vw, 76px);
-    line-height: 1;
-    font-weight: 600;
+.order-header{
+    text-align:center;
+    margin-bottom:50px;
 }
 
-.theme-hero h1 span {
-    color: var(--gold-light);
+.order-header .eyebrow{
+    color:#d5aa5b;
+    letter-spacing:4px;
+    font-size:12px;
+    font-weight:700;
+    margin-bottom:15px;
 }
 
-.theme-hero p {
-    max-width: 620px;
-    margin: 20px auto 0;
-    color: var(--muted);
-    font-size: 14px;
+.order-header h1{
+    font-family:"Cormorant Garamond",serif;
+    font-size:clamp(42px,7vw,70px);
+    line-height:1;
+    margin-bottom:18px;
 }
 
-.theme-toolbar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 20px;
-    margin-bottom: 35px;
-    padding: 20px;
-    border: 1px solid var(--border);
-    border-radius: 18px;
-    background: rgba(255,255,255,.025);
+.order-header p{
+    max-width:650px;
+    margin:auto;
+    color:#a99d8b;
+    line-height:1.8;
 }
 
-.theme-search {
-    flex: 1;
+.order-box{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:25px;
 }
 
-.theme-search input {
-    width: 100%;
-    height: 48px;
-    padding: 0 18px;
-    border: 1px solid var(--border);
-    border-radius: 30px;
-    outline: none;
-    background: #0b0805;
-    color: var(--text);
-    font-family: 'Montserrat', sans-serif;
-    font-size: 13px;
+.order-card{
+    background:rgba(255,255,255,.035);
+    border:1px solid rgba(213,170,91,.22);
+    border-radius:24px;
+    padding:30px;
+    backdrop-filter:blur(12px);
 }
 
-.theme-search input::placeholder {
-    color: #716859;
+.order-card h2{
+    font-family:"Cormorant Garamond",serif;
+    font-size:32px;
+    margin-bottom:25px;
 }
 
-.theme-search input:focus {
-    border-color: var(--gold);
+.form-group{
+    margin-bottom:20px;
 }
 
-.theme-filters {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
+.form-group label{
+    display:block;
+    margin-bottom:8px;
+    color:#e8dcc9;
+    font-size:14px;
 }
 
-.filter-btn {
-    height: 42px;
-    padding: 0 16px;
-    border: 1px solid var(--border);
-    border-radius: 30px;
-    background: transparent;
-    color: var(--muted);
-    font-family: 'Montserrat', sans-serif;
-    font-size: 11px;
-    cursor: pointer;
-    transition: .3s ease;
+.form-group input,
+.form-group select{
+    width:100%;
+    padding:15px 16px;
+    border-radius:12px;
+    border:1px solid rgba(213,170,91,.25);
+    background:#100b07;
+    color:#f7efe2;
+    outline:none;
+    font-size:15px;
 }
 
-.filter-btn:hover,
-.filter-btn.active {
-    border-color: var(--gold);
-    background: rgba(213,170,91,.10);
-    color: var(--gold-light);
+.form-group input:focus,
+.form-group select:focus{
+    border-color:#d5aa5b;
 }
 
-/* =========================
-   CATALOG
-========================= */
-
-.theme-catalog {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 25px;
-    padding-bottom: 100px;
+.package-list{
+    display:grid;
+    gap:15px;
 }
 
-.catalog-card {
-    overflow: hidden;
-    position: relative;
-    border: 1px solid var(--border);
-    border-radius: 20px;
-    background: rgba(255,255,255,.025);
-    transition: .35s ease;
+.package{
+    display:block;
+    border:1px solid rgba(213,170,91,.22);
+    border-radius:16px;
+    padding:20px;
+    cursor:pointer;
+    transition:.3s;
 }
 
-.catalog-card:hover {
-    transform: translateY(-7px);
-    border-color: rgba(213,170,91,.55);
-    box-shadow: 0 25px 60px rgba(0,0,0,.35);
+.package:hover{
+    border-color:#d5aa5b;
+    transform:translateY(-2px);
 }
 
-.catalog-card.hidden {
-    display: none;
+.package input{
+    display:none;
 }
 
-.catalog-preview {
-    position: relative;
-    height: 410px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
+.package.active{
+    border-color:#d5aa5b;
+    background:rgba(213,170,91,.08);
 }
 
-.catalog-preview::before {
-    content: "";
-    position: absolute;
-    inset: 18px;
-    border: 1px solid rgba(213,170,91,.32);
+.package-title{
+    display:flex;
+    justify-content:space-between;
+    gap:15px;
+    margin-bottom:8px;
 }
 
-.catalog-preview::after {
-    content: "";
-    position: absolute;
-    inset: 28px;
-    border: 1px solid rgba(213,170,91,.16);
+.package-title strong{
+    font-family:"Cormorant Garamond",serif;
+    font-size:24px;
 }
 
-/* =========================
-   PREVIEW THEMES
-========================= */
-
-.catalog-preview.royal {
-    background:
-        radial-gradient(
-            circle at center,
-            rgba(213,170,91,.18),
-            transparent 32%
-        ),
-        linear-gradient(
-            145deg,
-            #080604,
-            #24170b
-        );
+.package-price{
+    color:#d5aa5b;
+    font-weight:700;
 }
 
-.catalog-preview.gold {
-    background:
-        radial-gradient(
-            circle at center,
-            rgba(255,220,140,.24),
-            transparent 30%
-        ),
-        linear-gradient(
-            145deg,
-            #20160b,
-            #76592d
-        );
+.package p{
+    color:#a99d8b;
+    font-size:14px;
+    line-height:1.7;
 }
 
-.catalog-preview.floral {
-    background:
-        radial-gradient(
-            circle at 30% 25%,
-            rgba(245,190,190,.20),
-            transparent 20%
-        ),
-        radial-gradient(
-            circle at 75% 70%,
-            rgba(213,170,91,.18),
-            transparent 25%
-        ),
-        linear-gradient(
-            145deg,
-            #160d0d,
-            #38201c
-        );
+.feature-list{
+    list-style:none;
+    margin-top:15px;
 }
 
-.catalog-preview.minimal {
-    background:
-        radial-gradient(
-            circle at center,
-            rgba(255,255,255,.06),
-            transparent 35%
-        ),
-        linear-gradient(
-            145deg,
-            #151515,
-            #050505
-        );
+.feature-list li{
+    color:#c9bdab;
+    font-size:13px;
+    padding:5px 0;
 }
 
-.catalog-preview.classic {
-    background:
-        radial-gradient(
-            circle at center,
-            rgba(213,170,91,.15),
-            transparent 30%
-        ),
-        linear-gradient(
-            145deg,
-            #261b12,
-            #090705
-        );
+.feature-list li::before{
+    content:"✓";
+    color:#d5aa5b;
+    margin-right:8px;
 }
 
-.catalog-preview.luxury {
-    background:
-        radial-gradient(
-            circle at center,
-            rgba(230,190,100,.20),
-            transparent 35%
-        ),
-        linear-gradient(
-            145deg,
-            #070707,
-            #21170a
-        );
+.summary{
+    margin-top:25px;
+    padding:20px;
+    border-radius:16px;
+    background:rgba(213,170,91,.06);
+    border:1px solid rgba(213,170,91,.18);
 }
 
-/* =========================
-   PREVIEW CONTENT
-========================= */
-
-.preview-content {
-    position: relative;
-    z-index: 3;
-    text-align: center;
-    padding: 30px;
+.summary-row{
+    display:flex;
+    justify-content:space-between;
+    gap:20px;
+    margin-bottom:10px;
+    color:#c9bdab;
 }
 
-.preview-content small {
-    display: block;
-    margin-bottom: 22px;
-    color: var(--gold-light);
-    font-size: 8px;
-    letter-spacing: 3px;
+.summary-total{
+    border-top:1px solid rgba(213,170,91,.2);
+    padding-top:15px;
+    margin-top:15px;
+    color:#f7efe2;
+    font-size:20px;
 }
 
-.preview-content strong {
-    display: block;
-    color: #f3dca5;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 45px;
-    line-height: .85;
+.order-button{
+    width:100%;
+    margin-top:20px;
+    padding:17px 20px;
+    border:0;
+    border-radius:999px;
+    background:linear-gradient(135deg,#f0d79d,#c99a45);
+    color:#180f08;
+    font-weight:700;
+    font-size:15px;
+    cursor:pointer;
+    transition:.3s;
 }
 
-.preview-content em {
-    display: block;
-    margin-top: 18px;
-    color: #bcae98;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 17px;
+.order-button:hover{
+    transform:translateY(-2px);
+    box-shadow:0 10px 35px rgba(213,170,91,.25);
 }
 
-/* =========================
-   CARD CONTENT
-========================= */
-
-.catalog-content {
-    padding: 22px;
+.note{
+    text-align:center;
+    color:#817667;
+    font-size:12px;
+    margin-top:15px;
+    line-height:1.7;
 }
 
-.catalog-top {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    gap: 15px;
-}
+@media(max-width:800px){
 
-.catalog-content h2 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 28px;
-    line-height: 1;
-}
-
-.catalog-content p {
-    margin-top: 6px;
-    color: var(--muted);
-    font-size: 11px;
-}
-
-.badge {
-    flex-shrink: 0;
-    padding: 6px 10px;
-    border: 1px solid var(--gold);
-    border-radius: 20px;
-    color: var(--gold-light);
-    font-size: 8px;
-    font-weight: 700;
-    letter-spacing: 1px;
-}
-
-.badge.free {
-    border-color: rgba(255,255,255,.2);
-    color: #aaa196;
-}
-
-.catalog-price {
-    margin: 18px 0;
-    color: var(--gold-light);
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 27px;
-}
-
-.catalog-price small {
-    color: var(--muted);
-    font-family: 'Montserrat', sans-serif;
-    font-size: 9px;
-}
-
-.catalog-actions {
-    display: flex;
-    gap: 8px;
-}
-
-.catalog-actions .btn {
-    flex: 1;
-}
-
-/* =========================
-   NO RESULT
-========================= */
-
-.no-result {
-    display: none;
-    padding: 80px 20px;
-    text-align: center;
-    color: var(--muted);
-}
-
-.no-result.show {
-    display: block;
-}
-
-.no-result h3 {
-    margin-bottom: 8px;
-    color: var(--gold-light);
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 30px;
-}
-
-/* =========================
-   MOBILE
-========================= */
-
-@media (max-width: 900px) {
-
-    .theme-catalog {
-        grid-template-columns: repeat(2, 1fr);
+    .order-box{
+        grid-template-columns:1fr;
     }
 
-    .theme-toolbar {
-        flex-direction: column;
-        align-items: stretch;
+    .order-page{
+        padding-top:110px;
     }
+
+    .order-card{
+        padding:22px;
+    }
+
 }
 
-@media (max-width: 650px) {
-
-    .theme-hero {
-        padding: 75px 0 45px;
-    }
-
-    .theme-hero h1 {
-        font-size: 50px;
-    }
-
-    .theme-hero p {
-        font-size: 12px;
-    }
-
-    .theme-catalog {
-        grid-template-columns: 1fr;
-    }
-
-    .catalog-preview {
-        height: 390px;
-    }
-
-    .theme-filters {
-        overflow-x: auto;
-        flex-wrap: nowrap;
-        padding-bottom: 5px;
-    }
-
-    .filter-btn {
-        flex-shrink: 0;
-    }
-}
 </style>
+
 </head>
+
 
 <body>
 
-<header class="navbar">
 
-    <div class="container nav-content">
+<!-- NAVBAR -->
+
+<nav class="navbar">
+
+    <div class="container nav-inner">
 
         <a href="index.html" class="logo">
             Royal<span>Invite</span>
         </a>
 
-        <nav>
+        <div class="nav-links">
 
             <a href="index.html">
                 Beranda
@@ -460,719 +270,521 @@ content="Pilih tema undangan digital premium RoyalInvite.">
                 Buat Undangan
             </a>
 
-        </nav>
+        </div>
 
     </div>
 
-</header>
+</nav>
 
 
-<main class="theme-page">
+<!-- HALAMAN ORDER -->
 
-<section class="theme-hero">
+<main class="order-page">
 
-    <div class="container">
+<div class="order-wrap">
 
-        <span class="eyebrow">
-            KOLEKSI ROYALINVITE
-        </span>
+
+    <!-- HEADER -->
+
+    <div class="order-header">
+
+        <div class="eyebrow">
+            MULAI SEKARANG
+        </div>
 
         <h1>
-            Pilih <span>Tema Favoritmu</span>
+            Buat Undangan Anda
         </h1>
 
         <p>
-            Temukan desain undangan digital yang sesuai
-            dengan momen spesialmu.
+            Pilih tema dan paket yang sesuai.
+            Setelah itu Anda dapat melanjutkan proses
+            pembuatan undangan digital bersama RoyalInvite.
         </p>
 
     </div>
 
-</section>
+
+    <div class="order-box">
 
 
-<section>
+        <!-- DATA PESANAN -->
 
-<div class="container">
+        <section class="order-card">
 
-<div class="theme-toolbar">
+            <h2>
+                Data Pesanan
+            </h2>
 
-    <div class="theme-search">
 
-        <input
-            type="search"
-            id="themeSearch"
-            placeholder="Cari tema..."
-            autocomplete="off">
+            <div class="form-group">
 
-    </div>
+                <label>
+                    Nama Pemesan
+                </label>
 
-    <div class="theme-filters">
+                <input
+                    type="text"
+                    id="nama"
+                    placeholder="Masukkan nama Anda">
 
-        <button
-            class="filter-btn active"
-            data-filter="all">
-            Semua
-        </button>
+            </div>
 
-        <button
-            class="filter-btn"
-            data-filter="wedding">
-            Pernikahan
-        </button>
 
-        <button
-            class="filter-btn"
-            data-filter="aqiqah">
-            Aqiqah
-        </button>
+            <div class="form-group">
 
-        <button
-            class="filter-btn"
-            data-filter="birthday">
-            Ulang Tahun
-        </button>
+                <label>
+                    WhatsApp
+                </label>
 
-        <button
-            class="filter-btn"
-            data-filter="event">
-            Event
-        </button>
+                <input
+                    type="tel"
+                    id="wa"
+                    placeholder="Contoh: 081234567890">
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    Jenis Acara
+                </label>
+
+                <select id="acara">
+
+                    <option value="Pernikahan">
+                        Pernikahan
+                    </option>
+
+                    <option value="Aqiqah">
+                        Aqiqah
+                    </option>
+
+                    <option value="Khitanan">
+                        Khitanan
+                    </option>
+
+                    <option value="Ulang Tahun">
+                        Ulang Tahun
+                    </option>
+
+                    <option value="Syukuran">
+                        Syukuran
+                    </option>
+
+                    <option value="Event">
+                        Event
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <!-- PILIH TEMA -->
+
+            <div class="form-group">
+
+                <label>
+                    Pilih Tema
+                </label>
+
+                <select id="tema">
+
+                    <option value="royal-palace">
+                        Royal Palace
+                    </option>
+
+                    <option value="elegant-gold">
+                        Elegant Gold
+                    </option>
+
+                    <option value="floral-romance">
+                        Floral Romance
+                    </option>
+
+                    <option value="minimalist">
+                        Minimalist
+                    </option>
+
+                    <option value="classic">
+                        Classic
+                    </option>
+
+                    <option value="luxury">
+                        Luxury
+                    </option>
+
+                </select>
+
+            </div>
+
+        </section>
+
+
+        <!-- PAKET -->
+
+        <section class="order-card">
+
+            <h2>
+                Pilih Paket
+            </h2>
+
+
+            <div class="package-list">
+
+
+                <!-- BASIC -->
+
+                <label class="package active">
+
+                    <input
+                        type="radio"
+                        name="paket"
+                        value="Basic"
+                        data-price="49000"
+                        checked>
+
+                    <div class="package-title">
+
+                        <strong>
+                            Basic
+                        </strong>
+
+                        <span class="package-price">
+                            Rp49.000
+                        </span>
+
+                    </div>
+
+                    <p>
+                        Cocok untuk undangan sederhana
+                        dengan fitur utama.
+                    </p>
+
+                    <ul class="feature-list">
+
+                        <li>
+                            1 tema undangan
+                        </li>
+
+                        <li>
+                            Countdown
+                        </li>
+
+                        <li>
+                            Galeri foto
+                        </li>
+
+                        <li>
+                            Google Maps
+                        </li>
+
+                    </ul>
+
+                </label>
+
+
+                <!-- PREMIUM -->
+
+                <label class="package">
+
+                    <input
+                        type="radio"
+                        name="paket"
+                        value="Premium"
+                        data-price="99000">
+
+                    <div class="package-title">
+
+                        <strong>
+                            Premium
+                        </strong>
+
+                        <span class="package-price">
+                            Rp99.000
+                        </span>
+
+                    </div>
+
+                    <p>
+                        Paket lengkap dengan fitur
+                        undangan digital premium.
+                    </p>
+
+                    <ul class="feature-list">
+
+                        <li>
+                            Semua fitur Basic
+                        </li>
+
+                        <li>
+                            Musik
+                        </li>
+
+                        <li>
+                            RSVP WhatsApp
+                        </li>
+
+                        <li>
+                            Wedding Gift
+                        </li>
+
+                        <li>
+                            Nama tamu
+                        </li>
+
+                    </ul>
+
+                </label>
+
+
+                <!-- EXCLUSIVE -->
+
+                <label class="package">
+
+                    <input
+                        type="radio"
+                        name="paket"
+                        value="Exclusive"
+                        data-price="149000">
+
+                    <div class="package-title">
+
+                        <strong>
+                            Exclusive
+                        </strong>
+
+                        <span class="package-price">
+                            Rp149.000
+                        </span>
+
+                    </div>
+
+                    <p>
+                        Untuk undangan dengan tampilan
+                        dan fitur lebih lengkap.
+                    </p>
+
+                    <ul class="feature-list">
+
+                        <li>
+                            Semua fitur Premium
+                        </li>
+
+                        <li>
+                            Customisasi desain
+                        </li>
+
+                        <li>
+                            Prioritas pengerjaan
+                        </li>
+
+                        <li>
+                            Bantuan setup
+                        </li>
+
+                    </ul>
+
+                </label>
+
+            </div>
+
+
+            <!-- RINGKASAN -->
+
+            <div class="summary">
+
+                <div class="summary-row">
+
+                    <span>
+                        Tema
+                    </span>
+
+                    <strong id="summaryTema">
+                        Royal Palace
+                    </strong>
+
+                </div>
+
+
+                <div class="summary-row">
+
+                    <span>
+                        Paket
+                    </span>
+
+                    <strong id="summaryPaket">
+                        Basic
+                    </strong>
+
+                </div>
+
+
+                <div class="summary-row summary-total">
+
+                    <span>
+                        Total
+                    </span>
+
+                    <strong id="summaryPrice">
+                        Rp49.000
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <!-- WHATSAPP -->
+
+            <button
+                type="button"
+                class="order-button"
+                onclick="kirimPesanan()">
+
+                Pesan via WhatsApp
+
+            </button>
+
+
+            <div class="note">
+
+                Setelah menekan tombol,
+                Anda akan diarahkan ke WhatsApp
+                untuk konfirmasi pesanan.
+
+            </div>
+
+        </section>
 
     </div>
 
 </div>
-
-
-<div
-    class="theme-catalog"
-    id="themeCatalog">
-
-
-<!-- =========================
-     ROYAL PALACE
-========================= -->
-
-<article
-    class="catalog-card"
-    data-category="wedding"
-    data-name="Royal Palace">
-
-    <div class="catalog-preview royal">
-
-        <div class="preview-content">
-
-            <small>
-                THE WEDDING OF
-            </small>
-
-            <strong>
-                HADI
-                <br>
-                &amp;
-                <br>
-                RIYA
-            </strong>
-
-            <em>
-                12 • 12 • 2026
-            </em>
-
-        </div>
-
-    </div>
-
-    <div class="catalog-content">
-
-        <div class="catalog-top">
-
-            <div>
-
-                <h2>
-                    Royal Palace
-                </h2>
-
-                <p>
-                    Black • Gold • Luxury
-                </p>
-
-            </div>
-
-            <span class="badge">
-                PREMIUM
-            </span>
-
-        </div>
-
-        <div class="catalog-price">
-            Rp 99.000
-            <small>
-                / undangan
-            </small>
-        </div>
-
-        <div class="catalog-actions">
-
-            <a
-                href="demo/royal-palace.html"
-                class="btn btn-small">
-                Preview
-            </a>
-
-            <a
-                href="order.html?tema=royal-palace"
-                class="btn btn-small btn-primary">
-                Gunakan
-            </a>
-
-        </div>
-
-    </div>
-
-</article>
-
-
-<!-- =========================
-     ELEGANT GOLD
-========================= -->
-
-<article
-    class="catalog-card"
-    data-category="wedding"
-    data-name="Elegant Gold">
-
-    <div class="catalog-preview gold">
-
-        <div class="preview-content">
-
-            <small>
-                THE WEDDING
-            </small>
-
-            <strong>
-                OUR
-                <br>
-                LOVE
-            </strong>
-
-            <em>
-                Forever Begins
-            </em>
-
-        </div>
-
-    </div>
-
-    <div class="catalog-content">
-
-        <div class="catalog-top">
-
-            <div>
-
-                <h2>
-                    Elegant Gold
-                </h2>
-
-                <p>
-                    Classic • Elegant
-                </p>
-
-            </div>
-
-            <span class="badge">
-                PREMIUM
-            </span>
-
-        </div>
-
-        <div class="catalog-price">
-            Rp 79.000
-            <small>
-                / undangan
-            </small>
-        </div>
-
-        <div class="catalog-actions">
-
-            <a
-                href="demo/elegant-gold.html"
-                class="btn btn-small">
-                Preview
-            </a>
-
-            <a
-                href="order.html?tema=elegant-gold"
-                class="btn btn-small btn-primary">
-                Gunakan
-            </a>
-
-        </div>
-
-    </div>
-
-</article>
-
-
-<!-- =========================
-     FLORAL ROMANCE
-========================= -->
-
-<article
-    class="catalog-card"
-    data-category="wedding"
-    data-name="Floral Romance">
-
-    <div class="catalog-preview floral">
-
-        <div class="preview-content">
-
-            <small>
-                OUR LOVE STORY
-            </small>
-
-            <strong>
-                FOREVER
-            </strong>
-
-            <em>
-                With Love
-            </em>
-
-        </div>
-
-    </div>
-
-    <div class="catalog-content">
-
-        <div class="catalog-top">
-
-            <div>
-
-                <h2>
-                    Floral Romance
-                </h2>
-
-                <p>
-                    Romantic • Floral
-                </p>
-
-            </div>
-
-            <span class="badge">
-                PREMIUM
-            </span>
-
-        </div>
-
-        <div class="catalog-price">
-            Rp 79.000
-            <small>
-                / undangan
-            </small>
-        </div>
-
-        <div class="catalog-actions">
-
-            <a
-                href="demo/floral-love.html"
-                class="btn btn-small">
-                Preview
-            </a>
-
-            <a
-                href="order.html?tema=floral-romance"
-                class="btn btn-small btn-primary">
-                Gunakan
-            </a>
-
-        </div>
-
-    </div>
-
-</article>
-
-
-<!-- =========================
-     MINIMALIST
-========================= -->
-
-<article
-    class="catalog-card"
-    data-category="wedding"
-    data-name="Minimalist">
-
-    <div class="catalog-preview minimal">
-
-        <div class="preview-content">
-
-            <small>
-                THE WEDDING OF
-            </small>
-
-            <strong>
-                H &amp; R
-            </strong>
-
-            <em>
-                Simple • Timeless
-            </em>
-
-        </div>
-
-    </div>
-
-    <div class="catalog-content">
-
-        <div class="catalog-top">
-
-            <div>
-
-                <h2>
-                    Minimalist
-                </h2>
-
-                <p>
-                    Simple • Modern
-                </p>
-
-            </div>
-
-            <span class="badge">
-                PREMIUM
-            </span>
-
-        </div>
-
-        <div class="catalog-price">
-            Rp 69.000
-            <small>
-                / undangan
-            </small>
-        </div>
-
-        <div class="catalog-actions">
-
-            <a
-                href="demo/minimalist.html"
-                class="btn btn-small">
-                Preview
-            </a>
-
-            <a
-                href="order.html?tema=minimalist"
-                class="btn btn-small btn-primary">
-                Gunakan
-            </a>
-
-        </div>
-
-    </div>
-
-</article>
-
-
-<!-- =========================
-     CLASSIC
-========================= -->
-
-<article
-    class="catalog-card"
-    data-category="wedding"
-    data-name="Classic">
-
-    <div class="catalog-preview classic">
-
-        <div class="preview-content">
-
-            <small>
-                WEDDING INVITATION
-            </small>
-
-            <strong>
-                HADI
-                <br>
-                &amp;
-                <br>
-                RIYA
-            </strong>
-
-            <em>
-                A Beautiful Beginning
-            </em>
-
-        </div>
-
-    </div>
-
-    <div class="catalog-content">
-
-        <div class="catalog-top">
-
-            <div>
-
-                <h2>
-                    Classic
-                </h2>
-
-                <p>
-                    Elegant • Timeless
-                </p>
-
-            </div>
-
-            <span class="badge">
-                PREMIUM
-            </span>
-
-        </div>
-
-        <div class="catalog-price">
-            Rp 69.000
-            <small>
-                / undangan
-            </small>
-        </div>
-
-        <div class="catalog-actions">
-
-            <a
-                href="demo/classic.html"
-                class="btn btn-small">
-                Preview
-            </a>
-
-            <a
-                href="order.html?tema=classic"
-                class="btn btn-small btn-primary">
-                Gunakan
-            </a>
-
-        </div>
-
-    </div>
-
-</article>
-
-
-<!-- =========================
-     LUXURY
-========================= -->
-
-<article
-    class="catalog-card"
-    data-category="wedding"
-    data-name="Luxury">
-
-    <div class="catalog-preview luxury">
-
-        <div class="preview-content">
-
-            <small>
-                THE WEDDING
-            </small>
-
-            <strong>
-                FOREVER
-            </strong>
-
-            <em>
-                Luxury Wedding
-            </em>
-
-        </div>
-
-    </div>
-
-    <div class="catalog-content">
-
-        <div class="catalog-top">
-
-            <div>
-
-                <h2>
-                    Luxury
-                </h2>
-
-                <p>
-                    Royal • Luxury
-                </p>
-
-            </div>
-
-            <span class="badge">
-                EXCLUSIVE
-            </span>
-
-        </div>
-
-        <div class="catalog-price">
-            Rp 149.000
-            <small>
-                / undangan
-            </small>
-        </div>
-
-        <div class="catalog-actions">
-
-            <a
-                href="demo/luxury.html"
-                class="btn btn-small">
-                Preview
-            </a>
-
-            <a
-                href="order.html?tema=luxury"
-                class="btn btn-small btn-primary">
-                Gunakan
-            </a>
-
-        </div>
-
-    </div>
-
-</article>
-
-
-</div>
-
-
-<div
-    class="no-result"
-    id="noResult">
-
-    <h3>
-        Tema Tidak Ditemukan
-    </h3>
-
-    <p>
-        Coba gunakan kata pencarian yang berbeda.
-    </p>
-
-</div>
-
-
-</div>
-
-</section>
 
 </main>
 
 
-<footer>
-
-<div class="container">
-
-<p>
-© 2026 RoyalInvite. All Rights Reserved.
-</p>
-
-</div>
-
-</footer>
-
-
 <script>
 
+
 /* =========================
-   SEARCH & FILTER
+   ELEMENT
 ========================= */
 
-const cards =
+const packages =
+document.querySelectorAll('.package');
+
+const radios =
 document.querySelectorAll(
-    ".catalog-card"
+    'input[name="paket"]'
 );
 
-const searchInput =
-document.getElementById(
-    "themeSearch"
-);
+const tema =
+document.getElementById('tema');
 
-const filterButtons =
-document.querySelectorAll(
-    ".filter-btn"
-);
+const summaryTema =
+document.getElementById('summaryTema');
 
-const noResult =
-document.getElementById(
-    "noResult"
-);
+const summaryPaket =
+document.getElementById('summaryPaket');
 
-let currentFilter = "all";
+const summaryPrice =
+document.getElementById('summaryPrice');
 
 
-function filterThemes(){
+/* =========================
+   NAMA TEMA
+========================= */
 
-    const search =
-        searchInput.value
-        .toLowerCase()
-        .trim();
+const temaMap = {
 
-    let visible = 0;
+    'royal-palace':
+        'Royal Palace',
 
-    cards.forEach(card => {
+    'elegant-gold':
+        'Elegant Gold',
 
-        const name =
-            card.dataset.name
-            .toLowerCase();
+    'floral-romance':
+        'Floral Romance',
 
-        const category =
-            card.dataset.category;
+    'minimalist':
+        'Minimalist',
 
-        const matchSearch =
-            name.includes(search);
+    'classic':
+        'Classic',
 
-        const matchFilter =
-            currentFilter === "all" ||
-            category === currentFilter;
+    'luxury':
+        'Luxury'
 
-        if(
-            matchSearch &&
-            matchFilter
-        ){
+};
 
-            card.classList.remove(
-                "hidden"
-            );
 
-            visible++;
+/* =========================
+   FORMAT RUPIAH
+========================= */
 
-        }else{
+function formatRupiah(number){
 
-            card.classList.add(
-                "hidden"
-            );
-
+    return new Intl.NumberFormat(
+        'id-ID',
+        {
+            style:'currency',
+            currency:'IDR',
+            maximumFractionDigits:0
         }
+    ).format(number);
 
-    });
-
-    noResult.classList.toggle(
-        "show",
-        visible === 0
-    );
 }
 
 
-filterButtons.forEach(button => {
+/* =========================
+   UPDATE RINGKASAN
+========================= */
 
-    button.addEventListener(
-        "click",
+function updateSummary(){
+
+    const selected =
+    document.querySelector(
+        'input[name="paket"]:checked'
+    );
+
+    if(!selected) return;
+
+    const price =
+    Number(selected.dataset.price);
+
+    summaryPaket.textContent =
+    selected.value;
+
+    summaryPrice.textContent =
+    formatRupiah(price);
+
+    summaryTema.textContent =
+    temaMap[tema.value] || tema.value;
+
+}
+
+
+/* =========================
+   PILIH PAKET
+========================= */
+
+radios.forEach(radio => {
+
+    radio.addEventListener(
+        'change',
         function(){
 
-            filterButtons.forEach(btn =>
-                btn.classList.remove(
-                    "active"
-                )
+            packages.forEach(
+                p => p.classList.remove('active')
             );
 
-            this.classList.add(
-                "active"
-            );
+            this.closest('.package')
+                .classList.add('active');
 
-            currentFilter =
-                this.dataset.filter;
-
-            filterThemes();
+            updateSummary();
 
         }
     );
@@ -1180,12 +792,185 @@ filterButtons.forEach(button => {
 });
 
 
-searchInput.addEventListener(
-    "input",
-    filterThemes
+/* =========================
+   GANTI TEMA
+========================= */
+
+tema.addEventListener(
+    'change',
+    updateSummary
 );
 
+
+/* =========================
+   AMBIL TEMA DARI URL
+========================= */
+
+const params =
+new URLSearchParams(
+    window.location.search
+);
+
+const temaParam =
+params.get('tema');
+
+
+/*
+   Jika URL:
+   order.html?tema=luxury
+
+   maka otomatis memilih:
+   Luxury
+*/
+
+if(
+    temaParam &&
+    temaMap[temaParam]
+){
+
+    tema.value =
+    temaParam;
+
+}
+
+
+/* =========================
+   PESAN WHATSAPP
+========================= */
+
+function kirimPesanan(){
+
+    const nama =
+    document.getElementById(
+        'nama'
+    ).value.trim();
+
+
+    const wa =
+    document.getElementById(
+        'wa'
+    ).value.trim();
+
+
+    const acara =
+    document.getElementById(
+        'acara'
+    ).value;
+
+
+    const selected =
+    document.querySelector(
+        'input[name="paket"]:checked'
+    );
+
+
+    if(!nama){
+
+        alert(
+            'Silakan masukkan nama pemesan.'
+        );
+
+        return;
+
+    }
+
+
+    if(!wa){
+
+        alert(
+            'Silakan masukkan nomor WhatsApp.'
+        );
+
+        return;
+
+    }
+
+
+    if(!selected){
+
+        alert(
+            'Silakan pilih paket terlebih dahulu.'
+        );
+
+        return;
+
+    }
+
+
+    const namaTema =
+    temaMap[tema.value] ||
+    tema.value;
+
+
+    const harga =
+    formatRupiah(
+        Number(
+            selected.dataset.price
+        )
+    );
+
+
+    const pesan =
+`Halo RoyalInvite 👋
+
+Saya ingin membuat undangan digital.
+
+Nama Pemesan:
+${nama}
+
+WhatsApp:
+${wa}
+
+Jenis Acara:
+${acara}
+
+Tema:
+${namaTema}
+
+Paket:
+${selected.value}
+
+Harga:
+${harga}
+
+Mohon informasi langkah selanjutnya.
+
+Terima kasih.`;
+
+
+    /*
+     * NOMOR WHATSAPP ADMIN
+     */
+
+    const nomorAdmin =
+    '6285774779700';
+
+
+    const url =
+    'https://wa.me/' +
+    nomorAdmin +
+    '?text=' +
+    encodeURIComponent(
+        pesan
+    );
+
+
+    window.open(
+        url,
+        '_blank'
+    );
+
+}
+
+
+/* =========================
+   JALANKAN
+========================= */
+
+updateSummary();
+
 </script>
+
 
 </body>
 </html>
