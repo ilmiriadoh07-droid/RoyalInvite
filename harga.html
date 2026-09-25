@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Harga Undangan Digital | RoyalInvite</title>
+
+<meta name="description"
+content="Pilih paket undangan digital RoyalInvite sesuai kebutuhan Anda.">
+
+<link rel="stylesheet" href="assets/css/style.css">
+
+<style>
+.price-page{
+    padding:120px 20px 80px;
+    min-height:100vh;
+    background:
+        radial-gradient(circle at 50% 10%,rgba(213,170,91,.12),transparent 35%),
+        var(--bg);
+}
+
+.price-header{
+    text-align:center;
+    max-width:750px;
+    margin:0 auto 55px;
+}
+
+.price-header .eyebrow{
+    color:var(--gold);
+    font-size:12px;
+    letter-spacing:4px;
+    font-weight:600;
+    margin-bottom:18px;
+}
+
+.price-header h1{
+    font-family:"Cormorant Garamond",serif;
+    font-size:clamp(42px,7vw,72px);
+    line-height:1;
+    margin-bottom:20px;
+}
+
+.price-header h1 span{
+    color:var(--gold-light);
+}
+
+.price-header p{
+    color:var(--muted);
+    line-height:1.8;
+}
+
+.price-grid{
+    max-width:1150px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px;
+}
+
+.price-card{
+    position:relative;
+    padding:38px 30px;
+    border:1px solid var(--border);
+    background:linear-gradient(
+        145deg,
+        rgba(255,255,255,.05),
+        rgba(255,255,255,.015)
+    );
+    border-radius:22px;
+    transition:.35s;
+}
+
+.price-card:hover{
+    transform:translateY(-8px);
+    border-color:rgba(213,170,91,.6);
+}
+
+.price-card.popular{
+    border-color:var(--gold);
+    box-shadow:0 0 50px rgba(213,170,91,.12);
+}
+
+.popular-badge{
+    position:absolute;
+    top:-14px;
+    left:50%;
+    transform:translateX(-50%);
+    padding:7px 18px;
+    border-radius:30px;
+    background:linear-gradient(135deg,#d5aa5b,#f0d79d);
+    color:#17100a;
+    font-size:11px;
+    font-weight:700;
+    letter-spacing:1px;
+    white-space:nowrap;
+}
+
+.price-card h2{
+    font-family:"Cormorant Garamond",serif;
+    font-size:32px;
+    margin-bottom:10px;
+}
+
+.price-description{
+    color:var(--muted);
+    min-height:55px;
+    font-size:14px;
+    line-height:1.7;
+}
+
+.price{
+    margin:25px 0;
+}
+
+.price small{
+    color:var(--muted);
+    font-size:13px;
+}
+
+.price strong{
+    display:block;
+    font-family:"Cormorant Garamond",serif;
+    color:var(--gold-light);
+    font-size:43px;
+}
+
+.price-list{
+    list-style:none;
+    margin:25px 0;
+    padding:0;
+}
+
+.price-list li{
+    padding:10px 0;
+    border-bottom:1px solid rgba(255,255,255,.06);
+    color:#d8cdbc;
+    font-size:14px;
+}
+
+.price-list li::before{
+    content:"✓";
+    color:var(--gold);
+    margin-right:10px;
+}
+
+.price-btn{
+    display:block;
+    text-align:center;
+    padding:14px 20px;
+    border-radius:40px;
+    text-decoration:none;
+    border:1px solid var(--gold);
+    color:var(--gold-light);
+    transition:.3s;
+}
+
+.price-btn:hover{
+    background:var(--gold);
+    color:#17100a;
+}
+
+.price-card.popular .price-btn{
+    background:linear-gradient(135deg,#d5aa5b,#f0d79d);
+    color:#17100a;
+}
+
+.price-note{
+    text-align:center;
+    margin:45px auto 0;
+    color:var(--muted);
+    font-size:13px;
+    line-height:1.8;
+}
+
+@media(max-width:850px){
+    .price-grid{
+        grid-template-columns:1fr;
+        max-width:500px;
+    }
+
+    .price-card.popular{
+        order:-1;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+    <div class="container nav-inner">
+
+        <a href="index.html" class="logo">
+            Royal<span>Invite</span>
+        </a>
+
+        <div class="nav-links">
+            <a href="index.html">Beranda</a>
+            <a href="tema.html">Tema</a>
+            <a href="harga.html" class="active">Harga</a>
+            <a href="order.html" class="nav-button">
+                Buat Undangan
+            </a>
+        </div>
+
+    </div>
+</nav>
+
+
+<!-- PRICE PAGE -->
+<main class="price-page">
+
+    <header class="price-header">
+
+        <div class="eyebrow">
+            PILIH PAKET ANDA
+        </div>
+
+        <h1>
+            Undangan Digital<br>
+            <span>Untuk Momen Istimewa</span>
+        </h1>
+
+        <p>
+            Pilih paket yang sesuai dengan kebutuhan acara Anda.
+            Semua paket dirancang agar undangan terlihat elegan,
+            mudah dibagikan, dan nyaman dibuka melalui smartphone.
+        </p>
+
+    </header>
+
+
+    <section class="price-grid">
+
+
+        <!-- BASIC -->
+        <article class="price-card">
+
+            <h2>Basic</h2>
+
+            <p class="price-description">
+                Untuk Anda yang membutuhkan undangan
+                digital sederhana dan elegan.
+            </p>
+
+            <div class="price">
+
+                <small>Mulai dari</small>
+
+                <strong>Rp49K</strong>
+
+            </div>
+
+            <ul class="price-list">
+
+                <li>1 Pilihan Tema</li>
+
+                <li>Informasi Acara</li>
+
+                <li>Countdown</li>
+
+                <li>Google Maps</li>
+
+                <li>Galeri Foto</li>
+
+                <li>1 Link Undangan</li>
+
+            </ul>
+
+            <a
+                href="order.html?paket=basic"
+                class="price-btn">
+                Pilih Paket
+            </a>
+
+        </article>
+
+
+        <!-- PREMIUM -->
+        <article class="price-card popular">
+
+            <div class="popular-badge">
+                PALING POPULER
+            </div>
+
+            <h2>Premium</h2>
+
+            <p class="price-description">
+                Paket lengkap untuk membuat undangan
+                terlihat lebih eksklusif dan interaktif.
+            </p>
+
+            <div class="price">
+
+                <small>Mulai dari</small>
+
+                <strong>Rp99K</strong>
+
+            </div>
+
+            <ul class="price-list">
+
+                <li>Semua Fitur Basic</li>
+
+                <li>Desain Premium</li>
+
+                <li>Musik Background</li>
+
+                <li>RSVP WhatsApp</li>
+
+                <li>Wedding Gift</li>
+
+                <li>Nama Tamu</li>
+
+                <li>Galeri Foto</li>
+
+                <li>Unlimited Share</li>
+
+            </ul>
+
+            <a
+                href="order.html?paket=premium"
+                class="price-btn">
+                Pilih Premium
+            </a>
+
+        </article>
+
+
+        <!-- EXCLUSIVE -->
+        <article class="price-card">
+
+            <h2>Exclusive</h2>
+
+            <p class="price-description">
+                Untuk kebutuhan undangan khusus dengan
+                personalisasi dan fitur lebih lengkap.
+            </p>
+
+            <div class="price">
+
+                <small>Mulai dari</small>
+
+                <strong>Rp199K</strong>
+
+            </div>
+
+            <ul class="price-list">
+
+                <li>Semua Fitur Premium</li>
+
+                <li>Custom Design</li>
+
+                <li>Custom Domain</li>
+
+                <li>Custom Music</li>
+
+                <li>Personalisasi Tamu</li>
+
+                <li>RSVP & Guest Book</li>
+
+                <li>Prioritas Support</li>
+
+                <li>Fitur Tambahan</li>
+
+            </ul>
+
+            <a
+                href="order.html?paket=exclusive"
+                class="price-btn">
+                Konsultasi
+            </a>
+
+        </article>
+
+
+    </section>
+
+
+    <div class="price-note">
+
+        Harga di atas adalah contoh struktur paket.
+        Nantinya kita bisa mengubah harga, fitur,
+        metode pembayaran, dan sistem aktivasi otomatis.
+
+    </div>
+
+</main>
+
+
+<!-- FOOTER -->
+<footer>
+
+    <div class="container">
+
+        <div class="footer-brand">
+            Royal<span>Invite</span>
+        </div>
+
+        <p>
+            Undangan digital elegan untuk momen
+            yang tidak terlupakan.
+        </p>
+
+        <div class="footer-bottom">
+            © 2026 RoyalInvite. All Rights Reserved.
+        </div>
+
+    </div>
+
+</footer>
+
+</body>
+  </html>
