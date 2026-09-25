@@ -2,163 +2,1087 @@
 <html lang="id">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#050403">
-<title>The Wedding of Hadi & Riya | Luxury Palace</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#17130d">
+
+<title>The Wedding of Hadi & Riya | Classic</title>
+
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:wght@400;500;600;700&display=swap');
-:root{--gold:#d9b45b;--light:#f9e7aa;--black:#050403;--glass:rgba(255,255,255,.06)}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--black);color:#f8f0dd;font-family:'Cormorant Garamond',serif;overflow-x:hidden}body.lock{overflow:hidden}
-section{position:relative;min-height:100vh}.gold{color:var(--light)}.cinzel{font-family:Cinzel,serif}
-#particles{position:fixed;inset:0;z-index:90;pointer-events:none}.p{position:absolute;border-radius:50%;background:var(--light);box-shadow:0 0 14px var(--gold);animation:rise linear infinite;opacity:0}
-@keyframes rise{0%{transform:translateY(110vh) scale(.3);opacity:0}15%{opacity:.8}100%{transform:translateY(-10vh) scale(1.3);opacity:0}}
-/* opening */
-#opening{position:fixed;inset:0;z-index:200;background:linear-gradient(90deg,rgba(0,0,0,.9),rgba(0,0,0,.35),rgba(0,0,0,.9)),url('foto1.jpg') center/cover;display:grid;place-items:center;transition:1.3s}
-#opening.hide{opacity:0;visibility:hidden;pointer-events:none}.gate{text-align:center;max-width:720px;padding:35px;position:relative}.crown{font-size:50px;color:var(--gold)}.mini{font:12px Cinzel;letter-spacing:6px;color:var(--light)}.gate h1{font:500 clamp(48px,10vw,100px) Cinzel;margin:20px 0 10px;text-shadow:0 0 35px #000}.gate p{font-size:22px;line-height:1.5}.open{border:1px solid var(--gold);background:rgba(0,0,0,.45);color:var(--light);padding:16px 34px;border-radius:50px;font:600 12px Cinzel;letter-spacing:3px;cursor:pointer;transition:.4s}.open:hover{background:var(--gold);color:#090604;box-shadow:0 0 40px #d9b45b66}
-/* hero */
-.hero{display:grid;place-items:center;text-align:center;background:linear-gradient(#0002,#000b),url('foto2.jpg') center/cover fixed}.hero-content{position:relative;z-index:2}.hero .mini{letter-spacing:8px}.hero h2{font:500 clamp(50px,12vw,125px) Cinzel;margin:20px 0;text-shadow:0 10px 50px #000}.hero .amp{color:var(--gold);font-weight:400}.hero p{font-size:26px}
-/* common */
-.wrap{max-width:1150px;margin:auto;padding:90px 24px}.dark{background:radial-gradient(circle at top,#241a0b,#080604 50%,#030303)}.royal{background:linear-gradient(135deg,#1b1308,#080604 45%,#1c1408)}.heading{text-align:center;margin-bottom:45px}.heading small{font:11px Cinzel;letter-spacing:5px;color:var(--gold)}.heading h2{font:500 clamp(32px,6vw,58px) Cinzel;margin:13px 0}.heading:after{content:'✦';display:block;color:var(--gold);font-size:24px}
-.intro{text-align:center}.intro p{max-width:850px;margin:auto;font-size:23px;line-height:1.7}
-/* couple */
-.couple{display:grid;grid-template-columns:1fr 1fr;gap:35px}.card{padding:12px;border:1px solid #d9b45b55;background:linear-gradient(145deg,#ffffff0d,#0004);box-shadow:0 25px 70px #0009;transition:.7s}.card:hover{transform:translateY(-10px) rotateX(2deg)}.card img{width:100%;aspect-ratio:4/5;object-fit:cover}.card-body{text-align:center;padding:22px}.card h3{font:500 29px Cinzel;color:var(--light);margin:0 0 8px}.card p{font-size:18px;margin:0}
-/* photo */
-.photo{min-height:85vh;display:grid;place-items:center;text-align:center;background:linear-gradient(#0005,#0009),url('foto4.jpg') center/cover fixed}.photo h2{font:500 clamp(40px,8vw,85px) Cinzel;margin:0}.photo p{font-size:24px}
-/* story */
-.timeline{max-width:850px;margin:auto;position:relative}.timeline:before{content:'';position:absolute;left:50%;top:0;bottom:0;width:1px;background:#d9b45b88}.story{width:50%;padding:15px 45px;position:relative}.story:nth-child(even){margin-left:50%}.story:after{content:'';position:absolute;top:28px;width:11px;height:11px;border-radius:50%;background:var(--gold);box-shadow:0 0 18px var(--gold)}.story:nth-child(odd){text-align:right}.story:nth-child(odd):after{right:-5px}.story:nth-child(even):after{left:-5px}.story h3{font:500 22px Cinzel;color:var(--light);margin:0 0 7px}.story p{font-size:18px;line-height:1.5;margin:0}
-/* countdown */
-.count{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;max-width:850px;margin:auto}.time{border:1px solid #d9b45b55;background:#0005;text-align:center;padding:24px 8px}.time b{display:block;font:500 40px Cinzel;color:var(--light)}.time span{font-size:12px;letter-spacing:2px}
-/* events */
-.events{display:grid;grid-template-columns:1fr 1fr;gap:25px}.event{text-align:center;padding:38px 24px;border:1px solid #d9b45b55;background:#ffffff06}.event .icon{font-size:42px;color:var(--gold)}.event h3{font:500 27px Cinzel;color:var(--light)}.event p{font-size:19px;line-height:1.7}.event a{color:var(--light);text-decoration:none;border-bottom:1px solid var(--gold)}
-/* gallery */
-.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.gallery figure{margin:0;overflow:hidden;position:relative;border:1px solid #d9b45b33}.gallery img{width:100%;height:320px;object-fit:cover;transition:1s}.gallery figure:hover img{transform:scale(1.1)}.gallery figcaption{position:absolute;left:0;right:0;bottom:0;padding:14px;background:linear-gradient(transparent,#000d);font:12px Cinzel;color:var(--light)}
-/* quote / rsvp / footer */
-.quote{min-height:70vh;display:grid;place-items:center;text-align:center;background:linear-gradient(#0008,#000a),url('foto9.jpg') center/cover fixed}.quote blockquote{max-width:850px;font-size:clamp(28px,4vw,45px);line-height:1.45;margin:0;padding:30px}.quote cite{display:block;font:12px Cinzel;letter-spacing:4px;color:var(--gold);margin-top:25px}.rsvp{text-align:center}.rsvp p{font-size:21px;line-height:1.6;max-width:700px;margin:0 auto 25px}.wa{display:inline-block;background:var(--gold);color:#0b0804;text-decoration:none;padding:15px 27px;border-radius:50px;font:600 12px Cinzel;letter-spacing:1px}.footer{min-height:75vh;display:grid;place-items:center;text-align:center;background:linear-gradient(#0005,#000d),url('foto10.jpg') center/cover}.footer h2{font:500 clamp(48px,9vw,95px) Cinzel;color:var(--light);margin:15px 0}.footer p{font-size:22px}
-/* music */
-.music{position:fixed;right:18px;bottom:18px;z-index:150;width:55px;height:55px;border:1px solid var(--gold);border-radius:50%;background:#080604dd;color:var(--light);font-size:23px;cursor:pointer}.music.on{animation:turn 4s linear infinite}@keyframes turn{to{transform:rotate(360deg)}}
-/* reveal */
-.reveal{opacity:0;transform:translateY(35px);transition:1s}.reveal.show{opacity:1;transform:none}
-@media(max-width:700px){.couple,.events{grid-template-columns:1fr}.gallery{grid-template-columns:repeat(2,1fr)}.gallery img{height:220px}.count{grid-template-columns:repeat(2,1fr)}.timeline:before{left:8px}.story,.story:nth-child(even){width:100%;margin:0;text-align:left;padding-left:35px;padding-right:5px}.story:nth-child(odd):after,.story:nth-child(even):after{left:3px;right:auto}}
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  background:#f5efe4;
+  color:#40372d;
+  font-family:Georgia,"Times New Roman",serif;
+  line-height:1.7;
+}
+
+nav{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  z-index:1000;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:16px 35px;
+  background:rgba(40,32,24,.97);
+  border-bottom:1px solid #c7a45c;
+}
+
+.logo{
+  color:#dfc17a;
+  font-size:23px;
+  font-weight:bold;
+  text-decoration:none;
+}
+
+nav ul{
+  display:flex;
+  gap:22px;
+  list-style:none;
+}
+
+nav ul li a{
+  color:#fff;
+  text-decoration:none;
+  font-family:Arial,sans-serif;
+  font-size:14px;
+}
+
+nav ul li a:hover{
+  color:#dfc17a;
+}
+
+/* HERO */
+
+.hero{
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  padding:120px 20px 70px;
+
+  background:
+    radial-gradient(circle at center,#d8c49d 0%,#9f8964 35%,#403629 100%);
+}
+
+.hero-box{
+  max-width:850px;
+  width:100%;
+  padding:65px 30px;
+  background:rgba(250,246,237,.96);
+  border:1px solid #c5a15c;
+  outline:8px double #c5a15c;
+  outline-offset:-18px;
+  box-shadow:0 25px 70px rgba(0,0,0,.35);
+}
+
+.small-title{
+  color:#98743a;
+  font-family:Arial,sans-serif;
+  font-size:12px;
+  letter-spacing:5px;
+  text-transform:uppercase;
+  margin-bottom:20px;
+}
+
+.hero h1{
+  font-size:clamp(48px,10vw,90px);
+  font-weight:normal;
+  line-height:1.1;
+  color:#493b2c;
+}
+
+.ampersand{
+  color:#b08a48;
+  font-size:42px;
+  font-style:italic;
+  margin:8px 0;
+}
+
+.ornament{
+  color:#b08a48;
+  font-size:28px;
+  margin:20px 0;
+}
+
+.date{
+  color:#665746;
+  font-family:Arial,sans-serif;
+  font-size:14px;
+  letter-spacing:4px;
+}
+
+/* GENERAL */
+
+section{
+  padding:90px 20px;
+}
+
+.container{
+  max-width:950px;
+  margin:auto;
+}
+
+.section-title{
+  text-align:center;
+  margin-bottom:45px;
+}
+
+.section-title span{
+  display:block;
+  color:#9b763d;
+  font-family:Arial,sans-serif;
+  font-size:11px;
+  letter-spacing:4px;
+  text-transform:uppercase;
+  margin-bottom:10px;
+}
+
+.section-title h2{
+  color:#4b3d2e;
+  font-size:38px;
+  font-weight:normal;
+}
+
+.divider{
+  width:100px;
+  height:1px;
+  background:#c4a05d;
+  margin:18px auto;
+}
+
+/* INTRO */
+
+.intro{
+  background:#fffaf1;
+  text-align:center;
+}
+
+.intro p{
+  max-width:780px;
+  margin:auto;
+  font-size:21px;
+}
+
+/* COUPLE */
+
+.couple{
+  background:#eee4d3;
+}
+
+.couple-grid{
+  display:grid;
+  grid-template-columns:1fr 100px 1fr;
+  gap:20px;
+  align-items:center;
+}
+
+.person{
+  padding:40px 25px;
+  text-align:center;
+  background:#fffaf2;
+  border:1px solid #cdb47e;
+  box-shadow:0 12px 30px rgba(70,55,35,.12);
+}
+
+.initial{
+  width:120px;
+  height:120px;
+  margin:0 auto 20px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#e6d7bb;
+  border:2px solid #bd9854;
+  color:#76592e;
+  font-size:45px;
+}
+
+.person h3{
+  font-size:30px;
+  font-weight:normal;
+  color:#4b3b2c;
+}
+
+.person p{
+  margin-top:8px;
+  font-family:Arial,sans-serif;
+  font-size:13px;
+  color:#777;
+}
+
+.and{
+  text-align:center;
+  color:#ad8645;
+  font-size:40px;
+  font-style:italic;
+}
+
+/* STORY */
+
+.story-section{
+  background:#514335;
+  color:#fff;
+}
+
+.story-section .section-title h2{
+  color:#f3dfb0;
+}
+
+.story-section .section-title span{
+  color:#d5b56c;
+}
+
+.story-section .divider{
+  background:#d5b56c;
+}
+
+.story{
+  max-width:780px;
+  margin:auto;
+  display:grid;
+  gap:25px;
+}
+
+.story-item{
+  padding:28px;
+  border:1px solid #c9a76055;
+  background:rgba(255,255,255,.05);
+}
+
+.story-item h3{
+  color:#e1c47e;
+  font-size:23px;
+  font-weight:normal;
+  margin-bottom:8px;
+}
+
+.story-item p{
+  font-size:18px;
+}
+
+/* COUNTDOWN */
+
+.countdown{
+  background:#fffaf2;
+}
+
+.count{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:15px;
+  max-width:800px;
+  margin:auto;
+}
+
+.time{
+  text-align:center;
+  padding:25px 10px;
+  border:1px solid #cdb47e;
+  background:#f8f0e1;
+}
+
+.time b{
+  display:block;
+  color:#73572f;
+  font-size:38px;
+  font-weight:normal;
+}
+
+.time span{
+  font-family:Arial,sans-serif;
+  font-size:11px;
+  letter-spacing:2px;
+  color:#777;
+}
+
+/* EVENT */
+
+.event-section{
+  background:#e9ddca;
+}
+
+.events{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:25px;
+}
+
+.event{
+  padding:40px 25px;
+  text-align:center;
+  background:#fffaf2;
+  border:1px solid #c8a96b;
+}
+
+.event-icon{
+  font-size:38px;
+  color:#aa8241;
+  margin-bottom:10px;
+}
+
+.event h3{
+  color:#4b3d2e;
+  font-size:27px;
+  font-weight:normal;
+  margin-bottom:15px;
+}
+
+.event p{
+  font-size:18px;
+}
+
+.map-btn{
+  display:inline-block;
+  margin-top:20px;
+  padding:11px 25px;
+  background:#5b4a39;
+  color:#fff;
+  text-decoration:none;
+  font-family:Arial,sans-serif;
+  font-size:12px;
+  border:1px solid #c7a45c;
+}
+
+.map-btn:hover{
+  background:#3e3226;
+}
+
+/* QUOTE */
+
+.quote{
+  min-height:65vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  background:#40352a;
+  color:#fff;
+}
+
+.quote-box{
+  max-width:800px;
+  padding:30px;
+}
+
+.quote-mark{
+  color:#d7b66d;
+  font-size:55px;
+}
+
+.quote blockquote{
+  font-size:clamp(25px,4vw,38px);
+  font-style:italic;
+  line-height:1.5;
+}
+
+.quote cite{
+  display:block;
+  margin-top:25px;
+  color:#d7b66d;
+  font-family:Arial,sans-serif;
+  font-size:12px;
+  letter-spacing:4px;
+  font-style:normal;
+}
+
+/* RSVP */
+
+.rsvp{
+  background:#f4ecde;
+  text-align:center;
+}
+
+.rsvp p{
+  max-width:700px;
+  margin:0 auto 25px;
+  font-size:20px;
+}
+
+.wa{
+  display:inline-block;
+  padding:14px 28px;
+  background:#62503c;
+  color:#fff;
+  text-decoration:none;
+  border:1px solid #bd9854;
+  font-family:Arial,sans-serif;
+  font-size:12px;
+  letter-spacing:1px;
+}
+
+.wa:hover{
+  background:#403328;
+}
+
+/* FOOTER */
+
+footer{
+  min-height:45vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  background:#29221b;
+  color:#fff;
+  padding:60px 20px;
+}
+
+footer .mini{
+  color:#d7b66d;
+  font-family:Arial,sans-serif;
+  font-size:11px;
+  letter-spacing:5px;
+}
+
+footer h2{
+  color:#e2c37e;
+  font-size:clamp(45px,9vw,80px);
+  font-weight:normal;
+  margin:15px 0;
+}
+
+footer p{
+  font-size:19px;
+  color:#d8cdbd;
+}
+
+/* ANIMATION */
+
+.fade{
+  animation:fadeIn 1.3s ease both;
+}
+
+@keyframes fadeIn{
+  from{
+    opacity:0;
+    transform:translateY(25px);
+  }
+  to{
+    opacity:1;
+    transform:none;
+  }
+}
+
+/* MOBILE */
+
+@media(max-width:700px){
+
+  nav{
+    padding:13px 15px;
+    flex-direction:column;
+    gap:9px;
+  }
+
+  nav ul{
+    gap:12px;
+  }
+
+  nav ul li a{
+    font-size:12px;
+  }
+
+  .hero{
+    padding-top:130px;
+  }
+
+  .hero-box{
+    padding:55px 20px;
+  }
+
+  .hero h1{
+    font-size:48px;
+  }
+
+  .couple-grid{
+    grid-template-columns:1fr;
+  }
+
+  .and{
+    margin:-10px 0;
+  }
+
+  .count{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .events{
+    grid-template-columns:1fr;
+  }
+
+  section{
+    padding:70px 18px;
+  }
+
+  .section-title h2{
+    font-size:31px;
+  }
+
+  .intro p{
+    font-size:18px;
+  }
+
+  .person{
+    padding:30px 20px;
+  }
+
+  .quote{
+    min-height:55vh;
+  }
+
+}
 </style>
 </head>
-<body class="lock">
-<div id="particles"></div>
 
-<div id="opening">
-  <div class="gate">
-    <div class="crown">♔</div>
-    <div class="mini">THE WEDDING INVITATION</div>
-    <h1>Hadi <span class="gold">&amp;</span> Riya</h1>
-    <p>Dengan penuh kebahagiaan, kami mengundang Anda untuk hadir di hari istimewa kami.</p>
-    <button class="open" onclick="openInvitation()">✦ BUKA UNDANGAN ✦</button>
-  </div>
-</div>
+<body>
+
+<!-- NAVBAR -->
+
+<nav>
+
+  <a href="../index.html" class="logo">
+    RoyalInvite
+  </a>
+
+  <ul>
+    <li>
+      <a href="../index.html">Beranda</a>
+    </li>
+
+    <li>
+      <a href="../tema.html">Tema</a>
+    </li>
+
+    <li>
+      <a href="../harga.html">Harga</a>
+    </li>
+
+    <li>
+      <a href="../order.html?tema=classic">
+        Gunakan Tema
+      </a>
+    </li>
+  </ul>
+
+</nav>
+
+
+<!-- HERO -->
 
 <section class="hero">
-  <div class="hero-content reveal">
-    <div class="mini">THE WEDDING OF</div>
-    <h2>Hadi <span class="amp">&amp;</span> Riya</h2>
-    <p>Our Forever Begins</p>
-  </div>
-</section>
 
-<section class="dark">
-  <div class="wrap intro reveal">
-    <div class="heading"><small>A BEAUTIFUL BEGINNING</small><h2>Dengan Bahagia</h2></div>
-    <p>Dengan memohon rahmat dan ridho Tuhan Yang Maha Esa, kami bermaksud menyelenggarakan pernikahan kami dan dengan penuh hormat mengundang Bapak/Ibu/Saudara/i untuk hadir serta memberikan doa restu.</p>
-  </div>
-</section>
+  <div class="hero-box fade">
 
-<section class="royal">
-  <div class="wrap reveal">
-    <div class="heading"><small>THE COUPLE</small><h2>Mempelai</h2></div>
-    <div class="couple">
-      <article class="card"><img src="foto2.jpg" alt="Hadi"><div class="card-body"><h3>Hadi</h3><p>Putra tercinta dari keluarga Hadi</p></div></article>
-      <article class="card"><img src="foto3.jpg" alt="Riya"><div class="card-body"><h3>Riya</h3><p>Putri tercinta dari keluarga Riya</p></div></article>
+    <div class="small-title">
+      The Wedding Of
     </div>
-  </div>
-</section>
 
-<section class="photo"><div class="reveal"><h2>A Love Story</h2><p>Satu cinta • satu janji • selamanya</p></div></section>
+    <h1>Hadi</h1>
 
-<section class="dark">
-  <div class="wrap reveal">
-    <div class="heading"><small>OUR JOURNEY</small><h2>Kisah Kami</h2></div>
-    <div class="timeline">
-      <div class="story"><h3>Pertemuan</h3><p>Awal dari sebuah perkenalan yang menjadi cerita indah.</p></div>
-      <div class="story"><h3>Menjalin Kasih</h3><p>Belajar memahami, menjaga, dan tumbuh bersama.</p></div>
-      <div class="story"><h3>Lamaran</h3><p>Sebuah janji untuk melangkah ke kehidupan berikutnya.</p></div>
-      <div class="story"><h3>Pernikahan</h3><p>Dua hati dipersatukan dalam ikatan cinta dan keluarga.</p></div>
+    <div class="ampersand">
+      &amp;
     </div>
+
+    <h1>Riya</h1>
+
+    <div class="ornament">
+      ❦
+    </div>
+
+    <div class="date">
+      12 • 12 • 2026
+    </div>
+
   </div>
+
 </section>
 
-<section class="royal">
-  <div class="wrap reveal">
-    <div class="heading"><small>COUNTING THE DAYS</small><h2>Menuju Hari Bahagia</h2></div>
+
+<!-- INTRO -->
+
+<section class="intro">
+
+  <div class="container">
+
+    <div class="section-title">
+
+      <span>
+        A Beautiful Beginning
+      </span>
+
+      <h2>
+        Dengan Bahagia
+      </h2>
+
+      <div class="divider"></div>
+
+    </div>
+
+    <p>
+      Dengan memohon rahmat dan ridho Tuhan Yang Maha Esa,
+      kami bermaksud menyelenggarakan pernikahan kami
+      dan dengan penuh hormat mengundang
+      Bapak/Ibu/Saudara/i untuk hadir serta memberikan doa restu.
+    </p>
+
+  </div>
+
+</section>
+
+
+<!-- COUPLE -->
+
+<section class="couple">
+
+  <div class="container">
+
+    <div class="section-title">
+
+      <span>
+        The Happy Couple
+      </span>
+
+      <h2>
+        Mempelai
+      </h2>
+
+      <div class="divider"></div>
+
+    </div>
+
+
+    <div class="couple-grid">
+
+      <div class="person">
+
+        <div class="initial">
+          H
+        </div>
+
+        <h3>
+          Hadi
+        </h3>
+
+        <p>
+          Putra tercinta dari keluarga Hadi
+        </p>
+
+      </div>
+
+
+      <div class="and">
+        &amp;
+      </div>
+
+
+      <div class="person">
+
+        <div class="initial">
+          R
+        </div>
+
+        <h3>
+          Riya
+        </h3>
+
+        <p>
+          Putri tercinta dari keluarga Riya
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- STORY -->
+
+<section class="story-section">
+
+  <div class="container">
+
+    <div class="section-title">
+
+      <span>
+        Our Journey
+      </span>
+
+      <h2>
+        Kisah Kami
+      </h2>
+
+      <div class="divider"></div>
+
+    </div>
+
+
+    <div class="story">
+
+      <div class="story-item">
+
+        <h3>
+          Pertemuan
+        </h3>
+
+        <p>
+          Awal dari sebuah perkenalan
+          yang menjadi cerita indah.
+        </p>
+
+      </div>
+
+
+      <div class="story-item">
+
+        <h3>
+          Menjalin Kasih
+        </h3>
+
+        <p>
+          Belajar memahami, menjaga,
+          dan tumbuh bersama.
+        </p>
+
+      </div>
+
+
+      <div class="story-item">
+
+        <h3>
+          Lamaran
+        </h3>
+
+        <p>
+          Sebuah janji untuk melangkah
+          ke kehidupan berikutnya.
+        </p>
+
+      </div>
+
+
+      <div class="story-item">
+
+        <h3>
+          Pernikahan
+        </h3>
+
+        <p>
+          Dua hati dipersatukan
+          dalam ikatan cinta dan keluarga.
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- COUNTDOWN -->
+
+<section class="countdown">
+
+  <div class="container">
+
+    <div class="section-title">
+
+      <span>
+        Counting The Days
+      </span>
+
+      <h2>
+        Menuju Hari Bahagia
+      </h2>
+
+      <div class="divider"></div>
+
+    </div>
+
+
     <div class="count">
-      <div class="time"><b id="d">00</b><span>Hari</span></div>
-      <div class="time"><b id="h">00</b><span>Jam</span></div>
-      <div class="time"><b id="m">00</b><span>Menit</span></div>
-      <div class="time"><b id="s">00</b><span>Detik</span></div>
+
+      <div class="time">
+        <b id="days">00</b>
+        <span>HARI</span>
+      </div>
+
+      <div class="time">
+        <b id="hours">00</b>
+        <span>JAM</span>
+      </div>
+
+      <div class="time">
+        <b id="minutes">00</b>
+        <span>MENIT</span>
+      </div>
+
+      <div class="time">
+        <b id="seconds">00</b>
+        <span>DETIK</span>
+      </div>
+
     </div>
+
   </div>
+
 </section>
 
-<section class="dark">
-  <div class="wrap reveal">
-    <div class="heading"><small>THE CEREMONY</small><h2>Acara Pernikahan</h2></div>
+
+<!-- EVENT -->
+
+<section class="event-section">
+
+  <div class="container">
+
+    <div class="section-title">
+
+      <span>
+        Save The Date
+      </span>
+
+      <h2>
+        Acara Pernikahan
+      </h2>
+
+      <div class="divider"></div>
+
+    </div>
+
+
     <div class="events">
-      <div class="event"><div class="icon">♕</div><h3>Akad Nikah</h3><p>Hari / Tanggal<br>08.00 WIB – selesai<br>Tempat acara</p><a href="https://maps.google.com/" target="_blank">Lihat Lokasi</a></div>
-      <div class="event"><div class="icon">✦</div><h3>Resepsi</h3><p>Hari / Tanggal<br>11.00 WIB – selesai<br>Tempat acara</p><a href="https://maps.google.com/" target="_blank">Lihat Lokasi</a></div>
+
+
+      <div class="event">
+
+        <div class="event-icon">
+          ♕
+        </div>
+
+        <h3>
+          Akad Nikah
+        </h3>
+
+        <p>
+          Sabtu, 12 Desember 2026
+          <br>
+          08.00 WIB – selesai
+          <br>
+          Gedung Pernikahan
+          <br>
+          Jakarta, Indonesia
+        </p>
+
+        <a
+          href="https://maps.google.com/"
+          target="_blank"
+          class="map-btn"
+        >
+          Lihat Lokasi
+        </a>
+
+      </div>
+
+
+      <div class="event">
+
+        <div class="event-icon">
+          ✦
+        </div>
+
+        <h3>
+          Resepsi
+        </h3>
+
+        <p>
+          Sabtu, 12 Desember 2026
+          <br>
+          11.00 WIB – selesai
+          <br>
+          Gedung Pernikahan
+          <br>
+          Jakarta, Indonesia
+        </p>
+
+        <a
+          href="https://maps.google.com/"
+          target="_blank"
+          class="map-btn"
+        >
+          Lihat Lokasi
+        </a>
+
+      </div>
+
+
     </div>
+
   </div>
+
 </section>
 
-<section class="royal">
-  <div class="wrap reveal">
-    <div class="heading"><small>OUR MEMORIES</small><h2>Gallery</h2></div>
-    <div class="gallery">
-      <figure><img src="foto1.jpg" alt=""><figcaption>MEMORY I</figcaption></figure>
-      <figure><img src="foto2.jpg" alt=""><figcaption>MEMORY II</figcaption></figure>
-      <figure><img src="foto3.jpg" alt=""><figcaption>MEMORY III</figcaption></figure>
-      <figure><img src="foto4.jpg" alt=""><figcaption>MEMORY IV</figcaption></figure>
-      <figure><img src="foto5.jpg" alt=""><figcaption>MEMORY V</figcaption></figure>
-      <figure><img src="foto6.jpg" alt=""><figcaption>MEMORY VI</figcaption></figure>
-      <figure><img src="foto7.jpg" alt=""><figcaption>MEMORY VII</figcaption></figure>
-      <figure><img src="foto8.jpg" alt=""><figcaption>MEMORY VIII</figcaption></figure>
-      <figure><img src="foto9.jpg" alt=""><figcaption>MEMORY IX</figcaption></figure>
-      <figure><img src="foto10.jpg" alt=""><figcaption>MEMORY X</figcaption></figure>
+
+<!-- QUOTE -->
+
+<section class="quote">
+
+  <div class="quote-box">
+
+    <div class="quote-mark">
+      ❝
     </div>
+
+    <blockquote>
+      Cinta bukan hanya menemukan seseorang
+      untuk hidup bersama, tetapi menemukan
+      seseorang yang membuat hidup lebih berarti.
+    </blockquote>
+
+    <cite>
+      HADI &amp; RIYA
+    </cite>
+
   </div>
+
 </section>
 
-<section class="quote"><blockquote class="reveal">“Cinta bukan hanya menemukan seseorang untuk hidup bersama, tetapi menemukan seseorang yang membuat hidup lebih berarti.”<cite>HADI &amp; RIYA</cite></blockquote></section>
 
-<section class="dark">
-  <div class="wrap rsvp reveal">
-    <div class="heading"><small>YOUR PRESENCE</small><h2>Konfirmasi Kehadiran</h2></div>
-    <p>Kehadiran dan doa restu Anda merupakan kebahagiaan yang sangat berarti bagi kami.</p>
-    <a class="wa" href="https://wa.me/6281234567890?text=Halo%20Hadi%20dan%20Riya%2C%20saya%20akan%20hadir." target="_blank">KONFIRMASI WHATSAPP</a>
+<!-- RSVP -->
+
+<section class="rsvp">
+
+  <div class="container">
+
+    <div class="section-title">
+
+      <span>
+        Your Presence
+      </span>
+
+      <h2>
+        Konfirmasi Kehadiran
+      </h2>
+
+      <div class="divider"></div>
+
+    </div>
+
+    <p>
+      Kehadiran dan doa restu Anda
+      merupakan kebahagiaan yang sangat berarti bagi kami.
+    </p>
+
+    <a
+      class="wa"
+      href="https://wa.me/6281234567890?text=Halo%20Hadi%20dan%20Riya%2C%20saya%20akan%20hadir."
+      target="_blank"
+    >
+      KONFIRMASI WHATSAPP
+    </a>
+
   </div>
+
 </section>
 
-<section class="footer"><div class="reveal"><div class="mini">WITH LOVE</div><h2>Hadi &amp; Riya</h2><p>Thank you for being part of our story.</p></div></section>
 
-<button class="music" id="musicBtn">♫</button>
-<audio id="music" loop preload="auto"><source src="music.mp3" type="audio/mpeg"></audio>
+<!-- FOOTER -->
+
+<footer>
+
+  <div>
+
+    <div class="mini">
+      WITH LOVE
+    </div>
+
+    <h2>
+      Hadi &amp; Riya
+    </h2>
+
+    <p>
+      Thank you for being part of our story.
+    </p>
+
+    <p style="margin-top:25px;font-size:13px;">
+      © 2026 RoyalInvite
+    </p>
+
+  </div>
+
+</footer>
+
+
+<!-- COUNTDOWN SCRIPT -->
 
 <script>
-const box=document.getElementById('particles');
-for(let i=0;i<55;i++){let p=document.createElement('i');p.className='p';let z=1+Math.random()*3;p.style.width=p.style.height=z+'px';p.style.left=Math.random()*100+'%';p.style.animationDuration=6+Math.random()*10+'s';p.style.animationDelay=-Math.random()*12+'s';box.appendChild(p)}
-function openInvitation(){document.getElementById('opening').classList.add('hide');document.body.classList.remove('lock');music.play().then(()=>musicBtn.classList.add('on')).catch(()=>{})}
-const music=document.getElementById('music'),musicBtn=document.getElementById('musicBtn');
-musicBtn.onclick=()=>{if(music.paused){music.play().then(()=>musicBtn.classList.add('on')).catch(()=>{})}else{music.pause();musicBtn.classList.remove('on')}}
-const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('show')}),{threshold:.12});
-document.querySelectorAll('.reveal').forEach(x=>io.observe(x));
-/* GANTI TANGGAL DI SINI */
-const target=new Date('2026-12-12T08:00:00+07:00').getTime();
-function countdown(){let x=Math.max(0,target-Date.now());let d=Math.floor(x/86400000),h=Math.floor(x%86400000/3600000),m=Math.floor(x%3600000/60000),s=Math.floor(x%60000/1000);document.getElementById('d').textContent=String(d).padStart(2,'0');document.getElementById('h').textContent=String(h).padStart(2,'0');document.getElementById('m').textContent=String(m).padStart(2,'0');document.getElementById('s').textContent=String(s).padStart(2,'0')}countdown();setInterval(countdown,1000);
+
+const targetDate =
+  new Date("2026-12-12T08:00:00+07:00").getTime();
+
+function updateCountdown(){
+
+  const now = new Date().getTime();
+
+  const distance =
+    Math.max(0, targetDate - now);
+
+  const days =
+    Math.floor(distance / (1000 * 60 * 60 * 24));
+
+  const hours =
+    Math.floor(
+      (distance % (1000 * 60 * 60 * 24))
+      / (1000 * 60 * 60)
+    );
+
+  const minutes =
+    Math.floor(
+      (distance % (1000 * 60 * 60))
+      / (1000 * 60)
+    );
+
+  const seconds =
+    Math.floor(
+      (distance % (1000 * 60))
+      / 1000
+    );
+
+  document.getElementById("days").textContent =
+    String(days).padStart(2,"0");
+
+  document.getElementById("hours").textContent =
+    String(hours).padStart(2,"0");
+
+  document.getElementById("minutes").textContent =
+    String(minutes).padStart(2,"0");
+
+  document.getElementById("seconds").textContent =
+    String(seconds).padStart(2,"0");
+
+}
+
+updateCountdown();
+
+setInterval(updateCountdown,1000);
+
 </script>
+
 </body>
-  </html>
+</html>
