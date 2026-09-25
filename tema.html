@@ -19,7 +19,11 @@ content="Pilih tema undangan digital premium RoyalInvite.">
 .theme-page {
     min-height: 100vh;
     background:
-        radial-gradient(circle at 50% 0%, rgba(213,170,91,.10), transparent 35%),
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(213,170,91,.10),
+            transparent 35%
+        ),
         var(--bg);
 }
 
@@ -60,7 +64,6 @@ content="Pilih tema undangan digital premium RoyalInvite.">
 
 .theme-search {
     flex: 1;
-    position: relative;
 }
 
 .theme-search input {
@@ -110,6 +113,10 @@ content="Pilih tema undangan digital premium RoyalInvite.">
     color: var(--gold-light);
 }
 
+/* =========================
+   CATALOG
+========================= */
+
 .theme-catalog {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -130,6 +137,10 @@ content="Pilih tema undangan digital premium RoyalInvite.">
     transform: translateY(-7px);
     border-color: rgba(213,170,91,.55);
     box-shadow: 0 25px 60px rgba(0,0,0,.35);
+}
+
+.catalog-card.hidden {
+    display: none;
 }
 
 .catalog-preview {
@@ -155,42 +166,137 @@ content="Pilih tema undangan digital premium RoyalInvite.">
     border: 1px solid rgba(213,170,91,.16);
 }
 
+/* =========================
+   PREVIEW THEMES
+========================= */
+
 .catalog-preview.royal {
     background:
-        radial-gradient(circle at center, rgba(213,170,91,.18), transparent 32%),
-        linear-gradient(145deg, #080604, #24170b);
+        radial-gradient(
+            circle at center,
+            rgba(213,170,91,.18),
+            transparent 32%
+        ),
+        linear-gradient(
+            145deg,
+            #080604,
+            #24170b
+        );
 }
 
 .catalog-preview.gold {
     background:
-        radial-gradient(circle at center, rgba(255,220,140,.24), transparent 30%),
-        linear-gradient(145deg, #20160b, #76592d);
+        radial-gradient(
+            circle at center,
+            rgba(255,220,140,.24),
+            transparent 30%
+        ),
+        linear-gradient(
+            145deg,
+            #20160b,
+            #76592d
+        );
 }
 
 .catalog-preview.floral {
     background:
-        radial-gradient(circle at 30% 25%, rgba(245,190,190,.20), transparent 20%),
-        radial-gradient(circle at 75% 70%, rgba(213,170,91,.18), transparent 25%),
-        linear-gradient(145deg, #160d0d, #38201c);
+        radial-gradient(
+            circle at 30% 25%,
+            rgba(245,190,190,.20),
+            transparent 20%
+        ),
+        radial-gradient(
+            circle at 75% 70%,
+            rgba(213,170,91,.18),
+            transparent 25%
+        ),
+        linear-gradient(
+            145deg,
+            #160d0d,
+            #38201c
+        );
 }
 
 .catalog-preview.minimal {
     background:
-        radial-gradient(circle at center, rgba(255,255,255,.06), transparent 35%),
-        linear-gradient(145deg, #151515, #050505);
+        radial-gradient(
+            circle at center,
+            rgba(255,255,255,.06),
+            transparent 35%
+        ),
+        linear-gradient(
+            145deg,
+            #151515,
+            #050505
+        );
 }
 
 .catalog-preview.classic {
     background:
-        radial-gradient(circle at center, rgba(213,170,91,.15), transparent 30%),
-        linear-gradient(145deg, #261b12, #090705);
+        radial-gradient(
+            circle at center,
+            rgba(213,170,91,.15),
+            transparent 30%
+        ),
+        linear-gradient(
+            145deg,
+            #261b12,
+            #090705
+        );
 }
 
 .catalog-preview.luxury {
     background:
-        radial-gradient(circle at center, rgba(230,190,100,.20), transparent 35%),
-        linear-gradient(145deg, #070707, #21170a);
+        radial-gradient(
+            circle at center,
+            rgba(230,190,100,.20),
+            transparent 35%
+        ),
+        linear-gradient(
+            145deg,
+            #070707,
+            #21170a
+        );
 }
+
+/* =========================
+   PREVIEW CONTENT
+========================= */
+
+.preview-content {
+    position: relative;
+    z-index: 3;
+    text-align: center;
+    padding: 30px;
+}
+
+.preview-content small {
+    display: block;
+    margin-bottom: 22px;
+    color: var(--gold-light);
+    font-size: 8px;
+    letter-spacing: 3px;
+}
+
+.preview-content strong {
+    display: block;
+    color: #f3dca5;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 45px;
+    line-height: .85;
+}
+
+.preview-content em {
+    display: block;
+    margin-top: 18px;
+    color: #bcae98;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 17px;
+}
+
+/* =========================
+   CARD CONTENT
+========================= */
 
 .catalog-content {
     padding: 22px;
@@ -253,11 +359,19 @@ content="Pilih tema undangan digital premium RoyalInvite.">
     flex: 1;
 }
 
+/* =========================
+   NO RESULT
+========================= */
+
 .no-result {
     display: none;
     padding: 80px 20px;
     text-align: center;
     color: var(--muted);
+}
+
+.no-result.show {
+    display: block;
 }
 
 .no-result h3 {
@@ -267,39 +381,9 @@ content="Pilih tema undangan digital premium RoyalInvite.">
     font-size: 30px;
 }
 
-/* Preview typography */
-
-.preview-content {
-    position: relative;
-    z-index: 3;
-    text-align: center;
-}
-
-.preview-content small {
-    display: block;
-    margin-bottom: 22px;
-    color: var(--gold-light);
-    font-size: 8px;
-    letter-spacing: 3px;
-}
-
-.preview-content strong {
-    display: block;
-    color: #f3dca5;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 45px;
-    line-height: .85;
-}
-
-.preview-content em {
-    display: block;
-    margin-top: 18px;
-    color: #bcae98;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 17px;
-}
-
-/* Mobile */
+/* =========================
+   MOBILE
+========================= */
 
 @media (max-width: 900px) {
 
@@ -346,7 +430,6 @@ content="Pilih tema undangan digital premium RoyalInvite.">
     }
 }
 </style>
-
 </head>
 
 <body>
@@ -386,319 +469,723 @@ content="Pilih tema undangan digital premium RoyalInvite.">
 
 <main class="theme-page">
 
-    <section class="theme-hero">
+<section class="theme-hero">
 
-        <div class="container">
+    <div class="container">
 
-            <span class="eyebrow">
-                KOLEKSI ROYALINVITE
-            </span>
+        <span class="eyebrow">
+            KOLEKSI ROYALINVITE
+        </span>
 
-            <h1>
-                Pilih <span>Tema Favoritmu</span>
-            </h1>
+        <h1>
+            Pilih <span>Tema Favoritmu</span>
+        </h1>
 
-            <p>
-                Temukan desain undangan digital yang sesuai
-                dengan momen spesialmu.
-            </p>
+        <p>
+            Temukan desain undangan digital yang sesuai
+            dengan momen spesialmu.
+        </p>
+
+    </div>
+
+</section>
+
+
+<section>
+
+<div class="container">
+
+<div class="theme-toolbar">
+
+    <div class="theme-search">
+
+        <input
+            type="search"
+            id="themeSearch"
+            placeholder="Cari tema..."
+            autocomplete="off">
+
+    </div>
+
+    <div class="theme-filters">
+
+        <button
+            class="filter-btn active"
+            data-filter="all">
+            Semua
+        </button>
+
+        <button
+            class="filter-btn"
+            data-filter="wedding">
+            Pernikahan
+        </button>
+
+        <button
+            class="filter-btn"
+            data-filter="aqiqah">
+            Aqiqah
+        </button>
+
+        <button
+            class="filter-btn"
+            data-filter="birthday">
+            Ulang Tahun
+        </button>
+
+        <button
+            class="filter-btn"
+            data-filter="event">
+            Event
+        </button>
+
+    </div>
+
+</div>
+
+
+<div
+    class="theme-catalog"
+    id="themeCatalog">
+
+
+<!-- =========================
+     ROYAL PALACE
+========================= -->
+
+<article
+    class="catalog-card"
+    data-category="wedding"
+    data-name="Royal Palace">
+
+    <div class="catalog-preview royal">
+
+        <div class="preview-content">
+
+            <small>
+                THE WEDDING OF
+            </small>
+
+            <strong>
+                HADI
+                <br>
+                &amp;
+                <br>
+                RIYA
+            </strong>
+
+            <em>
+                12 • 12 • 2026
+            </em>
 
         </div>
 
-    </section>
+    </div>
 
+    <div class="catalog-content">
 
-    <section>
+        <div class="catalog-top">
 
-        <div class="container">
+            <div>
 
+                <h2>
+                    Royal Palace
+                </h2>
 
-            <div class="theme-toolbar">
-
-                <div class="theme-search">
-
-                    <input
-                        type="search"
-                        id="themeSearch"
-                        placeholder="Cari tema..."
-                        autocomplete="off">
-
-                </div>
-
-
-                <div class="theme-filters">
-
-                    <button
-                        class="filter-btn active"
-                        data-filter="all">
-                        Semua
-                    </button>
-
-                    <button
-                        class="filter-btn"
-                        data-filter="wedding">
-                        Pernikahan
-                    </button>
-
-                    <button
-                        class="filter-btn"
-                        data-filter="aqiqah">
-                        Aqiqah
-                    </button>
-
-                    <button
-                        class="filter-btn"
-                        data-filter="birthday">
-                        Ulang Tahun
-                    </button>
-
-                    <button
-                        class="filter-btn"
-                        data-filter="event">
-                        Event
-                    </button>
-
-                </div>
+                <p>
+                    Black • Gold • Luxury
+                </p>
 
             </div>
 
+            <span class="badge">
+                PREMIUM
+            </span>
 
-            <div class="theme-catalog"
-                 id="themeCatalog">
+        </div>
 
+        <div class="catalog-price">
+            Rp 99.000
+            <small>
+                / undangan
+            </small>
+        </div>
 
-                <!-- ROYAL PALACE -->
+        <div class="catalog-actions">
 
-                <article
-                    class="catalog-card"
-                    data-category="wedding"
-                    data-name="Royal Palace">
+            <a
+                href="demo/royal-palace.html"
+                class="btn btn-small">
+                Preview
+            </a>
 
-                    <div class="catalog-preview royal">
+            <a
+                href="order.html?tema=royal-palace"
+                class="btn btn-small btn-primary">
+                Gunakan
+            </a>
 
-                        <div class="preview-content">
+        </div>
 
-                            <small>
-                                THE WEDDING OF
-                            </small>
+    </div>
 
-                            <strong>
-                                HADI
-                                <br>
-                                &amp;
-                                <br>
-                                RIYA
-                            </strong>
+</article>
 
-                            <em>
-                                12 • 12 • 2026
-                            </em>
 
-                        </div>
+<!-- =========================
+     ELEGANT GOLD
+========================= -->
 
-                    </div>
+<article
+    class="catalog-card"
+    data-category="wedding"
+    data-name="Elegant Gold">
 
+    <div class="catalog-preview gold">
 
-                    <div class="catalog-content">
+        <div class="preview-content">
 
-                        <div class="catalog-top">
+            <small>
+                THE WEDDING
+            </small>
 
-                            <div>
+            <strong>
+                OUR
+                <br>
+                LOVE
+            </strong>
 
-                                <h2>
-                                    Royal Palace
-                                </h2>
+            <em>
+                Forever Begins
+            </em>
 
-                                <p>
-                                    Black • Gold • Luxury
-                                </p>
+        </div>
 
-                            </div>
+    </div>
 
-                            <span class="badge">
-                                PREMIUM
-                            </span>
+    <div class="catalog-content">
 
-                        </div>
+        <div class="catalog-top">
 
+            <div>
 
-                        <div class="catalog-price">
-                            Rp 99.000
-                            <small>
-                                / undangan
-                            </small>
-                        </div>
+                <h2>
+                    Elegant Gold
+                </h2>
 
+                <p>
+                    Classic • Elegant
+                </p>
 
-                        <div class="catalog-actions">
+            </div>
 
-                            <a
-                                href="demo/royal-palace.html"
-                                class="btn btn-small">
-                                Preview
-                            </a>
+            <span class="badge">
+                PREMIUM
+            </span>
 
-                            <a
-                                href="order.html?tema=royal-palace"
-                                class="btn btn-small btn-primary">
-                                Gunakan
-                            </a>
+        </div>
 
-                        </div>
+        <div class="catalog-price">
+            Rp 79.000
+            <small>
+                / undangan
+            </small>
+        </div>
 
-                    </div>
+        <div class="catalog-actions">
 
-                </article>
+            <a
+                href="demo/elegant-gold.html"
+                class="btn btn-small">
+                Preview
+            </a>
 
+            <a
+                href="order.html?tema=elegant-gold"
+                class="btn btn-small btn-primary">
+                Gunakan
+            </a>
 
-                <!-- ELEGANT GOLD -->
+        </div>
 
-                <article
-                    class="catalog-card"
-                    data-category="wedding"
-                    data-name="Elegant Gold">
+    </div>
 
-                    <div class="catalog-preview gold">
+</article>
 
-                        <div class="preview-content">
 
-                            <small>
-                                THE WEDDING
-                            </small>
+<!-- =========================
+     FLORAL ROMANCE
+========================= -->
 
-                            <strong>
-                                OUR
-                                <br>
-                                LOVE
-                            </strong>
+<article
+    class="catalog-card"
+    data-category="wedding"
+    data-name="Floral Romance">
 
-                            <em>
-                                Forever Begins
-                            </em>
+    <div class="catalog-preview floral">
 
-                        </div>
+        <div class="preview-content">
 
-                    </div>
+            <small>
+                OUR LOVE STORY
+            </small>
 
+            <strong>
+                FOREVER
+            </strong>
 
-                    <div class="catalog-content">
+            <em>
+                With Love
+            </em>
 
-                        <div class="catalog-top">
+        </div>
 
-                            <div>
+    </div>
 
-                                <h2>
-                                    Elegant Gold
-                                </h2>
+    <div class="catalog-content">
 
-                                <p>
-                                    Classic • Elegant
-                                </p>
+        <div class="catalog-top">
 
-                            </div>
+            <div>
 
-                            <span class="badge">
-                                PREMIUM
-                            </span>
+                <h2>
+                    Floral Romance
+                </h2>
 
-                        </div>
+                <p>
+                    Romantic • Floral
+                </p>
 
+            </div>
 
-                        <div class="catalog-price">
-                            Rp 79.000
-                            <small>
-                                / undangan
-                            </small>
-                        </div>
+            <span class="badge">
+                PREMIUM
+            </span>
 
+        </div>
 
-                        <div class="catalog-actions">
+        <div class="catalog-price">
+            Rp 79.000
+            <small>
+                / undangan
+            </small>
+        </div>
 
-                            <a
-                                href="demo/elegant-gold.html"
-                                class="btn btn-small">
-                                Preview
-                            </a>
+        <div class="catalog-actions">
 
-                            <a
-                                href="order.html?tema=elegant-gold"
-                                class="btn btn-small btn-primary">
-                                Gunakan
-                            </a>
+            <a
+                href="demo/floral-love.html"
+                class="btn btn-small">
+                Preview
+            </a>
 
-                        </div>
+            <a
+                href="order.html?tema=floral-romance"
+                class="btn btn-small btn-primary">
+                Gunakan
+            </a>
 
-                    </div>
+        </div>
 
-                </article>
+    </div>
 
+</article>
 
-                <!-- FLORAL ROMANCE -->
 
-                <article
-                    class="catalog-card"
-                    data-category="wedding"
-                    data-name="Floral Romance">
+<!-- =========================
+     MINIMALIST
+========================= -->
 
-                    <div class="catalog-preview floral">
+<article
+    class="catalog-card"
+    data-category="wedding"
+    data-name="Minimalist">
 
-                        <div class="preview-content">
+    <div class="catalog-preview minimal">
 
-                            <small>
-                                OUR LOVE STORY
-                            </small>
+        <div class="preview-content">
 
-                            <strong>
-                                FOREVER
-                            </strong>
+            <small>
+                THE WEDDING OF
+            </small>
 
-                            <em>
-                                With Love
-                            </em>
+            <strong>
+                H &amp; R
+            </strong>
 
-                        </div>
+            <em>
+                Simple • Timeless
+            </em>
 
-                    </div>
+        </div>
 
+    </div>
 
-                    <div class="catalog-content">
+    <div class="catalog-content">
 
-                        <div class="catalog-top">
+        <div class="catalog-top">
 
-                            <div>
+            <div>
 
-                                <h2>
-                                    Floral Romance
-                                </h2>
+                <h2>
+                    Minimalist
+                </h2>
 
-                                <p>
-                                    Romantic • Floral
-                                </p>
+                <p>
+                    Simple • Modern
+                </p>
 
-                            </div>
+            </div>
 
-                            <span class="badge">
-                                PREMIUM
-                            </span>
+            <span class="badge">
+                PREMIUM
+            </span>
 
-                        </div>
+        </div>
 
+        <div class="catalog-price">
+            Rp 69.000
+            <small>
+                / undangan
+            </small>
+        </div>
 
-                        <div class="catalog-price">
-                            Rp 79.000
-                            <small>
-                                / undangan
-                            </small>
-                        </div>
+        <div class="catalog-actions">
 
+            <a
+                href="demo/minimalist.html"
+                class="btn btn-small">
+                Preview
+            </a>
 
-                        <div class="catalog-actions">
+            <a
+                href="order.html?tema=minimalist"
+                class="btn btn-small btn-primary">
+                Gunakan
+            </a>
 
-                            <a
-                                href="demo/floral-love.html"
-                                class="btn btn-small">
-                                Preview
-                            </a>
+        </div>
 
-                            <a
-                                href="order.html?tema=floral
+    </div>
+
+</article>
+
+
+<!-- =========================
+     CLASSIC
+========================= -->
+
+<article
+    class="catalog-card"
+    data-category="wedding"
+    data-name="Classic">
+
+    <div class="catalog-preview classic">
+
+        <div class="preview-content">
+
+            <small>
+                WEDDING INVITATION
+            </small>
+
+            <strong>
+                HADI
+                <br>
+                &amp;
+                <br>
+                RIYA
+            </strong>
+
+            <em>
+                A Beautiful Beginning
+            </em>
+
+        </div>
+
+    </div>
+
+    <div class="catalog-content">
+
+        <div class="catalog-top">
+
+            <div>
+
+                <h2>
+                    Classic
+                </h2>
+
+                <p>
+                    Elegant • Timeless
+                </p>
+
+            </div>
+
+            <span class="badge">
+                PREMIUM
+            </span>
+
+        </div>
+
+        <div class="catalog-price">
+            Rp 69.000
+            <small>
+                / undangan
+            </small>
+        </div>
+
+        <div class="catalog-actions">
+
+            <a
+                href="demo/classic.html"
+                class="btn btn-small">
+                Preview
+            </a>
+
+            <a
+                href="order.html?tema=classic"
+                class="btn btn-small btn-primary">
+                Gunakan
+            </a>
+
+        </div>
+
+    </div>
+
+</article>
+
+
+<!-- =========================
+     LUXURY
+========================= -->
+
+<article
+    class="catalog-card"
+    data-category="wedding"
+    data-name="Luxury">
+
+    <div class="catalog-preview luxury">
+
+        <div class="preview-content">
+
+            <small>
+                THE WEDDING
+            </small>
+
+            <strong>
+                FOREVER
+            </strong>
+
+            <em>
+                Luxury Wedding
+            </em>
+
+        </div>
+
+    </div>
+
+    <div class="catalog-content">
+
+        <div class="catalog-top">
+
+            <div>
+
+                <h2>
+                    Luxury
+                </h2>
+
+                <p>
+                    Royal • Luxury
+                </p>
+
+            </div>
+
+            <span class="badge">
+                EXCLUSIVE
+            </span>
+
+        </div>
+
+        <div class="catalog-price">
+            Rp 149.000
+            <small>
+                / undangan
+            </small>
+        </div>
+
+        <div class="catalog-actions">
+
+            <a
+                href="demo/luxury.html"
+                class="btn btn-small">
+                Preview
+            </a>
+
+            <a
+                href="order.html?tema=luxury"
+                class="btn btn-small btn-primary">
+                Gunakan
+            </a>
+
+        </div>
+
+    </div>
+
+</article>
+
+
+</div>
+
+
+<div
+    class="no-result"
+    id="noResult">
+
+    <h3>
+        Tema Tidak Ditemukan
+    </h3>
+
+    <p>
+        Coba gunakan kata pencarian yang berbeda.
+    </p>
+
+</div>
+
+
+</div>
+
+</section>
+
+</main>
+
+
+<footer>
+
+<div class="container">
+
+<p>
+© 2026 RoyalInvite. All Rights Reserved.
+</p>
+
+</div>
+
+</footer>
+
+
+<script>
+
+/* =========================
+   SEARCH & FILTER
+========================= */
+
+const cards =
+document.querySelectorAll(
+    ".catalog-card"
+);
+
+const searchInput =
+document.getElementById(
+    "themeSearch"
+);
+
+const filterButtons =
+document.querySelectorAll(
+    ".filter-btn"
+);
+
+const noResult =
+document.getElementById(
+    "noResult"
+);
+
+let currentFilter = "all";
+
+
+function filterThemes(){
+
+    const search =
+        searchInput.value
+        .toLowerCase()
+        .trim();
+
+    let visible = 0;
+
+    cards.forEach(card => {
+
+        const name =
+            card.dataset.name
+            .toLowerCase();
+
+        const category =
+            card.dataset.category;
+
+        const matchSearch =
+            name.includes(search);
+
+        const matchFilter =
+            currentFilter === "all" ||
+            category === currentFilter;
+
+        if(
+            matchSearch &&
+            matchFilter
+        ){
+
+            card.classList.remove(
+                "hidden"
+            );
+
+            visible++;
+
+        }else{
+
+            card.classList.add(
+                "hidden"
+            );
+
+        }
+
+    });
+
+    noResult.classList.toggle(
+        "show",
+        visible === 0
+    );
+}
+
+
+filterButtons.forEach(button => {
+
+    button.addEventListener(
+        "click",
+        function(){
+
+            filterButtons.forEach(btn =>
+                btn.classList.remove(
+                    "active"
+                )
+            );
+
+            this.classList.add(
+                "active"
+            );
+
+            currentFilter =
+                this.dataset.filter;
+
+            filterThemes();
+
+        }
+    );
+
+});
+
+
+searchInput.addEventListener(
+    "input",
+    filterThemes
+);
+
+</script>
+
+</body>
+</html>
