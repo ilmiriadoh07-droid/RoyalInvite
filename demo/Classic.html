@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#090705">
+<meta name="description" content="The Wedding of Hadi & Riya">
+<title>The Wedding of Hadi & Riya</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:#090705;color:#f6ead0;font-family:'Montserrat',sans-serif;overflow-x:hidden}
+body.lock{overflow:hidden}
+section{position:relative;padding:90px 20px}
+.container{width:min(1100px,100%);margin:auto}
+.section-title{text-align:center;margin-bottom:45px}
+.section-title span{display:block;color:#cbaa61;font-size:10px;letter-spacing:5px;text-transform:uppercase;margin-bottom:12px}
+.section-title h2{font-family:'Cormorant Garamond',serif;font-size:52px;font-weight:500}
+.gold-line{width:70px;height:1px;background:#cbaa61;margin:18px auto}
+
+/* OPENING */
+#opening{position:fixed;inset:0;z-index:9999;background:radial-gradient(circle at center,#241b0d 0%,#090705 65%);display:flex;align-items:center;justify-content:center;overflow:hidden}
+.opening-content{position:absolute;z-index:5;text-align:center;transition:1s ease}
+.small-title{font-size:11px;letter-spacing:5px;text-transform:uppercase;color:#d9b86c;margin-bottom:18px}
+.opening-content h1{font-family:'Cormorant Garamond',serif;font-size:clamp(55px,16vw,110px);font-weight:500;line-height:.85}
+.opening-content p{margin-top:20px;font-size:11px;letter-spacing:4px;text-transform:uppercase}
+.open-btn{margin-top:35px;padding:15px 35px;border:1px solid #cba85d;background:rgba(0,0,0,.25);color:#f5dfaa;letter-spacing:3px;font-size:10px;text-transform:uppercase;cursor:pointer;transition:.4s}
+.open-btn:hover{background:#cba85d;color:#090705}
+.gate{position:absolute;top:0;width:50%;height:100%;background:linear-gradient(90deg,#070504,#19120b 45%,#070504);z-index:4;transition:transform 2s cubic-bezier(.77,0,.18,1)}
+.gate:before{content:"";position:absolute;top:0;width:100%;height:100%;opacity:.7;background:repeating-linear-gradient(90deg,transparent 0 25px,rgba(210,176,91,.08) 26px 27px)}
+.gate.left{left:0;border-right:2px solid #b9974f}
+.gate.right{right:0;border-left:2px solid #b9974f}
+.gate.left:after,.gate.right:after{content:"✦";position:absolute;top:50%;color:#d8b767;font-size:28px}
+.gate.left:after{right:20px}.gate.right:after{left:20px}
+#opening.opened .gate.left{transform:translateX(-100%)}
+#opening.opened .gate.right{transform:translateX(100%)}
+#opening.opened .opening-content{opacity:0;transform:scale(1.1)}
+#opening.hidden{pointer-events:none;opacity:0;transition:opacity 1s ease 1.8s}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;background:linear-gradient(rgba(8,5,3,.55),rgba(8,5,3,.88)),url("cover.jpg") center/cover fixed}
+.hero:after{content:"";position:absolute;inset:20px;border:1px solid rgba(211,177,91,.35);pointer-events:none}
+.hero-content{position:relative;z-index:2}
+.hero .subtitle{font-size:11px;letter-spacing:6px;text-transform:uppercase;color:#d6b66a}
+.names{font-family:'Cormorant Garamond',serif;font-size:clamp(70px,17vw,150px);font-weight:400;line-height:.8;margin:30px 0}
+.and{font-size:.35em;color:#c9a85e;vertical-align:middle;margin:0 10px}
+.date{letter-spacing:4px;font-size:12px}
+.scroll{position:absolute;bottom:30px;font-size:9px;letter-spacing:4px;text-transform:uppercase;animation:bounce 2s infinite}
+@keyframes bounce{50%{transform:translateY(10px)}}
+
+/* STORY */
+.story{background:radial-gradient(circle at center,#21180d,#090705 70%);text-align:center}
+.story p{max-width:720px;margin:auto;color:#cfc2a5;font-family:'Cormorant Garamond',serif;font-size:24px;line-height:1.7}
+
+/* GALLERY */
+.gallery{background:#0c0907}
+.gallery-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.photo{position:relative;overflow:hidden;cursor:pointer;aspect-ratio:1/1;background:#17110b}
+.photo:nth-child(3),.photo:nth-child(6),.photo:nth-child(9){aspect-ratio:2/1;grid-column:span 2}
+.photo img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.8);transition:1s ease}
+.photo:after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.5),transparent 45%);pointer-events:none}
+.photo:hover img{transform:scale(1.08);filter:saturate(1)}
+
+/* LIGHTBOX */
+#lightbox{position:fixed;inset:0;z-index:10000;background:rgba(0,0,0,.96);display:none;align-items:center;justify-content:center;padding:20px}
+#lightbox.show{display:flex}
+#lightbox img{max-width:95%;max-height:88vh;object-fit:contain;border:1px solid rgba(211,177,91,.4)}
+.close{position:absolute;top:20px;right:25px;font-size:35px;color:#e2c47b;cursor:pointer}
+
+/* EVENT / GIFT / RSVP */
+.details,.rsvp{text-align:center}
+.event-card,.gift-card{max-width:600px;margin:15px auto;padding:35px 25px;border:1px solid rgba(203,168,93,.35);background:linear-gradient(145deg,rgba(255,255,255,.04),rgba(255,255,255,.01))}
+.event-card h3,.gift-card h3{font-family:'Cormorant Garamond',serif;font-size:35px;font-weight:500;color:#e2c37b}
+.event-card p,.gift-card p{margin-top:12px;color:#cfc2a5;line-height:1.8}
+.btn{display:inline-block;margin-top:22px;padding:13px 25px;border:1px solid #cbaa61;color:#e4ca8b;text-decoration:none;font-size:10px;letter-spacing:2px;text-transform:uppercase;transition:.3s}
+.btn:hover{background:#cbaa61;color:#090705}
+.gift-card .account{margin:22px 0;padding:18px;border:1px solid rgba(203,168,93,.22);background:rgba(0,0,0,.15)}
+.account strong{display:block;color:#e2c37b;font-size:12px;letter-spacing:2px;margin-bottom:8px}
+.account span{display:block;font-size:17px;letter-spacing:1px;color:#f2e5c7}
+.copy-btn{margin-top:12px;background:transparent;border:1px solid #8f743f;color:#cbaa61;padding:8px 14px;cursor:pointer;font-size:9px;letter-spacing:2px}
+
+.rsvp{background:radial-gradient(circle at center,#21180d 0%,#090705 70%)}
+.rsvp-intro{max-width:600px;margin:-15px auto 35px;color:#cfc2a5;font-family:'Cormorant Garamond',serif;font-size:22px;line-height:1.6}
+#rsvpForm{max-width:600px;margin:auto;display:flex;flex-direction:column;gap:14px}
+#rsvpForm input,#rsvpForm select,#rsvpForm textarea{width:100%;padding:16px 18px;background:rgba(255,255,255,.035);border:1px solid rgba(203,168,93,.35);color:#f5e7c8;font-family:'Montserrat',sans-serif;font-size:13px;outline:none;border-radius:0}
+#rsvpForm input::placeholder,#rsvpForm textarea::placeholder{color:#9d9179}
+#rsvpForm select{appearance:none}
+#rsvpForm option{background:#100c08;color:#f5e7c8}
+#rsvpForm input:focus,#rsvpForm select:focus,#rsvpForm textarea:focus{border-color:#d2b366}
+#rsvpForm textarea{resize:vertical}
+.rsvp-btn{margin-top:10px;padding:17px;border:1px solid #cbaa61;background:linear-gradient(135deg,#8d6b2d,#cbaa61,#8d6b2d);color:#100b06;font-family:'Montserrat',sans-serif;font-size:11px;font-weight:600;letter-spacing:3px;text-transform:uppercase;cursor:pointer;transition:.4s}
+.rsvp-btn:hover{transform:translateY(-2px);box-shadow:0 8px 25px rgba(203,168,93,.2)}
+.rsvp-note{margin-top:22px;font-size:10px;color:#8e826d;letter-spacing:1px}
+
+/* FOOTER / MUSIC */
+footer{text-align:center;padding:80px 20px;background:#050403}
+footer .mini{font-size:10px;letter-spacing:4px;color:#b99b59;text-transform:uppercase}
+footer h2{font-family:'Cormorant Garamond',serif;font-size:50px;font-weight:400;margin:15px 0}
+.music-btn{position:fixed;right:18px;bottom:18px;z-index:100;width:48px;height:48px;border-radius:50%;border:1px solid #cbaa61;background:rgba(10,7,4,.8);color:#dcbf79;cursor:pointer;font-size:18px}
+.music-btn.playing{animation:spin 3s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.reveal{opacity:0;transform:translateY(35px);transition:1s ease}
+.reveal.active{opacity:1;transform:translateY(0)}
+
+@media(max-width:600px){
+section{padding:75px 16px}
+.section-title h2{font-size:43px}
+.gallery-grid{gap:8px}
+.story p,.rsvp-intro{font-size:21px}
+.hero{background-attachment:scroll}
+}
+</style>
+</head>
+
+<body class="lock">
+
+<div id="opening">
+  <div class="gate left"></div>
+  <div class="gate right"></div>
+  <div class="opening-content">
+    <div class="small-title">The Wedding Invitation</div>
+    <h1>Hadi &amp; Riya</h1>
+    <p>You Are Invited</p>
+    <button class="open-btn" onclick="openInvitation()">✦ Buka Undangan ✦</button>
+  </div>
+</div>
+
+<audio id="music" loop>
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
+<button class="music-btn" id="musicBtn" onclick="toggleMusic()">♪</button>
+
+<section class="hero">
+  <div class="hero-content reveal">
+    <div class="subtitle">The Wedding Of</div>
+    <div class="names">Hadi <span class="and">&amp;</span> Riya</div>
+    <div class="date">SAVE THE DATE</div>
+  </div>
+  <div class="scroll">Scroll to discover</div>
+</section>
+
+<section class="story">
+  <div class="container reveal">
+    <div class="section-title">
+      <span>Our Story</span>
+      <h2>Two Hearts, One Journey</h2>
+      <div class="gold-line"></div>
+    </div>
+    <p>
+      Dengan penuh kebahagiaan dan rasa syukur, kami mengundang Anda
+      untuk menjadi bagian dari momen istimewa dalam perjalanan cinta
+      kami menuju kehidupan yang baru.
+    </p>
+  </div>
+</section>
+
+<section class="gallery">
+  <div class="container">
+    <div class="section-title reveal">
+      <span>Our Memories</span>
+      <h2>Captured Moments</h2>
+      <div class="gold-line"></div>
+    </div>
+
+    <div class="gallery-grid">
+      <div class="photo reveal"><img src="foto1.jpg" alt="Hadi & Riya 1"></div>
+      <div class="photo reveal"><img src="foto2.jpg" alt="Hadi & Riya 2"></div>
+      <div class="photo reveal"><img src="foto3.jpg" alt="Hadi & Riya 3"></div>
+      <div class="photo reveal"><img src="foto4.jpg" alt="Hadi & Riya 4"></div>
+      <div class="photo reveal"><img src="foto5.jpg" alt="Hadi & Riya 5"></div>
+      <div class="photo reveal"><img src="foto6.jpg" alt="Hadi & Riya 6"></div>
+      <div class="photo reveal"><img src="foto7.jpg" alt="Hadi & Riya 7"></div>
+      <div class="photo reveal"><img src="foto8.jpg" alt="Hadi & Riya 8"></div>
+      <div class="photo reveal"><img src="foto9.jpg" alt="Hadi & Riya 9"></div>
+      <div class="photo reveal"><img src="foto10.jpg" alt="Hadi & Riya 10"></div>
+    </div>
+  </div>
+</section>
+
+<section class="details">
+  <div class="container reveal">
+    <div class="section-title">
+      <span>Our Special Day</span>
+      <h2>Wedding Celebration</h2>
+      <div class="gold-line"></div>
+    </div>
+
+    <div class="event-card">
+      <h3>Akad Nikah</h3>
+      <p>
+        Minggu<br>
+        Tanggal Pernikahan<br><br>
+        09.00 WIB<br><br>
+        Nama Gedung / Lokasi
+      </p>
+      <a href="#" class="btn">Lihat Lokasi</a>
+    </div>
+
+    <div class="event-card">
+      <h3>Resepsi</h3>
+      <p>
+        Minggu<br>
+        Tanggal Pernikahan<br><br>
+        11.00 – 14.00 WIB<br><br>
+        Nama Gedung / Lokasi
+      </p>
+      <a href="#" class="btn">Lihat Lokasi</a>
+    </div>
+  </div>
+</section>
+
+<section class="rsvp">
+  <div class="container reveal">
+    <div class="section-title">
+      <span>RSVP</span>
+      <h2>Konfirmasi Kehadiran</h2>
+      <div class="gold-line"></div>
+    </div>
+
+    <p class="rsvp-intro">
+      Kami akan sangat bahagia jika Anda dapat hadir
+      dan merayakan hari istimewa bersama kami.
+    </p>
+
+    <form id="rsvpForm">
+      <input type="text" id="guestName" placeholder="Nama Anda" required>
+
+      <select id="attendance" required>
+        <option value="">Konfirmasi Kehadiran</option>
+        <option value="Ya, saya akan hadir">Ya, saya akan hadir</option>
+        <option value="Maaf, saya tidak dapat hadir">Maaf, saya tidak dapat hadir</option>
+        <option value="Masih tentatif">Masih tentatif</option>
+      </select>
+
+      <input type="number" id="guestCount" min="1" max="10" value="1" required>
+
+      <select id="contactPerson" required>
+        <option value="">Kirim konfirmasi ke...</option>
+        <option value="Hadi">Hadi</option>
+        <option value="Riya">Riya</option>
+      </select>
+
+      <textarea id="message" rows="4" placeholder="Ucapan untuk Hadi & Riya (opsional)"></textarea>
+
+      <button type="submit" class="rsvp-btn">✦ Kirim Konfirmasi ✦</button>
+    </form>
+
+    <div class="rsvp-note">Konfirmasi akan dikirim langsung melalui WhatsApp.</div>
+  </div>
+</section>
+
+<section class="gift">
+  <div class="container reveal">
+    <div class="section-title">
+      <span>Wedding Gift</span>
+      <h2>Tanda Kasih</h2>
+      <div class="gold-line"></div>
+    </div>
+
+    <div class="gift-card">
+      <h3>Bank Account</h3>
+
+      <div class="account">
+        <strong>Hadianto Kurniawan Tan</strong>
+        <span id="rek1">4960141968</span>
+        <button class="copy-btn" onclick="copyRekening('rek1')">SALIN REKENING</button>
+      </div>
+
+      <div class="account">
+        <strong>Ilmi Riadoh</strong>
+        <span id="rek2">2680150420</span>
+        <button class="copy-btn" onclick="copyRekening('rek2')">SALIN REKENING</button>
+      </div>
+
+      <p>Terima kasih atas doa dan tanda kasih untuk kami.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="mini">With Love</div>
+  <h2>Hadi &amp; Riya</h2>
+  <div class="mini">Thank You For Being Part Of Our Story</div>
+</footer>
+
+<div id="lightbox">
+  <div class="close" onclick="closeLightbox()">×</div>
+  <img id="lightboxImg" src="" alt="Gallery">
+</div>
+
+<script>
+function openInvitation(){
+  const opening = document.getElementById("opening");
+  opening.classList.add("opened");
+  document.body.classList.remove("lock");
+
+  setTimeout(() => opening.classList.add("hidden"), 2200);
+
+  playMusic();
+}
+
+const music = document.getElementById("music");
+const musicBtn = document.getElementById("musicBtn");
+
+function playMusic(){
+  music.play().then(() => {
+    musicBtn.classList.add("playing");
+  }).catch(() => {});
+}
+
+function toggleMusic(){
+  if(music.paused){
+    music.play();
+    musicBtn.classList.add("playing");
+  }else{
+    music.pause();
+    musicBtn.classList.remove("playing");
+  }
+}
+
+/* LIGHTBOX */
+const photos = document.querySelectorAll(".photo img");
+const lightbox = document.getElementById("lightbox");
+const lightboxImg = document.getElementById("lightboxImg");
+
+photos.forEach(photo => {
+  photo.addEventListener("click", () => {
+    lightboxImg.src = photo.src;
+    lightbox.classList.add("show");
+  });
+});
+
+function closeLightbox(){
+  lightbox.classList.remove("show");
+}
+
+lightbox.addEventListener("click", e => {
+  if(e.target === lightbox) closeLightbox();
+});
+
+/* SCROLL REVEAL */
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting) entry.target.classList.add("active");
+  });
+},{threshold:.15});
+
+document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+
+/* RSVP WHATSAPP */
+document.getElementById("rsvpForm").addEventListener("submit", function(e){
+  e.preventDefault();
+
+  const name = document.getElementById("guestName").value.trim();
+  const attendance = document.getElementById("attendance").value;
+  const count = document.getElementById("guestCount").value;
+  const contact = document.getElementById("contactPerson").value;
+  const message = document.getElementById("message").value.trim();
+
+  let phone = contact === "Hadi" ? "6285143475535" : "6281212000347";
+
+  let text = `✨ RSVP WEDDING HADI & RIYA ✨
+
+Nama:
+${name}
+
+Konfirmasi:
+${attendance}
+
+Jumlah tamu:
+${count} orang`;
+
+  if(message){
+    text += `
+
+Ucapan:
+${message}`;
+  }
+
+  text += `
+
+Terima kasih atas konfirmasinya 🙏`;
+
+  window.open(
+    "https://wa.me/" + phone + "?text=" + encodeURIComponent(text),
+    "_blank"
+  );
+});
+
+/* COPY REKENING */
+function copyRekening(id){
+  const number = document.getElementById(id).innerText;
+
+  navigator.clipboard.writeText(number).then(() => {
+    alert("Nomor rekening berhasil disalin.");
+  }).catch(() => {
+    alert("Silakan salin nomor rekening: " + number);
+  });
+}
+</script>
+
+</body>
+</html>
