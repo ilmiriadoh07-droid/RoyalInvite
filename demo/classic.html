@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#050403">
+<title>The Wedding of Hadi & Riya | Luxury Palace</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:wght@400;500;600;700&display=swap');
+:root{--gold:#d9b45b;--light:#f9e7aa;--black:#050403;--glass:rgba(255,255,255,.06)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--black);color:#f8f0dd;font-family:'Cormorant Garamond',serif;overflow-x:hidden}body.lock{overflow:hidden}
+section{position:relative;min-height:100vh}.gold{color:var(--light)}.cinzel{font-family:Cinzel,serif}
+#particles{position:fixed;inset:0;z-index:90;pointer-events:none}.p{position:absolute;border-radius:50%;background:var(--light);box-shadow:0 0 14px var(--gold);animation:rise linear infinite;opacity:0}
+@keyframes rise{0%{transform:translateY(110vh) scale(.3);opacity:0}15%{opacity:.8}100%{transform:translateY(-10vh) scale(1.3);opacity:0}}
+/* opening */
+#opening{position:fixed;inset:0;z-index:200;background:linear-gradient(90deg,rgba(0,0,0,.9),rgba(0,0,0,.35),rgba(0,0,0,.9)),url('foto1.jpg') center/cover;display:grid;place-items:center;transition:1.3s}
+#opening.hide{opacity:0;visibility:hidden;pointer-events:none}.gate{text-align:center;max-width:720px;padding:35px;position:relative}.crown{font-size:50px;color:var(--gold)}.mini{font:12px Cinzel;letter-spacing:6px;color:var(--light)}.gate h1{font:500 clamp(48px,10vw,100px) Cinzel;margin:20px 0 10px;text-shadow:0 0 35px #000}.gate p{font-size:22px;line-height:1.5}.open{border:1px solid var(--gold);background:rgba(0,0,0,.45);color:var(--light);padding:16px 34px;border-radius:50px;font:600 12px Cinzel;letter-spacing:3px;cursor:pointer;transition:.4s}.open:hover{background:var(--gold);color:#090604;box-shadow:0 0 40px #d9b45b66}
+/* hero */
+.hero{display:grid;place-items:center;text-align:center;background:linear-gradient(#0002,#000b),url('foto2.jpg') center/cover fixed}.hero-content{position:relative;z-index:2}.hero .mini{letter-spacing:8px}.hero h2{font:500 clamp(50px,12vw,125px) Cinzel;margin:20px 0;text-shadow:0 10px 50px #000}.hero .amp{color:var(--gold);font-weight:400}.hero p{font-size:26px}
+/* common */
+.wrap{max-width:1150px;margin:auto;padding:90px 24px}.dark{background:radial-gradient(circle at top,#241a0b,#080604 50%,#030303)}.royal{background:linear-gradient(135deg,#1b1308,#080604 45%,#1c1408)}.heading{text-align:center;margin-bottom:45px}.heading small{font:11px Cinzel;letter-spacing:5px;color:var(--gold)}.heading h2{font:500 clamp(32px,6vw,58px) Cinzel;margin:13px 0}.heading:after{content:'✦';display:block;color:var(--gold);font-size:24px}
+.intro{text-align:center}.intro p{max-width:850px;margin:auto;font-size:23px;line-height:1.7}
+/* couple */
+.couple{display:grid;grid-template-columns:1fr 1fr;gap:35px}.card{padding:12px;border:1px solid #d9b45b55;background:linear-gradient(145deg,#ffffff0d,#0004);box-shadow:0 25px 70px #0009;transition:.7s}.card:hover{transform:translateY(-10px) rotateX(2deg)}.card img{width:100%;aspect-ratio:4/5;object-fit:cover}.card-body{text-align:center;padding:22px}.card h3{font:500 29px Cinzel;color:var(--light);margin:0 0 8px}.card p{font-size:18px;margin:0}
+/* photo */
+.photo{min-height:85vh;display:grid;place-items:center;text-align:center;background:linear-gradient(#0005,#0009),url('foto4.jpg') center/cover fixed}.photo h2{font:500 clamp(40px,8vw,85px) Cinzel;margin:0}.photo p{font-size:24px}
+/* story */
+.timeline{max-width:850px;margin:auto;position:relative}.timeline:before{content:'';position:absolute;left:50%;top:0;bottom:0;width:1px;background:#d9b45b88}.story{width:50%;padding:15px 45px;position:relative}.story:nth-child(even){margin-left:50%}.story:after{content:'';position:absolute;top:28px;width:11px;height:11px;border-radius:50%;background:var(--gold);box-shadow:0 0 18px var(--gold)}.story:nth-child(odd){text-align:right}.story:nth-child(odd):after{right:-5px}.story:nth-child(even):after{left:-5px}.story h3{font:500 22px Cinzel;color:var(--light);margin:0 0 7px}.story p{font-size:18px;line-height:1.5;margin:0}
+/* countdown */
+.count{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;max-width:850px;margin:auto}.time{border:1px solid #d9b45b55;background:#0005;text-align:center;padding:24px 8px}.time b{display:block;font:500 40px Cinzel;color:var(--light)}.time span{font-size:12px;letter-spacing:2px}
+/* events */
+.events{display:grid;grid-template-columns:1fr 1fr;gap:25px}.event{text-align:center;padding:38px 24px;border:1px solid #d9b45b55;background:#ffffff06}.event .icon{font-size:42px;color:var(--gold)}.event h3{font:500 27px Cinzel;color:var(--light)}.event p{font-size:19px;line-height:1.7}.event a{color:var(--light);text-decoration:none;border-bottom:1px solid var(--gold)}
+/* gallery */
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.gallery figure{margin:0;overflow:hidden;position:relative;border:1px solid #d9b45b33}.gallery img{width:100%;height:320px;object-fit:cover;transition:1s}.gallery figure:hover img{transform:scale(1.1)}.gallery figcaption{position:absolute;left:0;right:0;bottom:0;padding:14px;background:linear-gradient(transparent,#000d);font:12px Cinzel;color:var(--light)}
+/* quote / rsvp / footer */
+.quote{min-height:70vh;display:grid;place-items:center;text-align:center;background:linear-gradient(#0008,#000a),url('foto9.jpg') center/cover fixed}.quote blockquote{max-width:850px;font-size:clamp(28px,4vw,45px);line-height:1.45;margin:0;padding:30px}.quote cite{display:block;font:12px Cinzel;letter-spacing:4px;color:var(--gold);margin-top:25px}.rsvp{text-align:center}.rsvp p{font-size:21px;line-height:1.6;max-width:700px;margin:0 auto 25px}.wa{display:inline-block;background:var(--gold);color:#0b0804;text-decoration:none;padding:15px 27px;border-radius:50px;font:600 12px Cinzel;letter-spacing:1px}.footer{min-height:75vh;display:grid;place-items:center;text-align:center;background:linear-gradient(#0005,#000d),url('foto10.jpg') center/cover}.footer h2{font:500 clamp(48px,9vw,95px) Cinzel;color:var(--light);margin:15px 0}.footer p{font-size:22px}
+/* music */
+.music{position:fixed;right:18px;bottom:18px;z-index:150;width:55px;height:55px;border:1px solid var(--gold);border-radius:50%;background:#080604dd;color:var(--light);font-size:23px;cursor:pointer}.music.on{animation:turn 4s linear infinite}@keyframes turn{to{transform:rotate(360deg)}}
+/* reveal */
+.reveal{opacity:0;transform:translateY(35px);transition:1s}.reveal.show{opacity:1;transform:none}
+@media(max-width:700px){.couple,.events{grid-template-columns:1fr}.gallery{grid-template-columns:repeat(2,1fr)}.gallery img{height:220px}.count{grid-template-columns:repeat(2,1fr)}.timeline:before{left:8px}.story,.story:nth-child(even){width:100%;margin:0;text-align:left;padding-left:35px;padding-right:5px}.story:nth-child(odd):after,.story:nth-child(even):after{left:3px;right:auto}}
+</style>
+</head>
+<body class="lock">
+<div id="particles"></div>
+
+<div id="opening">
+  <div class="gate">
+    <div class="crown">♔</div>
+    <div class="mini">THE WEDDING INVITATION</div>
+    <h1>Hadi <span class="gold">&amp;</span> Riya</h1>
+    <p>Dengan penuh kebahagiaan, kami mengundang Anda untuk hadir di hari istimewa kami.</p>
+    <button class="open" onclick="openInvitation()">✦ BUKA UNDANGAN ✦</button>
+  </div>
+</div>
+
+<section class="hero">
+  <div class="hero-content reveal">
+    <div class="mini">THE WEDDING OF</div>
+    <h2>Hadi <span class="amp">&amp;</span> Riya</h2>
+    <p>Our Forever Begins</p>
+  </div>
+</section>
+
+<section class="dark">
+  <div class="wrap intro reveal">
+    <div class="heading"><small>A BEAUTIFUL BEGINNING</small><h2>Dengan Bahagia</h2></div>
+    <p>Dengan memohon rahmat dan ridho Tuhan Yang Maha Esa, kami bermaksud menyelenggarakan pernikahan kami dan dengan penuh hormat mengundang Bapak/Ibu/Saudara/i untuk hadir serta memberikan doa restu.</p>
+  </div>
+</section>
+
+<section class="royal">
+  <div class="wrap reveal">
+    <div class="heading"><small>THE COUPLE</small><h2>Mempelai</h2></div>
+    <div class="couple">
+      <article class="card"><img src="foto2.jpg" alt="Hadi"><div class="card-body"><h3>Hadi</h3><p>Putra tercinta dari keluarga Hadi</p></div></article>
+      <article class="card"><img src="foto3.jpg" alt="Riya"><div class="card-body"><h3>Riya</h3><p>Putri tercinta dari keluarga Riya</p></div></article>
+    </div>
+  </div>
+</section>
+
+<section class="photo"><div class="reveal"><h2>A Love Story</h2><p>Satu cinta • satu janji • selamanya</p></div></section>
+
+<section class="dark">
+  <div class="wrap reveal">
+    <div class="heading"><small>OUR JOURNEY</small><h2>Kisah Kami</h2></div>
+    <div class="timeline">
+      <div class="story"><h3>Pertemuan</h3><p>Awal dari sebuah perkenalan yang menjadi cerita indah.</p></div>
+      <div class="story"><h3>Menjalin Kasih</h3><p>Belajar memahami, menjaga, dan tumbuh bersama.</p></div>
+      <div class="story"><h3>Lamaran</h3><p>Sebuah janji untuk melangkah ke kehidupan berikutnya.</p></div>
+      <div class="story"><h3>Pernikahan</h3><p>Dua hati dipersatukan dalam ikatan cinta dan keluarga.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="royal">
+  <div class="wrap reveal">
+    <div class="heading"><small>COUNTING THE DAYS</small><h2>Menuju Hari Bahagia</h2></div>
+    <div class="count">
+      <div class="time"><b id="d">00</b><span>Hari</span></div>
+      <div class="time"><b id="h">00</b><span>Jam</span></div>
+      <div class="time"><b id="m">00</b><span>Menit</span></div>
+      <div class="time"><b id="s">00</b><span>Detik</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="dark">
+  <div class="wrap reveal">
+    <div class="heading"><small>THE CEREMONY</small><h2>Acara Pernikahan</h2></div>
+    <div class="events">
+      <div class="event"><div class="icon">♕</div><h3>Akad Nikah</h3><p>Hari / Tanggal<br>08.00 WIB – selesai<br>Tempat acara</p><a href="https://maps.google.com/" target="_blank">Lihat Lokasi</a></div>
+      <div class="event"><div class="icon">✦</div><h3>Resepsi</h3><p>Hari / Tanggal<br>11.00 WIB – selesai<br>Tempat acara</p><a href="https://maps.google.com/" target="_blank">Lihat Lokasi</a></div>
+    </div>
+  </div>
+</section>
+
+<section class="royal">
+  <div class="wrap reveal">
+    <div class="heading"><small>OUR MEMORIES</small><h2>Gallery</h2></div>
+    <div class="gallery">
+      <figure><img src="foto1.jpg" alt=""><figcaption>MEMORY I</figcaption></figure>
+      <figure><img src="foto2.jpg" alt=""><figcaption>MEMORY II</figcaption></figure>
+      <figure><img src="foto3.jpg" alt=""><figcaption>MEMORY III</figcaption></figure>
+      <figure><img src="foto4.jpg" alt=""><figcaption>MEMORY IV</figcaption></figure>
+      <figure><img src="foto5.jpg" alt=""><figcaption>MEMORY V</figcaption></figure>
+      <figure><img src="foto6.jpg" alt=""><figcaption>MEMORY VI</figcaption></figure>
+      <figure><img src="foto7.jpg" alt=""><figcaption>MEMORY VII</figcaption></figure>
+      <figure><img src="foto8.jpg" alt=""><figcaption>MEMORY VIII</figcaption></figure>
+      <figure><img src="foto9.jpg" alt=""><figcaption>MEMORY IX</figcaption></figure>
+      <figure><img src="foto10.jpg" alt=""><figcaption>MEMORY X</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="quote"><blockquote class="reveal">“Cinta bukan hanya menemukan seseorang untuk hidup bersama, tetapi menemukan seseorang yang membuat hidup lebih berarti.”<cite>HADI &amp; RIYA</cite></blockquote></section>
+
+<section class="dark">
+  <div class="wrap rsvp reveal">
+    <div class="heading"><small>YOUR PRESENCE</small><h2>Konfirmasi Kehadiran</h2></div>
+    <p>Kehadiran dan doa restu Anda merupakan kebahagiaan yang sangat berarti bagi kami.</p>
+    <a class="wa" href="https://wa.me/6281234567890?text=Halo%20Hadi%20dan%20Riya%2C%20saya%20akan%20hadir." target="_blank">KONFIRMASI WHATSAPP</a>
+  </div>
+</section>
+
+<section class="footer"><div class="reveal"><div class="mini">WITH LOVE</div><h2>Hadi &amp; Riya</h2><p>Thank you for being part of our story.</p></div></section>
+
+<button class="music" id="musicBtn">♫</button>
+<audio id="music" loop preload="auto"><source src="music.mp3" type="audio/mpeg"></audio>
+
+<script>
+const box=document.getElementById('particles');
+for(let i=0;i<55;i++){let p=document.createElement('i');p.className='p';let z=1+Math.random()*3;p.style.width=p.style.height=z+'px';p.style.left=Math.random()*100+'%';p.style.animationDuration=6+Math.random()*10+'s';p.style.animationDelay=-Math.random()*12+'s';box.appendChild(p)}
+function openInvitation(){document.getElementById('opening').classList.add('hide');document.body.classList.remove('lock');music.play().then(()=>musicBtn.classList.add('on')).catch(()=>{})}
+const music=document.getElementById('music'),musicBtn=document.getElementById('musicBtn');
+musicBtn.onclick=()=>{if(music.paused){music.play().then(()=>musicBtn.classList.add('on')).catch(()=>{})}else{music.pause();musicBtn.classList.remove('on')}}
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('show')}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(x=>io.observe(x));
+/* GANTI TANGGAL DI SINI */
+const target=new Date('2026-12-12T08:00:00+07:00').getTime();
+function countdown(){let x=Math.max(0,target-Date.now());let d=Math.floor(x/86400000),h=Math.floor(x%86400000/3600000),m=Math.floor(x%3600000/60000),s=Math.floor(x%60000/1000);document.getElementById('d').textContent=String(d).padStart(2,'0');document.getElementById('h').textContent=String(h).padStart(2,'0');document.getElementById('m').textContent=String(m).padStart(2,'0');document.getElementById('s').textContent=String(s).padStart(2,'0')}countdown();setInterval(countdown,1000);
+</script>
+</body>
+  </html>
