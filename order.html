@@ -243,12 +243,23 @@ content="Buat undangan digital premium dengan RoyalInvite. Pilih tema, paket, da
         </a>
 
         <div class="nav-links">
-            <a href="index.html">Beranda</a>
-            <a href="tema.html">Tema</a>
-            <a href="harga.html">Harga</a>
+
+            <a href="index.html">
+                Beranda
+            </a>
+
+            <a href="tema.html">
+                Tema
+            </a>
+
+            <a href="harga.html">
+                Harga
+            </a>
+
             <a href="order.html" class="nav-button">
                 Buat Undangan
             </a>
+
         </div>
 
     </div>
@@ -288,12 +299,16 @@ content="Buat undangan digital premium dengan RoyalInvite. Pilih tema, paket, da
             </h2>
 
             <div class="form-group">
-                <label>Nama Pemesan</label>
+
+                <label>
+                    Nama Pemesan
+                </label>
 
                 <input
                     type="text"
                     id="nama"
                     placeholder="Masukkan nama Anda">
+
             </div>
 
 
@@ -307,6 +322,7 @@ content="Buat undangan digital premium dengan RoyalInvite. Pilih tema, paket, da
                     type="tel"
                     id="wa"
                     placeholder="Contoh: 081234567890">
+
             </div>
 
 
@@ -388,6 +404,7 @@ content="Buat undangan digital premium dengan RoyalInvite. Pilih tema, paket, da
 
             <div class="package-list">
 
+                <!-- BASIC -->
                 <label class="package active">
 
                     <input
@@ -437,6 +454,7 @@ content="Buat undangan digital premium dengan RoyalInvite. Pilih tema, paket, da
                 </label>
 
 
+                <!-- PREMIUM -->
                 <label class="package">
 
                     <input
@@ -489,6 +507,7 @@ content="Buat undangan digital premium dengan RoyalInvite. Pilih tema, paket, da
                 </label>
 
 
+                <!-- EXCLUSIVE -->
                 <label class="package">
 
                     <input
@@ -539,6 +558,7 @@ content="Buat undangan digital premium dengan RoyalInvite. Pilih tema, paket, da
             </div>
 
 
+            <!-- RINGKASAN -->
             <div class="summary">
 
                 <div class="summary-row">
@@ -582,13 +602,16 @@ content="Buat undangan digital premium dengan RoyalInvite. Pilih tema, paket, da
             </div>
 
 
+            <!-- TOMBOL WHATSAPP -->
             <button
+                type="button"
                 class="order-button"
                 onclick="kirimPesanan()">
 
                 Pesan via WhatsApp
 
             </button>
+
 
             <div class="note">
 
@@ -609,11 +632,17 @@ content="Buat undangan digital premium dengan RoyalInvite. Pilih tema, paket, da
 
 <script>
 
+/* =========================================
+   ELEMENT
+========================================= */
+
 const packages =
 document.querySelectorAll('.package');
 
 const radios =
-document.querySelectorAll('input[name="paket"]');
+document.querySelectorAll(
+    'input[name="paket"]'
+);
 
 const tema =
 document.getElementById('tema');
@@ -628,6 +657,10 @@ const summaryPrice =
 document.getElementById('summaryPrice');
 
 
+/* =========================================
+   FORMAT RUPIAH
+========================================= */
+
 function formatRupiah(number){
 
     return new Intl.NumberFormat(
@@ -641,6 +674,10 @@ function formatRupiah(number){
 
 }
 
+
+/* =========================================
+   UPDATE RINGKASAN
+========================================= */
 
 function updateSummary(){
 
@@ -666,6 +703,10 @@ function updateSummary(){
 }
 
 
+/* =========================================
+   PILIH PAKET
+========================================= */
+
 radios.forEach(radio => {
 
     radio.addEventListener(
@@ -687,27 +728,86 @@ radios.forEach(radio => {
 });
 
 
+/* =========================================
+   GANTI TEMA MANUAL
+========================================= */
+
 tema.addEventListener(
     'change',
     updateSummary
 );
 
 
+/* =========================================
+   AMBIL TEMA DARI URL
+========================================= */
+
+const params =
+new URLSearchParams(
+    window.location.search
+);
+
+const temaParam =
+params.get('tema');
+
+
+const temaMap = {
+
+    'royal-palace':
+        'Royal Palace',
+
+    'elegant-gold':
+        'Elegant Gold',
+
+    'floral-romance':
+        'Floral Romance',
+
+    'minimalist':
+        'Minimalist'
+
+};
+
+
+if(
+    temaParam &&
+    temaMap[temaParam]
+){
+
+    tema.value =
+    temaMap[temaParam];
+
+}
+
+
+/* =========================================
+   PESAN VIA WHATSAPP
+========================================= */
+
 function kirimPesanan(){
 
     const nama =
-    document.getElementById('nama').value.trim();
+    document.getElementById(
+        'nama'
+    ).value.trim();
+
 
     const wa =
-    document.getElementById('wa').value.trim();
+    document.getElementById(
+        'wa'
+    ).value.trim();
+
 
     const acara =
-    document.getElementById('acara').value;
+    document.getElementById(
+        'acara'
+    ).value;
+
 
     const selected =
     document.querySelector(
         'input[name="paket"]:checked'
     );
+
 
     if(!nama){
 
@@ -716,6 +816,7 @@ function kirimPesanan(){
         );
 
         return;
+
     }
 
 
@@ -726,6 +827,18 @@ function kirimPesanan(){
         );
 
         return;
+
+    }
+
+
+    if(!selected){
+
+        alert(
+            'Silakan pilih paket terlebih dahulu.'
+        );
+
+        return;
+
     }
 
 
@@ -751,29 +864,35 @@ ${selected.value}
 
 Harga:
 ${formatRupiah(
-    Number(selected.dataset.price)
+    Number(
+        selected.dataset.price
+    )
 )}
 
 Mohon informasi langkah selanjutnya.
 
 Terima kasih.`;
 
+
     /*
-     * GANTI NOMOR DI BAWAH
-     * dengan nomor WhatsApp bisnis RoyalInvite
+     * NOMOR WHATSAPP ADMIN
      *
-     * Format:
+     * Format internasional:
      * 628xxxxxxxxxx
      */
 
     const nomorAdmin =
     '6285774779700';
 
+
     const url =
     'https://wa.me/' +
     nomorAdmin +
     '?text=' +
-    encodeURIComponent(pesan);
+    encodeURIComponent(
+        pesan
+    );
+
 
     window.open(
         url,
@@ -783,9 +902,13 @@ Terima kasih.`;
 }
 
 
+/* =========================================
+   JALANKAN SAAT HALAMAN DIBUKA
+========================================= */
+
 updateSummary();
 
 </script>
 
 </body>
-</html>
+    </html>
