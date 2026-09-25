@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Royal Palace — RoyalInvite</title>
+
+<meta name="description"
+content="Preview tema Royal Palace dari RoyalInvite.">
+
+<link rel="stylesheet" href="../assets/css/style.css">
+
+<style>
+
+body{
+    background:#080604;
+    color:#f7efe2;
+}
+
+.demo-nav{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:1000;
+    padding:18px 20px;
+    background:rgba(8,6,4,.88);
+    backdrop-filter:blur(15px);
+    border-bottom:1px solid rgba(213,170,91,.2);
+}
+
+.demo-nav-inner{
+    max-width:1100px;
+    margin:auto;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.demo-logo{
+    color:#f7efe2;
+    text-decoration:none;
+    font-family:Georgia,serif;
+    font-size:24px;
+    font-weight:bold;
+}
+
+.demo-logo span{
+    color:#d5aa5b;
+}
+
+.demo-back{
+    color:#d5aa5b;
+    text-decoration:none;
+    border:1px solid rgba(213,170,91,.5);
+    padding:10px 18px;
+    border-radius:30px;
+    font-size:14px;
+}
+
+.demo-cover{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:110px 20px 60px;
+
+    background:
+    radial-gradient(
+        circle at center,
+        rgba(213,170,91,.14),
+        transparent 38%
+    ),
+    linear-gradient(
+        135deg,
+        #080604,
+        #120c07,
+        #080604
+    );
+}
+
+.demo-content{
+    max-width:700px;
+}
+
+.demo-label{
+    letter-spacing:5px;
+    font-size:12px;
+    color:#d5aa5b;
+    margin-bottom:25px;
+}
+
+.demo-content h1{
+    font-family:Georgia,serif;
+    font-size:clamp(58px,12vw,110px);
+    line-height:.85;
+    margin:0;
+    color:#f7efe2;
+}
+
+.demo-content h1 span{
+    color:#d5aa5b;
+    font-size:.55em;
+}
+
+.demo-date{
+    margin:30px 0;
+    letter-spacing:5px;
+    color:#cfc2ae;
+}
+
+.demo-button{
+    display:inline-block;
+    padding:14px 28px;
+    border:1px solid #d5aa5b;
+    border-radius:30px;
+    color:#f7efe2;
+    text-decoration:none;
+    transition:.3s;
+}
+
+.demo-button:hover{
+    background:#d5aa5b;
+    color:#080604;
+}
+
+.demo-section{
+    padding:90px 20px;
+    text-align:center;
+    border-top:1px solid rgba(213,170,91,.12);
+}
+
+.demo-section-inner{
+    max-width:900px;
+    margin:auto;
+}
+
+.demo-section h2{
+    font-family:Georgia,serif;
+    font-size:42px;
+    margin-bottom:20px;
+}
+
+.demo-section h2 span{
+    color:#d5aa5b;
+}
+
+.demo-section p{
+    color:#aaa;
+    line-height:1.8;
+    max-width:650px;
+    margin:0 auto;
+}
+
+.couple{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:25px;
+    margin-top:45px;
+}
+
+.person{
+    padding:35px 20px;
+    border:1px solid rgba(213,170,91,.2);
+    background:rgba(255,255,255,.025);
+    border-radius:18px;
+}
+
+.person h3{
+    font-family:Georgia,serif;
+    color:#d5aa5b;
+    font-size:28px;
+}
+
+.event{
+    margin-top:40px;
+    padding:35px 20px;
+    border:1px solid rgba(213,170,91,.25);
+    border-radius:18px;
+    background:rgba(255,255,255,.025);
+}
+
+.event h3{
+    color:#d5aa5b;
+    font-family:Georgia,serif;
+    font-size:27px;
+}
+
+.demo-footer{
+    text-align:center;
+    padding:40px 20px;
+    color:#777;
+    border-top:1px solid rgba(213,170,91,.15);
+}
+
+@media(max-width:600px){
+
+    .demo-logo{
+        font-size:20px;
+    }
+
+    .demo-back{
+        padding:8px 14px;
+        font-size:12px;
+    }
+
+    .couple{
+        grid-template-columns:1fr;
+    }
+
+    .demo-section h2{
+        font-size:34px;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+
+<header class="demo-nav">
+
+    <div class="demo-nav-inner">
+
+        <a href="../index.html" class="demo-logo">
+            Royal<span>Invite</span>
+        </a>
+
+        <a href="../tema.html" class="demo-back">
+            ← Kembali ke Tema
+        </a>
+
+    </div>
+
+</header>
+
+
+<!-- COVER -->
+
+<section class="demo-cover">
+
+    <div class="demo-content">
+
+        <div class="demo-label">
+            THE WEDDING OF
+        </div>
+
+        <h1>
+            Hadi
+            <span>&</span>
+            Riya
+        </h1>
+
+        <div class="demo-date">
+            12 • 12 • 2026
+        </div>
+
+        <a href="#undangan" class="demo-button">
+            Buka Undangan
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- INTRO -->
+
+<section class="demo-section" id="undangan">
+
+    <div class="demo-section-inner">
+
+        <div class="demo-label">
+            OUR SPECIAL DAY
+        </div>
+
+        <h2>
+            Hadi <span>&</span> Riya
+        </h2>
+
+        <p>
+            Dengan penuh kebahagiaan, kami mengundang
+            Anda untuk menjadi bagian dari hari istimewa
+            kami. Sebuah perjalanan baru akan dimulai,
+            dan kehadiran Anda akan menjadi bagian
+            berharga dalam cerita kami.
+        </p>
+
+
+        <div class="couple">
+
+            <div class="person">
+
+                <div class="demo-label">
+                    THE GROOM
+                </div>
+
+                <h3>
+                    Hadianto
+                </h3>
+
+                <p>
+                    Putra dari keluarga tercinta
+                </p>
+
+            </div>
+
+
+            <div class="person">
+
+                <div class="demo-label">
+                    THE BRIDE
+                </div>
+
+                <h3>
+                    Riya
+                </h3>
+
+                <p>
+                    Putri dari keluarga tercinta
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- EVENT -->
+
+<section class="demo-section">
+
+    <div class="demo-section-inner">
+
+        <div class="demo-label">
+            SAVE THE DATE
+        </div>
+
+        <h2>
+            Wedding <span>Day</span>
+        </h2>
+
+        <div class="event">
+
+            <div class="demo-label">
+                AKAD NIKAH
+            </div>
+
+            <h3>
+                Sabtu, 12 Desember 2026
+            </h3>
+
+            <p>
+                Pukul 09.00 WIB
+            </p>
+
+        </div>
+
+
+        <div class="event">
+
+            <div class="demo-label">
+                RESEPSI
+            </div>
+
+            <h3>
+                Sabtu, 12 Desember 2026
+            </h3>
+
+            <p>
+                Pukul 11.00 – 14.00 WIB
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- CTA -->
+
+<section class="demo-section">
+
+    <div class="demo-section-inner">
+
+        <div class="demo-label">
+            ROYAL PALACE
+        </div>
+
+        <h2>
+            Gunakan Tema <span>Ini?</span>
+        </h2>
+
+        <p>
+            Tema Royal Palace cocok untuk Anda yang
+            menginginkan undangan dengan nuansa
+            mewah, elegan, hitam dan gold.
+        </p>
+
+        <br><br>
+
+        <a
+            href="../order.html?tema=royal-palace"
+            class="demo-button">
+            Gunakan Tema Ini
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer class="demo-footer">
+
+    © 2026 RoyalInvite
+    <br>
+    Undangan Digital Premium
+
+</footer>
+
+
+</body>
+          </html>
