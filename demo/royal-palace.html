@@ -4,432 +4,589 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Royal Palace — RoyalInvite</title>
+<title>Hadi & Riya | Wedding Invitation</title>
 
-<meta name="description"
-content="Preview tema Royal Palace dari RoyalInvite.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link rel="stylesheet" href="../assets/css/style.css">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
 
 body{
     background:#080604;
     color:#f7efe2;
+    font-family:'Montserrat',sans-serif;
+    overflow-x:hidden;
 }
 
-.demo-nav{
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    z-index:1000;
-    padding:18px 20px;
-    background:rgba(8,6,4,.88);
-    backdrop-filter:blur(15px);
-    border-bottom:1px solid rgba(213,170,91,.2);
-}
-
-.demo-nav-inner{
-    max-width:1100px;
+.container{
+    width:90%;
+    max-width:900px;
     margin:auto;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
 }
 
-.demo-logo{
-    color:#f7efe2;
-    text-decoration:none;
-    font-family:Georgia,serif;
-    font-size:24px;
-    font-weight:bold;
+/* FLOWERS */
+
+.flower{
+    position:fixed;
+    top:-50px;
+    z-index:999;
+    pointer-events:none;
+    animation:fall linear infinite;
+    opacity:.8;
 }
 
-.demo-logo span{
-    color:#d5aa5b;
+@keyframes fall{
+    0%{
+        transform:translateY(-50px) rotate(0deg);
+    }
+    100%{
+        transform:translateY(110vh) rotate(360deg);
+    }
 }
 
-.demo-back{
-    color:#d5aa5b;
-    text-decoration:none;
-    border:1px solid rgba(213,170,91,.5);
-    padding:10px 18px;
-    border-radius:30px;
-    font-size:14px;
-}
+/* COVER */
 
-.demo-cover{
+.cover{
     min-height:100vh;
     display:flex;
     align-items:center;
     justify-content:center;
     text-align:center;
-    padding:110px 20px 60px;
+    position:relative;
+    overflow:hidden;
 
     background:
-    radial-gradient(
-        circle at center,
-        rgba(213,170,91,.14),
-        transparent 38%
-    ),
-    linear-gradient(
-        135deg,
-        #080604,
-        #120c07,
-        #080604
-    );
+    radial-gradient(circle at center,
+    rgba(213,170,91,.20),
+    transparent 35%),
+    linear-gradient(145deg,#080604,#21150b);
 }
 
-.demo-content{
-    max-width:700px;
+.cover::before{
+    content:"";
+    position:absolute;
+    inset:25px;
+    border:1px solid rgba(213,170,91,.4);
 }
 
-.demo-label{
+.cover::after{
+    content:"";
+    position:absolute;
+    inset:35px;
+    border:1px solid rgba(213,170,91,.18);
+}
+
+.cover-content{
+    position:relative;
+    z-index:5;
+}
+
+.small-title{
+    color:#d5aa5b;
     letter-spacing:5px;
+    font-size:11px;
+    margin-bottom:30px;
+}
+
+.cover h1{
+    font-family:'Cormorant Garamond',serif;
+    font-size:70px;
+    line-height:.9;
+    color:#f0d79d;
+}
+
+.cover h1 span{
+    display:block;
+    font-size:35px;
+    margin:15px 0;
+    color:#d5aa5b;
+}
+
+.cover p{
+    margin-top:30px;
+    color:#c5b8a5;
     font-size:12px;
-    color:#d5aa5b;
-    margin-bottom:25px;
+    letter-spacing:2px;
 }
 
-.demo-content h1{
-    font-family:Georgia,serif;
-    font-size:clamp(58px,12vw,110px);
-    line-height:.85;
-    margin:0;
-    color:#f7efe2;
-}
-
-.demo-content h1 span{
-    color:#d5aa5b;
-    font-size:.55em;
-}
-
-.demo-date{
-    margin:30px 0;
-    letter-spacing:5px;
-    color:#cfc2ae;
-}
-
-.demo-button{
+.open-btn{
     display:inline-block;
-    padding:14px 28px;
+    margin-top:40px;
+    padding:14px 30px;
     border:1px solid #d5aa5b;
     border-radius:30px;
-    color:#f7efe2;
+    color:#f0d79d;
     text-decoration:none;
+    font-size:12px;
+    letter-spacing:2px;
     transition:.3s;
 }
 
-.demo-button:hover{
+.open-btn:hover{
     background:#d5aa5b;
     color:#080604;
 }
 
-.demo-section{
-    padding:90px 20px;
+/* GENERAL */
+
+section{
+    padding:90px 0;
     text-align:center;
-    border-top:1px solid rgba(213,170,91,.12);
 }
 
-.demo-section-inner{
-    max-width:900px;
-    margin:auto;
-}
-
-.demo-section h2{
-    font-family:Georgia,serif;
-    font-size:42px;
-    margin-bottom:20px;
-}
-
-.demo-section h2 span{
+.label{
     color:#d5aa5b;
+    font-size:10px;
+    letter-spacing:4px;
+    margin-bottom:15px;
 }
 
-.demo-section p{
-    color:#aaa;
-    line-height:1.8;
-    max-width:650px;
-    margin:0 auto;
+h2{
+    font-family:'Cormorant Garamond',serif;
+    font-size:48px;
+    color:#f0d79d;
 }
+
+.divider{
+    width:70px;
+    height:1px;
+    background:#d5aa5b;
+    margin:25px auto;
+}
+
+/* COUPLE */
 
 .couple{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:25px;
-    margin-top:45px;
+    background:#100b07;
 }
 
-.person{
-    padding:35px 20px;
-    border:1px solid rgba(213,170,91,.2);
-    background:rgba(255,255,255,.025);
+.names{
+    font-family:'Cormorant Garamond',serif;
+    font-size:38px;
+    color:#f0d79d;
+    margin:15px 0;
+}
+
+.parents{
+    color:#a99d8b;
+    font-size:12px;
+    line-height:2;
+}
+
+/* DATE */
+
+.date-section{
+    background:
+    radial-gradient(circle at center,
+    rgba(213,170,91,.10),
+    transparent 40%);
+}
+
+.date{
+    font-family:'Cormorant Garamond',serif;
+    font-size:52px;
+    color:#f0d79d;
+}
+
+.time{
+    color:#a99d8b;
+    margin-top:10px;
+}
+
+/* VENUE */
+
+.venue{
+    background:#0b0805;
+}
+
+.venue-name{
+    font-family:'Cormorant Garamond',serif;
+    font-size:32px;
+    color:#f0d79d;
+    margin-bottom:15px;
+}
+
+.address{
+    color:#a99d8b;
+    font-size:12px;
+    line-height:1.8;
+}
+
+.map-btn,
+.rsvp-btn,
+.gift-btn{
+    display:inline-block;
+    margin-top:25px;
+    padding:13px 25px;
+    border:1px solid #d5aa5b;
+    border-radius:30px;
+    color:#f0d79d;
+    text-decoration:none;
+    font-size:11px;
+}
+
+/* GIFT */
+
+.gift{
+    background:#100b07;
+}
+
+.bank-card{
+    max-width:450px;
+    margin:20px auto;
+    padding:25px;
+    border:1px solid rgba(213,170,91,.3);
     border-radius:18px;
+    background:rgba(255,255,255,.03);
 }
 
-.person h3{
-    font-family:Georgia,serif;
-    color:#d5aa5b;
-    font-size:28px;
+.bank-name{
+    color:#f0d79d;
+    font-family:'Cormorant Garamond',serif;
+    font-size:25px;
 }
 
-.event{
-    margin-top:40px;
-    padding:35px 20px;
-    border:1px solid rgba(213,170,91,.25);
-    border-radius:18px;
-    background:rgba(255,255,255,.025);
+.account{
+    margin-top:10px;
+    font-size:20px;
+    letter-spacing:2px;
+    color:#fff;
 }
 
-.event h3{
-    color:#d5aa5b;
-    font-family:Georgia,serif;
-    font-size:27px;
+.account-owner{
+    margin-top:5px;
+    color:#a99d8b;
+    font-size:11px;
 }
 
-.demo-footer{
+/* RSVP */
+
+.rsvp{
+    background:#0b0805;
+}
+
+.rsvp p{
+    color:#a99d8b;
+    font-size:13px;
+}
+
+/* FOOTER */
+
+footer{
+    padding:50px 20px;
     text-align:center;
-    padding:40px 20px;
-    color:#777;
-    border-top:1px solid rgba(213,170,91,.15);
+    border-top:1px solid rgba(213,170,91,.2);
+    background:#050403;
 }
+
+footer h3{
+    font-family:'Cormorant Garamond',serif;
+    font-size:35px;
+    color:#f0d79d;
+}
+
+footer p{
+    margin-top:10px;
+    color:#746b5d;
+    font-size:10px;
+}
+
+/* MOBILE */
 
 @media(max-width:600px){
 
-    .demo-logo{
-        font-size:20px;
+    .cover h1{
+        font-size:58px;
     }
 
-    .demo-back{
-        padding:8px 14px;
-        font-size:12px;
+    .cover h1 span{
+        font-size:30px;
     }
 
-    .couple{
-        grid-template-columns:1fr;
+    h2{
+        font-size:42px;
     }
 
-    .demo-section h2{
-        font-size:34px;
+    .date{
+        font-size:43px;
     }
 
 }
 
 </style>
-
 </head>
 
 <body>
 
-<!-- NAVIGATION -->
+<!-- BUNGA JATUH -->
 
-<header class="demo-nav">
-
-    <div class="demo-nav-inner">
-
-        <a href="../index.html" class="demo-logo">
-            Royal<span>Invite</span>
-        </a>
-
-        <a href="../tema.html" class="demo-back">
-            ← Kembali ke Tema
-        </a>
-
-    </div>
-
-</header>
+<div class="flower" style="left:5%;font-size:20px;animation-duration:8s;">✿</div>
+<div class="flower" style="left:18%;font-size:15px;animation-duration:11s;">❀</div>
+<div class="flower" style="left:35%;font-size:18px;animation-duration:9s;">✿</div>
+<div class="flower" style="left:52%;font-size:14px;animation-duration:12s;">❀</div>
+<div class="flower" style="left:70%;font-size:20px;animation-duration:10s;">✿</div>
+<div class="flower" style="left:88%;font-size:16px;animation-duration:13s;">❀</div>
 
 
 <!-- COVER -->
 
-<section class="demo-cover">
+<section class="cover">
 
-    <div class="demo-content">
+<div class="cover-content">
 
-        <div class="demo-label">
-            THE WEDDING OF
-        </div>
+<div class="small-title">
+THE WEDDING OF
+</div>
 
-        <h1>
-            Hadi
-            <span>&</span>
-            Riya
-        </h1>
+<h1>
+Hadi
+<span>&</span>
+Riya
+</h1>
 
-        <div class="demo-date">
-            12 • 12 • 2026
-        </div>
+<p>
+12 • 12 • 2026
+</p>
 
-        <a href="#undangan" class="demo-button">
-            Buka Undangan
-        </a>
+<a href="#invitation" class="open-btn">
+BUKA UNDANGAN
+</a>
 
-    </div>
-
-</section>
-
-
-<!-- INTRO -->
-
-<section class="demo-section" id="undangan">
-
-    <div class="demo-section-inner">
-
-        <div class="demo-label">
-            OUR SPECIAL DAY
-        </div>
-
-        <h2>
-            Hadi <span>&</span> Riya
-        </h2>
-
-        <p>
-            Dengan penuh kebahagiaan, kami mengundang
-            Anda untuk menjadi bagian dari hari istimewa
-            kami. Sebuah perjalanan baru akan dimulai,
-            dan kehadiran Anda akan menjadi bagian
-            berharga dalam cerita kami.
-        </p>
-
-
-        <div class="couple">
-
-            <div class="person">
-
-                <div class="demo-label">
-                    THE GROOM
-                </div>
-
-                <h3>
-                    Hadianto
-                </h3>
-
-                <p>
-                    Putra dari keluarga tercinta
-                </p>
-
-            </div>
-
-
-            <div class="person">
-
-                <div class="demo-label">
-                    THE BRIDE
-                </div>
-
-                <h3>
-                    Riya
-                </h3>
-
-                <p>
-                    Putri dari keluarga tercinta
-                </p>
-
-            </div>
-
-        </div>
-
-    </div>
+</div>
 
 </section>
 
 
-<!-- EVENT -->
+<div id="invitation">
 
-<section class="demo-section">
+<!-- COUPLE -->
 
-    <div class="demo-section-inner">
+<section class="couple">
 
-        <div class="demo-label">
-            SAVE THE DATE
-        </div>
+<div class="container">
 
-        <h2>
-            Wedding <span>Day</span>
-        </h2>
+<div class="label">
+THE BRIDE & GROOM
+</div>
 
-        <div class="event">
+<h2>
+A Celebration of Love
+</h2>
 
-            <div class="demo-label">
-                AKAD NIKAH
-            </div>
+<div class="divider"></div>
 
-            <h3>
-                Sabtu, 12 Desember 2026
-            </h3>
+<div class="names">
+Hadianto Kurniawan Tan
+</div>
 
-            <p>
-                Pukul 09.00 WIB
-            </p>
+<div class="parents">
+Putra dari Bapak Tan Tjoen Hwa<br>
+& Ibu Tjhin Tjhiu Loe
+</div>
 
-        </div>
+<div class="names">
+&
+</div>
 
+<div class="names">
+Ilmi Riadoh
+</div>
 
-        <div class="event">
+<div class="parents">
+Putri dari Bapak Muhammad Saleh<br>
+& Ibu Nur Alam Ray
+</div>
 
-            <div class="demo-label">
-                RESEPSI
-            </div>
-
-            <h3>
-                Sabtu, 12 Desember 2026
-            </h3>
-
-            <p>
-                Pukul 11.00 – 14.00 WIB
-            </p>
-
-        </div>
-
-    </div>
+</div>
 
 </section>
 
 
-<!-- CTA -->
+<!-- DATE -->
 
-<section class="demo-section">
+<section class="date-section">
 
-    <div class="demo-section-inner">
+<div class="container">
 
-        <div class="demo-label">
-            ROYAL PALACE
-        </div>
+<div class="label">
+SAVE THE DATE
+</div>
 
-        <h2>
-            Gunakan Tema <span>Ini?</span>
-        </h2>
+<h2>
+Our Special Day
+</h2>
 
-        <p>
-            Tema Royal Palace cocok untuk Anda yang
-            menginginkan undangan dengan nuansa
-            mewah, elegan, hitam dan gold.
-        </p>
+<div class="divider"></div>
 
-        <br><br>
+<div class="date">
+12 Desember 2026
+</div>
 
-        <a
-            href="../order.html?tema=royal-palace"
-            class="demo-button">
-            Gunakan Tema Ini
-        </a>
+<div class="time">
+Pukul 11.00 WIB
+</div>
 
-    </div>
+</div>
 
 </section>
+
+
+<!-- VENUE -->
+
+<section class="venue">
+
+<div class="container">
+
+<div class="label">
+WEDDING VENUE
+</div>
+
+<h2>
+Akad & Resepsi
+</h2>
+
+<div class="divider"></div>
+
+<div class="venue-name">
+Vihara Sila Paramita
+</div>
+
+<div class="address">
+Jl. Cipinang Jaya Raya No. 1,<br>
+RT 9 RW 7, Cipinang Besar Selatan,<br>
+Kec. Jatinegara, Jakarta Timur
+</div>
+
+<a
+href="https://www.google.com/maps/search/?api=1&query=Vihara+Sila+Paramita+Jakarta"
+target="_blank"
+class="map-btn">
+LIHAT LOKASI
+</a>
+
+</div>
+
+</section>
+
+
+<!-- GIFT -->
+
+<section class="gift">
+
+<div class="container">
+
+<div class="label">
+WEDDING GIFT
+</div>
+
+<h2>
+Tanda Kasih
+</h2>
+
+<div class="divider"></div>
+
+<div class="bank-card">
+
+<div class="bank-name">
+BCA
+</div>
+
+<div class="account">
+4960141968
+</div>
+
+<div class="account-owner">
+a.n. Hadianto Kurniawan Tan
+</div>
+
+</div>
+
+
+<div class="bank-card">
+
+<div class="bank-name">
+BCA
+</div>
+
+<div class="account">
+2680150420
+</div>
+
+<div class="account-owner">
+a.n. Ilmi Riadoh
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- RSVP -->
+
+<section class="rsvp">
+
+<div class="container">
+
+<div class="label">
+RSVP
+</div>
+
+<h2>
+Konfirmasi Kehadiran
+</h2>
+
+<div class="divider"></div>
+
+<p>
+Dengan penuh kebahagiaan,<br>
+kami menantikan kehadiran Anda.
+</p>
+
+<a
+href="https://wa.me/6281212000347?text=Halo%20Hadi%20%26%20Riya,%20saya%20ingin%20mengkonfirmasi%20kehadiran%20di%20acara%20pernikahan."
+target="_blank"
+class="rsvp-btn">
+KONFIRMASI VIA WHATSAPP
+</a>
+
+</div>
+
+</section>
+
+</div>
 
 
 <!-- FOOTER -->
 
-<footer class="demo-footer">
+<footer>
 
-    © 2026 RoyalInvite
-    <br>
-    Undangan Digital Premium
+<h3>
+Hadi & Riya
+</h3>
+
+<p>
+12 • 12 • 2026
+</p>
+
+<p>
+With Love
+</p>
 
 </footer>
 
-
 </body>
-          </html>
+</html>
