@@ -1,1 +1,989 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>Buat Undangan | RoyalInvite</title>
+
+<meta name="description"
+content="Buat undangan digital premium bersama RoyalInvite.">
+
+<link rel="stylesheet" href="assets/css/style.css">
+
+<style>
+/* =========================
+   ORDER PAGE
+========================= */
+
+.order-page{
+    min-height:100vh;
+    padding:120px 20px 80px;
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(213,170,91,.13),
+            transparent 38%
+        ),
+        var(--bg);
+}
+
+.order-header{
+    max-width:760px;
+    margin:0 auto 45px;
+    text-align:center;
+}
+
+.order-eyebrow{
+    color:var(--gold);
+    font-size:12px;
+    letter-spacing:4px;
+    font-weight:600;
+    margin-bottom:18px;
+}
+
+.order-header h1{
+    font-family:"Cormorant Garamond",serif;
+    font-size:clamp(42px,7vw,70px);
+    line-height:1;
+    margin-bottom:20px;
+}
+
+.order-header h1 span{
+    color:var(--gold-light);
+}
+
+.order-header p{
+    color:var(--muted);
+    line-height:1.8;
+}
+
+/* CONTAINER */
+
+.order-container{
+    max-width:900px;
+    margin:auto;
+}
+
+.order-box{
+    border:1px solid var(--border);
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.055),
+            rgba(255,255,255,.015)
+        );
+    border-radius:24px;
+    padding:35px;
+    box-shadow:0 20px 80px rgba(0,0,0,.25);
+}
+
+/* STEP */
+
+.form-step{
+    margin-bottom:35px;
+}
+
+.step-title{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    margin-bottom:20px;
+}
+
+.step-number{
+    width:34px;
+    height:34px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:50%;
+    background:linear-gradient(
+        135deg,
+        #d5aa5b,
+        #f0d79d
+    );
+    color:#17100a;
+    font-weight:700;
+}
+
+.step-title h2{
+    font-family:"Cormorant Garamond",serif;
+    font-size:28px;
+}
+
+/* FORM */
+
+.form-group{
+    margin-bottom:18px;
+}
+
+.form-group label{
+    display:block;
+    margin-bottom:8px;
+    color:#ddd0bd;
+    font-size:14px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea{
+    width:100%;
+    padding:14px 16px;
+    border-radius:12px;
+    border:1px solid rgba(213,170,91,.2);
+    background:rgba(0,0,0,.25);
+    color:#fff;
+    outline:none;
+    font-family:inherit;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus{
+    border-color:var(--gold);
+}
+
+.form-group textarea{
+    min-height:100px;
+    resize:vertical;
+}
+
+.form-row{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:18px;
+}
+
+/* THEME */
+
+.theme-choice{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:15px;
+}
+
+.theme-option{
+    position:relative;
+}
+
+.theme-option input{
+    position:absolute;
+    opacity:0;
+}
+
+.theme-label{
+    display:block;
+    padding:20px;
+    border:1px solid rgba(213,170,91,.18);
+    border-radius:16px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.theme-label:hover{
+    border-color:var(--gold);
+}
+
+.theme-option input:checked + .theme-label{
+    border-color:var(--gold);
+    background:rgba(213,170,91,.08);
+    box-shadow:0 0 25px rgba(213,170,91,.08);
+}
+
+.theme-label strong{
+    display:block;
+    font-family:"Cormorant Garamond",serif;
+    font-size:24px;
+    color:var(--gold-light);
+    margin-bottom:5px;
+}
+
+.theme-label span{
+    color:var(--muted);
+    font-size:13px;
+}
+
+/* PACKAGE */
+
+.package-choice{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:14px;
+}
+
+.package-option{
+    position:relative;
+}
+
+.package-option input{
+    position:absolute;
+    opacity:0;
+}
+
+.package-label{
+    display:block;
+    padding:20px 15px;
+    text-align:center;
+    border:1px solid rgba(213,170,91,.18);
+    border-radius:16px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.package-label strong{
+    display:block;
+    font-family:"Cormorant Garamond",serif;
+    font-size:25px;
+    color:var(--gold-light);
+}
+
+.package-label span{
+    color:var(--muted);
+    font-size:13px;
+}
+
+.package-option input:checked + .package-label{
+    background:rgba(213,170,91,.1);
+    border-color:var(--gold);
+}
+
+/* SUBMIT */
+
+.submit-area{
+    border-top:1px solid rgba(255,255,255,.08);
+    padding-top:30px;
+    margin-top:20px;
+}
+
+.submit-btn{
+    width:100%;
+    border:0;
+    padding:17px;
+    border-radius:40px;
+    background:linear-gradient(
+        135deg,
+        #d5aa5b,
+        #f0d79d
+    );
+    color:#17100a;
+    font-weight:700;
+    font-size:15px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.submit-btn:hover{
+    transform:translateY(-2px);
+    box-shadow:0 12px 35px rgba(213,170,91,.2);
+}
+
+.order-info{
+    text-align:center;
+    margin-top:18px;
+    color:var(--muted);
+    font-size:12px;
+    line-height:1.7;
+}
+
+/* SUCCESS */
+
+.success-message{
+    display:none;
+    margin-top:20px;
+    padding:20px;
+    border:1px solid rgba(213,170,91,.35);
+    border-radius:15px;
+    background:rgba(213,170,91,.06);
+    color:#ead9bd;
+    line-height:1.7;
+    text-align:center;
+}
+
+/* MOBILE */
+
+@media(max-width:700px){
+
+    .order-box{
+        padding:22px;
+    }
+
+    .form-row{
+        grid-template-columns:1fr;
+        gap:0;
+    }
+
+    .theme-choice{
+        grid-template-columns:1fr;
+    }
+
+    .package-choice{
+        grid-template-columns:1fr;
+    }
+
+}
+</style>
+</head>
+
+<body>
+
+<!-- =========================
+     NAVBAR
+========================= -->
+
+<nav class="navbar">
+
+    <div class="container nav-inner">
+
+        <a href="index.html" class="logo">
+            Royal<span>Invite</span>
+        </a>
+
+        <div class="nav-links">
+
+            <a href="index.html">
+                Beranda
+            </a>
+
+            <a href="tema.html">
+                Tema
+            </a>
+
+            <a href="harga.html">
+                Harga
+            </a>
+
+            <a href="order.html" class="nav-button">
+                Buat Undangan
+            </a>
+
+        </div>
+
+    </div>
+
+</nav>
+
+
+<!-- =========================
+     ORDER
+========================= -->
+
+<main class="order-page">
+
+    <header class="order-header">
+
+        <div class="order-eyebrow">
+            MULAI SEKARANG
+        </div>
+
+        <h1>
+            Buat Undangan<br>
+            <span>Impian Anda</span>
+        </h1>
+
+        <p>
+            Isi data berikut untuk memulai pembuatan
+            undangan digital RoyalInvite.
+        </p>
+
+    </header>
+
+
+    <div class="order-container">
+
+        <form
+            class="order-box"
+            id="orderForm">
+
+
+            <!-- STEP 1 -->
+
+            <section class="form-step">
+
+                <div class="step-title">
+
+                    <div class="step-number">
+                        1
+                    </div>
+
+                    <h2>
+                        Pilih Jenis Acara
+                    </h2>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Jenis acara
+                    </label>
+
+                    <select id="eventType" required>
+
+                        <option value="">
+                            Pilih jenis acara
+                        </option>
+
+                        <option>
+                            Pernikahan
+                        </option>
+
+                        <option>
+                            Aqiqah
+                        </option>
+
+                        <option>
+                            Khitanan
+                        </option>
+
+                        <option>
+                            Ulang Tahun
+                        </option>
+
+                        <option>
+                            Syukuran
+                        </option>
+
+                        <option>
+                            Event
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </section>
+
+
+            <!-- STEP 2 -->
+
+            <section class="form-step">
+
+                <div class="step-title">
+
+                    <div class="step-number">
+                        2
+                    </div>
+
+                    <h2>
+                        Pilih Tema
+                    </h2>
+
+                </div>
+
+
+                <div class="theme-choice">
+
+                    <div class="theme-option">
+
+                        <input
+                            type="radio"
+                            name="theme"
+                            id="royal"
+                            value="Royal Palace"
+                            checked>
+
+                        <label
+                            class="theme-label"
+                            for="royal">
+
+                            <strong>
+                                Royal Palace
+                            </strong>
+
+                            <span>
+                                Hitam & Gold · Premium
+                            </span>
+
+                        </label>
+
+                    </div>
+
+
+                    <div class="theme-option">
+
+                        <input
+                            type="radio"
+                            name="theme"
+                            id="elegant"
+                            value="Elegant Gold">
+
+                        <label
+                            class="theme-label"
+                            for="elegant">
+
+                            <strong>
+                                Elegant Gold
+                            </strong>
+
+                            <span>
+                                Elegant · Luxury
+                            </span>
+
+                        </label>
+
+                    </div>
+
+
+                    <div class="theme-option">
+
+                        <input
+                            type="radio"
+                            name="theme"
+                            id="floral"
+                            value="Floral Romance">
+
+                        <label
+                            class="theme-label"
+                            for="floral">
+
+                            <strong>
+                                Floral Romance
+                            </strong>
+
+                            <span>
+                                Romantic · Floral
+                            </span>
+
+                        </label>
+
+                    </div>
+
+
+                    <div class="theme-option">
+
+                        <input
+                            type="radio"
+                            name="theme"
+                            id="minimalist"
+                            value="Minimalist">
+
+                        <label
+                            class="theme-label"
+                            for="minimalist">
+
+                            <strong>
+                                Minimalist
+                            </strong>
+
+                            <span>
+                                Simple · Modern
+                            </span>
+
+                        </label>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- STEP 3 -->
+
+            <section class="form-step">
+
+                <div class="step-title">
+
+                    <div class="step-number">
+                        3
+                    </div>
+
+                    <h2>
+                        Pilih Paket
+                    </h2>
+
+                </div>
+
+
+                <div class="package-choice">
+
+                    <div class="package-option">
+
+                        <input
+                            type="radio"
+                            name="package"
+                            id="basic"
+                            value="Basic - Rp49.000">
+
+                        <label
+                            class="package-label"
+                            for="basic">
+
+                            <strong>
+                                Basic
+                            </strong>
+
+                            <span>
+                                Rp49K
+                            </span>
+
+                        </label>
+
+                    </div>
+
+
+                    <div class="package-option">
+
+                        <input
+                            type="radio"
+                            name="package"
+                            id="premium"
+                            value="Premium - Rp99.000"
+                            checked>
+
+                        <label
+                            class="package-label"
+                            for="premium">
+
+                            <strong>
+                                Premium
+                            </strong>
+
+                            <span>
+                                Rp99K
+                            </span>
+
+                        </label>
+
+                    </div>
+
+
+                    <div class="package-option">
+
+                        <input
+                            type="radio"
+                            name="package"
+                            id="exclusive"
+                            value="Exclusive - Rp199.000">
+
+                        <label
+                            class="package-label"
+                            for="exclusive">
+
+                            <strong>
+                                Exclusive
+                            </strong>
+
+                            <span>
+                                Rp199K
+                            </span>
+
+                        </label>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- STEP 4 -->
+
+            <section class="form-step">
+
+                <div class="step-title">
+
+                    <div class="step-number">
+                        4
+                    </div>
+
+                    <h2>
+                        Data Pemesan
+                    </h2>
+
+                </div>
+
+
+                <div class="form-row">
+
+                    <div class="form-group">
+
+                        <label>
+                            Nama lengkap
+                        </label>
+
+                        <input
+                            type="text"
+                            id="name"
+                            placeholder="Nama Anda"
+                            required>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Nomor WhatsApp
+                        </label>
+
+                        <input
+                            type="tel"
+                            id="phone"
+                            placeholder="08xxxxxxxxxx"
+                            required>
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Nama pasangan / nama acara
+                    </label>
+
+                    <input
+                        type="text"
+                        id="couple"
+                        placeholder="Contoh: Hadi & Riya"
+                        required>
+
+                </div>
+
+
+                <div class="form-row">
+
+                    <div class="form-group">
+
+                        <label>
+                            Tanggal acara
+                        </label>
+
+                        <input
+                            type="date"
+                            id="date"
+                            required>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Kota / lokasi acara
+                        </label>
+
+                        <input
+                            type="text"
+                            id="location"
+                            placeholder="Contoh: Jakarta"
+                            required>
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Catatan tambahan
+                    </label>
+
+                    <textarea
+                        id="notes"
+                        placeholder="Tuliskan kebutuhan khusus Anda..."></textarea>
+
+                </div>
+
+            </section>
+
+
+            <!-- SUBMIT -->
+
+            <div class="submit-area">
+
+                <button
+                    type="submit"
+                    class="submit-btn">
+
+                    Pesan Sekarang via WhatsApp
+
+                </button>
+
+                <div class="order-info">
+
+                    Setelah tombol ditekan, detail pesanan
+                    akan disiapkan untuk dikirim melalui WhatsApp.
+
+                </div>
+
+                <div
+                    class="success-message"
+                    id="successMessage">
+
+                    Pesanan sedang disiapkan...
+                    WhatsApp akan terbuka otomatis.
+
+                </div>
+
+            </div>
+
+
+        </form>
+
+    </div>
+
+</main>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+    <div class="container">
+
+        <div class="footer-brand">
+            Royal<span>Invite</span>
+        </div>
+
+        <p>
+            Undangan digital elegan untuk momen
+            yang tidak terlupakan.
+        </p>
+
+        <div class="footer-bottom">
+            © 2026 RoyalInvite. All Rights Reserved.
+        </div>
+
+    </div>
+
+</footer>
+
+
+<!-- =========================
+     JAVASCRIPT
+========================= -->
+
+<script>
+
+document
+.getElementById("orderForm")
+.addEventListener("submit", function(event){
+
+    event.preventDefault();
+
+
+    /*
+       GANTI NOMOR INI DENGAN
+       NOMOR WHATSAPP BISNIS ROYALINVITE
+       
+       Format:
+       628xxxxxxxxxx
+       
+       Jangan gunakan + atau spasi.
+    */
+
+    const adminWhatsApp = "6281234567890";
+
+
+    const eventType =
+        document.getElementById("eventType").value;
+
+    const theme =
+        document.querySelector(
+            'input[name="theme"]:checked'
+        ).value;
+
+    const packageName =
+        document.querySelector(
+            'input[name="package"]:checked'
+        ).value;
+
+    const name =
+        document.getElementById("name").value;
+
+    const phone =
+        document.getElementById("phone").value;
+
+    const couple =
+        document.getElementById("couple").value;
+
+    const date =
+        document.getElementById("date").value;
+
+    const location =
+        document.getElementById("location").value;
+
+    const notes =
+        document.getElementById("notes").value;
+
+
+    const message =
+
+`Halo RoyalInvite 👋
+
+Saya ingin membuat undangan digital.
+
+━━━━━━━━━━━━━━
+DATA PESANAN
+━━━━━━━━━━━━━━
+
+Jenis Acara:
+${eventType}
+
+Tema:
+${theme}
+
+Paket:
+${packageName}
+
+Nama Pemesan:
+${name}
+
+WhatsApp:
+${phone}
+
+Nama Pasangan/Acara:
+${couple}
+
+Tanggal Acara:
+${date}
+
+Lokasi:
+${location}
+
+Catatan:
+${notes || "-"}
+
+━━━━━━━━━━━━━━
+
+Mohon informasi langkah selanjutnya.
+
+Terima kasih.
+`;
+
+
+    const whatsappURL =
+        "https://wa.me/" +
+        adminWhatsApp +
+        "?text=" +
+        encodeURIComponent(message);
+
+
+    document
+    .getElementById("successMessage")
+    .style.display = "block";
+
+
+    setTimeout(function(){
+
+        window.open(
+            whatsappURL,
+            "_blank"
+        );
+
+    },500);
+
+});
+
+</script>
+
+</body>
+</html>
