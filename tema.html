@@ -1,953 +1,469 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Pilih Tema | RoyalInvite</title>
-
-<meta name="description"
-content="Pilih tema undangan digital premium RoyalInvite.">
-
-<link rel="stylesheet" href="assets/css/style.css">
-
-<style>
-
-/* =========================
-   TEMA PAGE
-========================= */
-
-.theme-page{
-    min-height:100vh;
-    padding:130px 20px 80px;
-}
-
-.theme-wrap{
-    max-width:1150px;
-    margin:auto;
-}
-
-
-/* =========================
-   HEADER
-========================= */
-
-.theme-header{
-    text-align:center;
-    margin-bottom:55px;
-}
-
-.theme-eyebrow{
-    color:#d5aa5b;
-    letter-spacing:4px;
-    font-size:12px;
-    font-weight:700;
-    margin-bottom:15px;
-}
-
-.theme-header h1{
-    font-family:"Cormorant Garamond",serif;
-    font-size:clamp(44px,7vw,72px);
-    line-height:1;
-    margin-bottom:20px;
-}
-
-.theme-header p{
-    max-width:680px;
-    margin:auto;
-    color:#a99d8b;
-    line-height:1.8;
-}
-
-
-/* =========================
-   GRID
-========================= */
-
-.theme-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:25px;
-}
-
-
-/* =========================
-   CARD
-========================= */
-
-.theme-card{
-    position:relative;
-    overflow:hidden;
-
-    background:rgba(255,255,255,.035);
-
-    border:1px solid rgba(213,170,91,.22);
-
-    border-radius:22px;
-
-    transition:.35s;
-
-    backdrop-filter:blur(12px);
-}
-
-.theme-card:hover{
-    transform:translateY(-7px);
-    border-color:#d5aa5b;
-    box-shadow:0 18px 45px rgba(0,0,0,.25);
-}
-
-
-/* =========================
-   PREVIEW AREA
-========================= */
-
-.theme-preview{
-    height:250px;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    text-align:center;
-
-    position:relative;
-
-    overflow:hidden;
-}
-
-
-/* Tema 1 */
-
-.preview-royal{
-    background:
-    linear-gradient(
-        135deg,
-        #24160d,
-        #5c4022
-    );
-}
-
-
-/* Tema 2 */
-
-.preview-gold{
-    background:
-    linear-gradient(
-        135deg,
-        #15110c,
-        #8a6a32
-    );
-}
-
-
-/* Tema 3 */
-
-.preview-floral{
-    background:
-    linear-gradient(
-        135deg,
-        #493936,
-        #8e7167
-    );
-}
-
-
-/* Tema 4 */
-
-.preview-minimal{
-    background:
-    linear-gradient(
-        135deg,
-        #eeeeea,
-        #c9c7c0
-    );
-}
-
-
-/* Tema 5 */
-
-.preview-classic{
-    background:
-    linear-gradient(
-        135deg,
-        #17120e,
-        #423125
-    );
-}
-
-
-/* Tema 6 */
-
-.preview-luxury{
-    background:
-    linear-gradient(
-        135deg,
-        #080808,
-        #292017,
-        #a47b38
-    );
-}
-
-
-/* =========================
-   PREVIEW CONTENT
-========================= */
-
-.preview-content{
-    position:relative;
-    z-index:2;
-}
-
-.preview-content .small{
-    font-size:11px;
-    letter-spacing:4px;
-    color:#e5c47b;
-    margin-bottom:12px;
-}
-
-.preview-content h2{
-    font-family:"Cormorant Garamond",serif;
-    font-size:40px;
-    color:#fff;
-    margin-bottom:5px;
-}
-
-.preview-content p{
-    color:#e8dcc9;
-    font-size:13px;
-    letter-spacing:1px;
-}
-
-
-/* Minimalist text */
-
-.preview-minimal .preview-content h2{
-    color:#29251f;
-}
-
-.preview-minimal .preview-content .small{
-    color:#7c6e5c;
-}
-
-.preview-minimal .preview-content p{
-    color:#554d43;
-}
-
-
-/* =========================
-   CARD CONTENT
-========================= */
-
-.theme-content{
-    padding:25px;
-}
-
-.theme-content h3{
-    font-family:"Cormorant Garamond",serif;
-    font-size:28px;
-    margin-bottom:7px;
-}
-
-.theme-category{
-    display:inline-block;
-
-    font-size:11px;
-    letter-spacing:1px;
-
-    color:#d5aa5b;
-
-    margin-bottom:15px;
-}
-
-.theme-description{
-    color:#a99d8b;
-    font-size:14px;
-    line-height:1.7;
-
-    min-height:70px;
-}
-
-
-/* =========================
-   BUTTONS
-========================= */
-
-.theme-buttons{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:10px;
-
-    margin-top:20px;
-}
-
-.theme-btn{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    min-height:45px;
-
-    border-radius:999px;
-
-    text-decoration:none;
-
-    font-size:13px;
-    font-weight:700;
-
-    transition:.3s;
-}
-
-
-/* Preview */
-
-.preview-btn{
-    border:1px solid rgba(213,170,91,.35);
-    color:#e8dcc9;
-    background:transparent;
-}
-
-.preview-btn:hover{
-    border-color:#d5aa5b;
-    color:#d5aa5b;
-}
-
-
-/* Gunakan */
-
-.use-btn{
-    background:
-    linear-gradient(
-        135deg,
-        #f0d79d,
-        #c99a45
-    );
-
-    color:#180f08;
-}
-
-.use-btn:hover{
-    transform:translateY(-2px);
-
-    box-shadow:
-    0 8px 25px rgba(213,170,91,.25);
-}
-
-
-/* =========================
-   BADGE EXCLUSIVE
-========================= */
-
-.exclusive-badge{
-    position:absolute;
-
-    top:15px;
-    right:15px;
-
-    z-index:5;
-
-    padding:7px 12px;
-
-    border-radius:999px;
-
-    background:#d5aa5b;
-    color:#180f08;
-
-    font-size:10px;
-    font-weight:800;
-
-    letter-spacing:1px;
-}
-
-
-/* =========================
-   FOOTER NOTE
-========================= */
-
-.theme-note{
-    text-align:center;
-
-    margin-top:50px;
-
-    color:#817667;
-
-    font-size:13px;
-
-    line-height:1.7;
-}
-
-
-/* =========================
-   RESPONSIVE
-========================= */
-
-@media(max-width:900px){
-
-    .theme-grid{
-        grid-template-columns:repeat(2,1fr);
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Pilihan Tema | RoyalInvite</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
-}
-
-
-@media(max-width:600px){
-
-    .theme-page{
-        padding-top:110px;
+    body {
+      font-family: Arial, sans-serif;
+      background: #f8f5ef;
+      color: #333;
     }
 
-    .theme-grid{
-        grid-template-columns:1fr;
+    /* NAVBAR */
+    nav {
+      background: #111;
+      padding: 16px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
 
-    .theme-preview{
-        height:230px;
+    .logo {
+      color: #d4af37;
+      font-size: 24px;
+      font-weight: bold;
+      text-decoration: none;
     }
 
-    .theme-content{
-        padding:22px;
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 22px;
     }
 
-}
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-size: 15px;
+    }
 
-</style>
+    nav ul li a:hover {
+      color: #d4af37;
+    }
 
+    /* HEADER */
+    .hero {
+      text-align: center;
+      padding: 60px 20px 35px;
+    }
+
+    .hero h1 {
+      font-size: 38px;
+      color: #222;
+      margin-bottom: 12px;
+    }
+
+    .hero p {
+      color: #777;
+      font-size: 16px;
+    }
+
+    /* THEME GRID */
+    .theme-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 20px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    .theme-card {
+      background: white;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 5px 18px rgba(0,0,0,0.08);
+      transition: 0.3s;
+    }
+
+    .theme-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+    }
+
+    .theme-image {
+      height: 220px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .royal {
+      background: linear-gradient(135deg, #171717, #8f6b1f);
+      color: #d4af37;
+    }
+
+    .gold {
+      background: linear-gradient(135deg, #f7e7b5, #c9a227);
+      color: #5b4510;
+    }
+
+    .floral {
+      background: linear-gradient(135deg, #f9d8df, #d8a0ad);
+      color: #7a4050;
+    }
+
+    .minimalist {
+      background: linear-gradient(135deg, #eeeeee, #d5d5d5);
+      color: #333;
+    }
+
+    .classic {
+      background: linear-gradient(135deg, #e7d9c8, #a88967);
+      color: #4d3724;
+    }
+
+    .luxury {
+      background: linear-gradient(135deg, #111, #333);
+      color: #e8c75b;
+    }
+
+    .theme-content {
+      padding: 22px;
+    }
+
+    .theme-content h2 {
+      margin-bottom: 8px;
+      font-size: 22px;
+    }
+
+    .theme-content p {
+      color: #777;
+      line-height: 1.6;
+      margin-bottom: 18px;
+      font-size: 14px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 10px;
+    }
+
+    .btn {
+      flex: 1;
+      text-align: center;
+      padding: 11px 8px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .btn-preview {
+      background: #eee;
+      color: #333;
+    }
+
+    .btn-preview:hover {
+      background: #ddd;
+    }
+
+    .btn-use {
+      background: #111;
+      color: #d4af37;
+    }
+
+    .btn-use:hover {
+      background: #333;
+    }
+
+    .btn-disabled {
+      background: #eee;
+      color: #999;
+      cursor: default;
+    }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 35px 20px;
+      margin-top: 50px;
+      background: #111;
+      color: #aaa;
+      font-size: 14px;
+    }
+
+    footer span {
+      color: #d4af37;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 800px) {
+      nav {
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      nav ul {
+        gap: 14px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .theme-container {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 550px) {
+      .hero h1 {
+        font-size: 30px;
+      }
+
+      .theme-container {
+        grid-template-columns: 1fr;
+      }
+
+      .theme-image {
+        height: 200px;
+      }
+    }
+  </style>
 </head>
-
 
 <body>
 
+  <!-- NAVBAR -->
+  <nav>
+    <a href="index.html" class="logo">RoyalInvite</a>
 
-<!-- =========================
-     NAVBAR
-========================= -->
-
-<nav class="navbar">
-
-    <div class="container nav-inner">
-
-        <a href="index.html" class="logo">
-            Royal<span>Invite</span>
-        </a>
-
-
-        <div class="nav-links">
-
-            <a href="index.html">
-                Beranda
-            </a>
-
-            <a href="tema.html" class="active">
-                Tema
-            </a>
-
-            <a href="harga.html">
-                Harga
-            </a>
-
-            <a href="order.html" class="nav-button">
-                Buat Undangan
-            </a>
-
-        </div>
-
-    </div>
-
-</nav>
+    <ul>
+      <li><a href="index.html">Beranda</a></li>
+      <li><a href="tema.html">Tema</a></li>
+      <li><a href="harga.html">Harga</a></li>
+      <li><a href="order.html">Buat Undangan</a></li>
+    </ul>
+  </nav>
 
 
+  <!-- HEADER -->
+  <section class="hero">
+    <h1>Pilih Tema Undangan</h1>
+    <p>
+      Temukan desain yang sesuai dengan momen spesial Anda.
+    </p>
+  </section>
 
-<!-- =========================
-     HALAMAN TEMA
-========================= -->
 
-<main class="theme-page">
+  <!-- THEME LIST -->
+  <section class="theme-container">
 
-<div class="theme-wrap">
+    <!-- ROYAL PALACE -->
+    <div class="theme-card">
+      <div class="theme-image royal">
+        Royal Palace
+      </div>
 
-
-    <!-- HEADER -->
-
-    <header class="theme-header">
-
-        <div class="theme-eyebrow">
-            KOLEKSI TEMA
-        </div>
-
-        <h1>
-            Pilih Tema Undangan
-        </h1>
+      <div class="theme-content">
+        <h2>Royal Palace</h2>
 
         <p>
-            Temukan desain yang sesuai dengan
-            momen istimewa Anda. Pilih tema,
-            lihat preview, lalu gunakan tema
-            untuk membuat undangan digital Anda.
+          Tema elegan dengan nuansa hitam dan emas,
+          cocok untuk pernikahan mewah dan berkelas.
         </p>
 
-    </header>
-
-
-
-    <!-- =========================
-         GRID TEMA
-    ========================= -->
-
-    <div class="theme-grid">
-
-
-        <!-- =====================
-             ROYAL PALACE
-        ====================== -->
-
-        <article class="theme-card">
-
-            <div class="theme-preview preview-royal">
-
-                <div class="preview-content">
-
-                    <div class="small">
-                        ROYAL INVITATION
-                    </div>
-
-                    <h2>
-                        Royal Palace
-                    </h2>
-
-                    <p>
-                        Elegant Wedding
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <div class="theme-content">
-
-                <span class="theme-category">
-                    WEDDING
-                </span>
-
-                <h3>
-                    Royal Palace
-                </h3>
-
-                <p class="theme-description">
-                    Tampilan mewah dan elegan
-                    dengan nuansa kerajaan untuk
-                    pernikahan yang berkesan.
-                </p>
-
-
-                <div class="theme-buttons">
-
-                    <a
-                        href="demo/royal-palace.html"
-                        class="theme-btn preview-btn">
-
-                        Preview
-
-                    </a>
-
-
-                    <a
-                        href="order.html?tema=royal-palace"
-                        class="theme-btn use-btn">
-
-                        Gunakan
-
-                    </a>
-
-                </div>
-
-            </div>
-
-        </article>
-
-
-
-        <!-- =====================
-             ELEGANT GOLD
-        ====================== -->
-
-        <article class="theme-card">
-
-            <div class="theme-preview preview-gold">
-
-                <div class="preview-content">
-
-                    <div class="small">
-                        GOLD COLLECTION
-                    </div>
-
-                    <h2>
-                        Elegant Gold
-                    </h2>
-
-                    <p>
-                        Luxury Wedding
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <div class="theme-content">
-
-                <span class="theme-category">
-                    WEDDING
-                </span>
-
-                <h3>
-                    Elegant Gold
-                </h3>
-
-                <p class="theme-description">
-                    Perpaduan warna gelap dan
-                    gold yang memberikan kesan
-                    eksklusif dan berkelas.
-                </p>
-
-
-                <div class="theme-buttons">
-
-                    <a
-                        href="demo/elegant-gold.html"
-                        class="theme-btn preview-btn">
-
-                        Preview
-
-                    </a>
-
-
-                    <a
-                        href="order.html?tema=elegant-gold"
-                        class="theme-btn use-btn">
-
-                        Gunakan
-
-                    </a>
-
-                </div>
-
-            </div>
-
-        </article>
-
-
-
-        <!-- =====================
-             FLORAL ROMANCE
-        ====================== -->
-
-        <article class="theme-card">
-
-            <div class="theme-preview preview-floral">
-
-                <div class="preview-content">
-
-                    <div class="small">
-                        FLORAL COLLECTION
-                    </div>
-
-                    <h2>
-                        Floral Romance
-                    </h2>
-
-                    <p>
-                        Romantic Wedding
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <div class="theme-content">
-
-                <span class="theme-category">
-                    WEDDING
-                </span>
-
-                <h3>
-                    Floral Romance
-                </h3>
-
-                <p class="theme-description">
-                    Nuansa romantis dan lembut
-                    dengan sentuhan floral untuk
-                    pasangan yang menyukai
-                    suasana hangat.
-                </p>
-
-
-                <div class="theme-buttons">
-
-                    <a
-                        href="demo/floral-love.html"
-                        class="theme-btn preview-btn">
-
-                        Preview
-
-                    </a>
-
-
-                    <a
-                        href="order.html?tema=floral-romance"
-                        class="theme-btn use-btn">
-
-                        Gunakan
-
-                    </a>
-
-                </div>
-
-            </div>
-
-        </article>
-
-
-
-        <!-- =====================
-             MINIMALIST
-        ====================== -->
-
-        <article class="theme-card">
-
-            <div class="theme-preview preview-minimal">
-
-                <div class="preview-content">
-
-                    <div class="small">
-                        SIMPLE COLLECTION
-                    </div>
-
-                    <h2>
-                        Minimalist
-                    </h2>
-
-                    <p>
-                        Modern Wedding
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <div class="theme-content">
-
-                <span class="theme-category">
-                    WEDDING
-                </span>
-
-                <h3>
-                    Minimalist
-                </h3>
-
-                <p class="theme-description">
-                    Desain sederhana, bersih,
-                    modern dan elegan tanpa
-                    tampilan yang berlebihan.
-                </p>
-
-
-                <div class="theme-buttons">
-
-                    <a
-                        href="demo/minimalist.html"
-                        class="theme-btn preview-btn">
-
-                        Preview
-
-                    </a>
-
-
-                    <a
-                        href="order.html?tema=minimalist"
-                        class="theme-btn use-btn">
-
-                        Gunakan
-
-                    </a>
-
-                </div>
-
-            </div>
-
-        </article>
-
-
-
-        <!-- =====================
-             CLASSIC
-        ====================== -->
-
-        <article class="theme-card">
-
-            <div class="theme-preview preview-classic">
-
-                <div class="preview-content">
-
-                    <div class="small">
-                        CLASSIC COLLECTION
-                    </div>
-
-                    <h2>
-                        Classic
-                    </h2>
-
-                    <p>
-                        Timeless Wedding
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <div class="theme-content">
-
-                <span class="theme-category">
-                    WEDDING
-                </span>
-
-                <h3>
-                    Classic
-                </h3>
-
-                <p class="theme-description">
-                    Gaya klasik yang timeless
-                    dengan nuansa elegan dan
-                    formal untuk hari istimewa.
-                </p>
-
-
-                <div class="theme-buttons">
-
-                    <span
-                        class="theme-btn preview-btn"
-                        style="opacity:.5;cursor:default;">
-
-                        Preview Segera
-
-                    </span>
-
-
-                    <a
-                        href="order.html?tema=classic"
-                        class="theme-btn use-btn">
-
-                        Gunakan
-
-                    </a>
-
-                </div>
-
-            </div>
-
-        </article>
-
-
-
-        <!-- =====================
-             LUXURY
-        ====================== -->
-
-        <article class="theme-card">
-
-            <div class="theme-preview preview-luxury">
-
-                <span class="exclusive-badge">
-                    EXCLUSIVE
-                </span>
-
-
-                <div class="preview-content">
-
-                    <div class="small">
-                        PREMIUM COLLECTION
-                    </div>
-
-                    <h2>
-                        Luxury
-                    </h2>
-
-                    <p>
-                        Premium Wedding
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <div class="theme-content">
-
-                <span class="theme-category">
-                    EXCLUSIVE
-                </span>
-
-                <h3>
-                    Luxury
-                </h3>
-
-                <p class="theme-description">
-                    Desain premium dengan
-                    tampilan mewah untuk
-                    undangan yang terlihat
-                    eksklusif dan berkelas.
-                </p>
-
-
-                <div class="theme-buttons">
-
-                    <a
-                        href="demo/Luxury.html"
-                        class="theme-btn preview-btn">
-
-                        Preview
-
-                    </a>
-
-
-                    <a
-                        href="order.html?tema=luxury"
-                        class="theme-btn use-btn">
-
-                        Gunakan
-
-                    </a>
-
-                </div>
-
-            </div>
-
-        </article>
-
-
+        <div class="buttons">
+          <a
+            href="demo/royal-palace.html"
+            class="btn btn-preview"
+          >
+            Preview
+          </a>
+
+          <a
+            href="order.html?tema=royal-palace"
+            class="btn btn-use"
+          >
+            Gunakan
+          </a>
+        </div>
+      </div>
     </div>
 
 
+    <!-- ELEGANT GOLD -->
+    <div class="theme-card">
+      <div class="theme-image gold">
+        Elegant Gold
+      </div>
 
-    <!-- NOTE -->
+      <div class="theme-content">
+        <h2>Elegant Gold</h2>
 
-    <div class="theme-note">
+        <p>
+          Perpaduan warna emas yang memberikan
+          kesan mewah, hangat, dan elegan.
+        </p>
 
-        Pilih <strong>Preview</strong> untuk melihat
-        tampilan tema atau pilih
-        <strong>Gunakan</strong> untuk langsung
-        membuat pesanan dengan tema tersebut.
+        <div class="buttons">
+          <a
+            href="demo/elegant-gold.html"
+            class="btn btn-preview"
+          >
+            Preview
+          </a>
 
+          <a
+            href="order.html?tema=elegant-gold"
+            class="btn btn-use"
+          >
+            Gunakan
+          </a>
+        </div>
+      </div>
     </div>
 
 
-</div>
+    <!-- FLORAL ROMANCE -->
+    <div class="theme-card">
+      <div class="theme-image floral">
+        Floral Romance
+      </div>
 
-</main>
+      <div class="theme-content">
+        <h2>Floral Romance</h2>
 
+        <p>
+          Tema romantis dengan nuansa bunga dan
+          warna lembut untuk pasangan yang romantis.
+        </p>
+
+        <div class="buttons">
+          <a
+            href="demo/floral-love.html"
+            class="btn btn-preview"
+          >
+            Preview
+          </a>
+
+          <a
+            href="order.html?tema=floral-romance"
+            class="btn btn-use"
+          >
+            Gunakan
+          </a>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- MINIMALIST -->
+    <div class="theme-card">
+      <div class="theme-image minimalist">
+        Minimalist
+      </div>
+
+      <div class="theme-content">
+        <h2>Minimalist</h2>
+
+        <p>
+          Desain sederhana dan modern dengan
+          tampilan bersih serta elegan.
+        </p>
+
+        <div class="buttons">
+          <a
+            href="demo/minimalist.html"
+            class="btn btn-preview"
+          >
+            Preview
+          </a>
+
+          <a
+            href="order.html?tema=minimalist"
+            class="btn btn-use"
+          >
+            Gunakan
+          </a>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- CLASSIC -->
+    <div class="theme-card">
+      <div class="theme-image classic">
+        Classic
+      </div>
+
+      <div class="theme-content">
+        <h2>Classic</h2>
+
+        <p>
+          Gaya klasik yang timeless dengan
+          tampilan formal dan elegan.
+        </p>
+
+        <div class="buttons">
+          <span
+            class="btn btn-disabled"
+          >
+            Preview Segera
+          </span>
+
+          <a
+            href="order.html?tema=classic"
+            class="btn btn-use"
+          >
+            Gunakan
+          </a>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- LUXURY -->
+    <div class="theme-card">
+      <div class="theme-image luxury">
+        Luxury
+      </div>
+
+      <div class="theme-content">
+        <h2>Luxury</h2>
+
+        <p>
+          Tampilan premium dengan nuansa gelap
+          dan aksen emas yang eksklusif.
+        </p>
+
+        <div class="buttons">
+          <a
+            href="demo/Luxury.html"
+            class="btn btn-preview"
+          >
+            Preview
+          </a>
+
+          <a
+            href="order.html?tema=luxury"
+            class="btn btn-use"
+          >
+            Gunakan
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+
+  <!-- FOOTER -->
+  <footer>
+    © 2026 <span>RoyalInvite</span> — Undangan Digital Elegan
+  </footer>
 
 </body>
 </html>
