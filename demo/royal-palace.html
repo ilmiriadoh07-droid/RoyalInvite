@@ -4,7 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Hadi & Riya | Wedding Invitation</title>
+<title>Hadi & Riya | Royal Palace Wedding</title>
+
+<meta name="description" content="The Wedding of Hadi & Riya - 12 Desember 2026">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,7 +14,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
-
 *{
     margin:0;
     padding:0;
@@ -30,33 +31,199 @@ body{
     overflow-x:hidden;
 }
 
+body.locked{
+    overflow:hidden;
+}
+
 .container{
     width:90%;
     max-width:900px;
     margin:auto;
 }
 
-/* FLOWERS */
+section{
+    padding:90px 0;
+    text-align:center;
+}
+
+.label{
+    color:#d5aa5b;
+    font-size:10px;
+    letter-spacing:4px;
+    margin-bottom:15px;
+}
+
+h2{
+    font-family:'Cormorant Garamond',serif;
+    font-size:48px;
+    color:#f0d79d;
+    font-weight:600;
+}
+
+.divider{
+    width:70px;
+    height:1px;
+    background:#d5aa5b;
+    margin:25px auto;
+}
+
+/* =========================
+   OPENING
+========================= */
+
+.opening{
+    position:fixed;
+    inset:0;
+    z-index:9999;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    background:
+        radial-gradient(circle at center,
+        rgba(213,170,91,.18),
+        transparent 35%),
+        linear-gradient(145deg,#050403,#21150b);
+    transition:opacity 1s ease, visibility 1s ease;
+}
+
+.opening.hide{
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
+}
+
+.opening::before{
+    content:"";
+    position:absolute;
+    inset:22px;
+    border:1px solid rgba(213,170,91,.4);
+}
+
+.opening::after{
+    content:"";
+    position:absolute;
+    inset:32px;
+    border:1px solid rgba(213,170,91,.15);
+}
+
+.opening-content{
+    position:relative;
+    z-index:2;
+    padding:30px;
+}
+
+.opening-small{
+    color:#d5aa5b;
+    font-size:10px;
+    letter-spacing:5px;
+    margin-bottom:25px;
+}
+
+.opening h1{
+    font-family:'Cormorant Garamond',serif;
+    font-size:65px;
+    line-height:.9;
+    color:#f0d79d;
+}
+
+.opening h1 span{
+    display:block;
+    font-size:32px;
+    margin:12px 0;
+    color:#d5aa5b;
+}
+
+.opening-date{
+    margin-top:25px;
+    color:#c5b8a5;
+    font-size:11px;
+    letter-spacing:3px;
+}
+
+.open-btn{
+    display:inline-block;
+    margin-top:35px;
+    padding:14px 30px;
+    border:1px solid #d5aa5b;
+    border-radius:30px;
+    background:transparent;
+    color:#f0d79d;
+    font-family:'Montserrat',sans-serif;
+    font-size:11px;
+    letter-spacing:2px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.open-btn:hover{
+    background:#d5aa5b;
+    color:#080604;
+}
+
+/* =========================
+   MUSIC
+========================= */
+
+.music-btn{
+    position:fixed;
+    right:18px;
+    bottom:18px;
+    z-index:5000;
+    width:48px;
+    height:48px;
+    border:1px solid #d5aa5b;
+    border-radius:50%;
+    background:rgba(8,6,4,.85);
+    color:#f0d79d;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+    font-size:18px;
+    box-shadow:0 5px 20px rgba(0,0,0,.4);
+}
+
+.music-btn.playing{
+    animation:musicSpin 3s linear infinite;
+}
+
+@keyframes musicSpin{
+    from{transform:rotate(0deg);}
+    to{transform:rotate(360deg);}
+}
+
+/* =========================
+   FALLING FLOWERS
+========================= */
 
 .flower{
     position:fixed;
     top:-50px;
-    z-index:999;
+    z-index:3000;
     pointer-events:none;
+    color:#d5aa5b;
+    opacity:.55;
     animation:fall linear infinite;
-    opacity:.8;
 }
 
 @keyframes fall{
     0%{
         transform:translateY(-50px) rotate(0deg);
+        opacity:0;
+    }
+    15%{
+        opacity:.6;
     }
     100%{
         transform:translateY(110vh) rotate(360deg);
+        opacity:0;
     }
 }
 
-/* COVER */
+/* =========================
+   HERO
+========================= */
 
 .cover{
     min-height:100vh;
@@ -68,10 +235,10 @@ body{
     overflow:hidden;
 
     background:
-    radial-gradient(circle at center,
-    rgba(213,170,91,.20),
-    transparent 35%),
-    linear-gradient(145deg,#080604,#21150b);
+        radial-gradient(circle at center,
+        rgba(213,170,91,.20),
+        transparent 35%),
+        linear-gradient(145deg,#080604,#21150b);
 }
 
 .cover::before{
@@ -102,7 +269,7 @@ body{
 
 .cover h1{
     font-family:'Cormorant Garamond',serif;
-    font-size:70px;
+    font-size:75px;
     line-height:.9;
     color:#f0d79d;
 }
@@ -118,55 +285,25 @@ body{
     margin-top:30px;
     color:#c5b8a5;
     font-size:12px;
-    letter-spacing:2px;
+    letter-spacing:3px;
 }
 
-.open-btn{
-    display:inline-block;
-    margin-top:40px;
-    padding:14px 30px;
-    border:1px solid #d5aa5b;
-    border-radius:30px;
-    color:#f0d79d;
-    text-decoration:none;
-    font-size:12px;
-    letter-spacing:2px;
-    transition:.3s;
+.scroll-down{
+    margin-top:35px;
+    color:#746b5d;
+    font-size:9px;
+    letter-spacing:3px;
+    animation:bounce 2s infinite;
 }
 
-.open-btn:hover{
-    background:#d5aa5b;
-    color:#080604;
+@keyframes bounce{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(8px);}
 }
 
-/* GENERAL */
-
-section{
-    padding:90px 0;
-    text-align:center;
-}
-
-.label{
-    color:#d5aa5b;
-    font-size:10px;
-    letter-spacing:4px;
-    margin-bottom:15px;
-}
-
-h2{
-    font-family:'Cormorant Garamond',serif;
-    font-size:48px;
-    color:#f0d79d;
-}
-
-.divider{
-    width:70px;
-    height:1px;
-    background:#d5aa5b;
-    margin:25px auto;
-}
-
-/* COUPLE */
+/* =========================
+   COUPLE
+========================= */
 
 .couple{
     background:#100b07;
@@ -185,13 +322,62 @@ h2{
     line-height:2;
 }
 
-/* DATE */
+.and{
+    font-family:'Cormorant Garamond',serif;
+    font-size:34px;
+    color:#d5aa5b;
+    margin:15px 0;
+}
+
+/* =========================
+   COUNTDOWN
+========================= */
+
+.countdown-section{
+    background:
+        radial-gradient(circle at center,
+        rgba(213,170,91,.10),
+        transparent 45%),
+        #080604;
+}
+
+.countdown{
+    display:flex;
+    justify-content:center;
+    gap:12px;
+    margin-top:35px;
+    flex-wrap:wrap;
+}
+
+.count-box{
+    width:85px;
+    padding:18px 8px;
+    border:1px solid rgba(213,170,91,.35);
+    background:rgba(255,255,255,.025);
+}
+
+.count-number{
+    font-family:'Cormorant Garamond',serif;
+    font-size:38px;
+    color:#f0d79d;
+}
+
+.count-label{
+    margin-top:5px;
+    color:#887d6c;
+    font-size:8px;
+    letter-spacing:2px;
+}
+
+/* =========================
+   DATE
+========================= */
 
 .date-section{
     background:
-    radial-gradient(circle at center,
-    rgba(213,170,91,.10),
-    transparent 40%);
+        radial-gradient(circle at center,
+        rgba(213,170,91,.10),
+        transparent 40%);
 }
 
 .date{
@@ -203,9 +389,12 @@ h2{
 .time{
     color:#a99d8b;
     margin-top:10px;
+    font-size:13px;
 }
 
-/* VENUE */
+/* =========================
+   VENUE
+========================= */
 
 .venue{
     background:#0b0805;
@@ -213,7 +402,7 @@ h2{
 
 .venue-name{
     font-family:'Cormorant Garamond',serif;
-    font-size:32px;
+    font-size:34px;
     color:#f0d79d;
     margin-bottom:15px;
 }
@@ -226,18 +415,74 @@ h2{
 
 .map-btn,
 .rsvp-btn,
-.gift-btn{
+.gift-btn,
+.copy-btn{
     display:inline-block;
     margin-top:25px;
     padding:13px 25px;
     border:1px solid #d5aa5b;
     border-radius:30px;
     color:#f0d79d;
+    background:transparent;
     text-decoration:none;
-    font-size:11px;
+    font-family:'Montserrat',sans-serif;
+    font-size:10px;
+    letter-spacing:1.5px;
+    cursor:pointer;
+    transition:.3s;
 }
 
-/* GIFT */
+.map-btn:hover,
+.rsvp-btn:hover,
+.gift-btn:hover,
+.copy-btn:hover{
+    background:#d5aa5b;
+    color:#080604;
+}
+
+/* =========================
+   GALLERY
+========================= */
+
+.gallery{
+    background:#100b07;
+}
+
+.gallery-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:12px;
+    margin-top:35px;
+}
+
+.gallery-item{
+    height:230px;
+    overflow:hidden;
+    border:1px solid rgba(213,170,91,.22);
+    cursor:pointer;
+    background:#17100a;
+}
+
+.gallery-item img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+    transition:transform .6s ease;
+}
+
+.gallery-item:hover img{
+    transform:scale(1.08);
+}
+
+.gallery-item.large{
+    grid-column:span 2;
+    height:300px;
+}
+
+/* =========================
+   GIFT
+========================= */
 
 .gift{
     background:#100b07;
@@ -271,7 +516,14 @@ h2{
     font-size:11px;
 }
 
-/* RSVP */
+.copy-btn{
+    margin-top:18px;
+    padding:10px 20px;
+}
+
+/* =========================
+   RSVP
+========================= */
 
 .rsvp{
     background:#0b0805;
@@ -280,12 +532,15 @@ h2{
 .rsvp p{
     color:#a99d8b;
     font-size:13px;
+    line-height:1.8;
 }
 
-/* FOOTER */
+/* =========================
+   FOOTER
+========================= */
 
 footer{
-    padding:50px 20px;
+    padding:55px 20px;
     text-align:center;
     border-top:1px solid rgba(213,170,91,.2);
     background:#050403;
@@ -303,12 +558,72 @@ footer p{
     font-size:10px;
 }
 
-/* MOBILE */
+/* =========================
+   LIGHTBOX
+========================= */
+
+.lightbox{
+    position:fixed;
+    inset:0;
+    z-index:10000;
+    display:none;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+    background:rgba(0,0,0,.94);
+}
+
+.lightbox.show{
+    display:flex;
+}
+
+.lightbox img{
+    max-width:95%;
+    max-height:85vh;
+    object-fit:contain;
+    border:1px solid rgba(213,170,91,.4);
+}
+
+.close-lightbox{
+    position:absolute;
+    top:20px;
+    right:25px;
+    color:#f0d79d;
+    font-size:35px;
+    cursor:pointer;
+}
+
+/* =========================
+   REVEAL
+========================= */
+
+.reveal{
+    opacity:0;
+    transform:translateY(30px);
+    transition:opacity .9s ease, transform .9s ease;
+}
+
+.reveal.show{
+    opacity:1;
+    transform:translateY(0);
+}
+
+/* =========================
+   MOBILE
+========================= */
 
 @media(max-width:600px){
 
+    .opening h1{
+        font-size:55px;
+    }
+
+    .opening h1 span{
+        font-size:28px;
+    }
+
     .cover h1{
-        font-size:58px;
+        font-size:60px;
     }
 
     .cover h1 span{
@@ -323,14 +638,69 @@ footer p{
         font-size:43px;
     }
 
-}
+    .names{
+        font-size:32px;
+    }
 
+    .gallery-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .gallery-item{
+        height:180px;
+    }
+
+    .gallery-item.large{
+        height:240px;
+    }
+
+    .count-box{
+        width:72px;
+    }
+
+    .count-number{
+        font-size:30px;
+    }
+}
 </style>
 </head>
 
-<body>
+<body class="locked">
 
-<!-- BUNGA JATUH -->
+<!-- =========================
+     OPENING
+========================= -->
+
+<div class="opening" id="opening">
+
+    <div class="opening-content">
+
+        <div class="opening-small">
+            THE WEDDING OF
+        </div>
+
+        <h1>
+            Hadi
+            <span>&</span>
+            Riya
+        </h1>
+
+        <div class="opening-date">
+            12 • 12 • 2026
+        </div>
+
+        <button class="open-btn" onclick="openInvitation()">
+            BUKA UNDANGAN
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- =========================
+     FALLING FLOWERS
+========================= -->
 
 <div class="flower" style="left:5%;font-size:20px;animation-duration:8s;">✿</div>
 <div class="flower" style="left:18%;font-size:15px;animation-duration:11s;">❀</div>
@@ -340,253 +710,615 @@ footer p{
 <div class="flower" style="left:88%;font-size:16px;animation-duration:13s;">❀</div>
 
 
-<!-- COVER -->
+<!-- =========================
+     MUSIC
+========================= -->
+
+<audio id="weddingMusic" loop preload="auto">
+    <source src="../Ful.mp3" type="audio/mpeg">
+</audio>
+
+<button class="music-btn" id="musicBtn" onclick="toggleMusic()" aria-label="Musik">
+    ♫
+</button>
+
+
+<!-- =========================
+     HERO
+========================= -->
 
 <section class="cover">
 
-<div class="cover-content">
+    <div class="cover-content">
 
-<div class="small-title">
-THE WEDDING OF
-</div>
+        <div class="small-title">
+            THE WEDDING OF
+        </div>
 
-<h1>
-Hadi
-<span>&</span>
-Riya
-</h1>
+        <h1>
+            Hadi
+            <span>&</span>
+            Riya
+        </h1>
 
-<p>
-12 • 12 • 2026
-</p>
+        <p>
+            12 • 12 • 2026
+        </p>
 
-<a href="#invitation" class="open-btn">
-BUKA UNDANGAN
-</a>
+        <div class="scroll-down">
+            SCROLL TO DISCOVER
+        </div>
 
-</div>
+    </div>
 
 </section>
 
 
-<div id="invitation">
+<main id="invitation">
 
-<!-- COUPLE -->
+<!-- =========================
+     COUPLE
+========================= -->
 
 <section class="couple">
 
-<div class="container">
+<div class="container reveal">
 
-<div class="label">
-THE BRIDE & GROOM
-</div>
+    <div class="label">
+        THE BRIDE & GROOM
+    </div>
 
-<h2>
-A Celebration of Love
-</h2>
+    <h2>
+        A Celebration of Love
+    </h2>
 
-<div class="divider"></div>
+    <div class="divider"></div>
 
-<div class="names">
-Hadianto Kurniawan Tan
-</div>
+    <div class="names">
+        Hadianto Kurniawan Tan
+    </div>
 
-<div class="parents">
-Putra dari Bapak Tan Tjoen Hwa<br>
-& Ibu Tjhin Tjhiu Loe
-</div>
+    <div class="parents">
+        Putra dari Bapak Tan Tjoen Hwa<br>
+        & Ibu Tjhin Tjhiu Loe
+    </div>
 
-<div class="names">
-&
-</div>
+    <div class="and">
+        &
+    </div>
 
-<div class="names">
-Ilmi Riadoh
-</div>
+    <div class="names">
+        Ilmi Riadoh
+    </div>
 
-<div class="parents">
-Putri dari Bapak Muhammad Saleh<br>
-& Ibu Nur Alam Ray
-</div>
+    <div class="parents">
+        Putri dari Bapak Muhammad Saleh<br>
+        & Ibu Nur Alam Ray
+    </div>
 
 </div>
 
 </section>
 
 
-<!-- DATE -->
+<!-- =========================
+     COUNTDOWN
+========================= -->
+
+<section class="countdown-section">
+
+<div class="container reveal">
+
+    <div class="label">
+        COUNTDOWN
+    </div>
+
+    <h2>
+        Menuju Hari Bahagia
+    </h2>
+
+    <div class="divider"></div>
+
+    <div class="countdown">
+
+        <div class="count-box">
+            <div class="count-number" id="days">0</div>
+            <div class="count-label">HARI</div>
+        </div>
+
+        <div class="count-box">
+            <div class="count-number" id="hours">0</div>
+            <div class="count-label">JAM</div>
+        </div>
+
+        <div class="count-box">
+            <div class="count-number" id="minutes">0</div>
+            <div class="count-label">MENIT</div>
+        </div>
+
+        <div class="count-box">
+            <div class="count-number" id="seconds">0</div>
+            <div class="count-label">DETIK</div>
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     DATE
+========================= -->
 
 <section class="date-section">
 
-<div class="container">
+<div class="container reveal">
 
-<div class="label">
-SAVE THE DATE
-</div>
+    <div class="label">
+        SAVE THE DATE
+    </div>
 
-<h2>
-Our Special Day
-</h2>
+    <h2>
+        Our Special Day
+    </h2>
 
-<div class="divider"></div>
+    <div class="divider"></div>
 
-<div class="date">
-12 Desember 2026
-</div>
+    <div class="date">
+        12 Desember 2026
+    </div>
 
-<div class="time">
-Pukul 11.00 WIB
-</div>
+    <div class="time">
+        Pukul 11.00 WIB
+    </div>
 
 </div>
 
 </section>
 
 
-<!-- VENUE -->
+<!-- =========================
+     VENUE
+========================= -->
 
 <section class="venue">
 
-<div class="container">
+<div class="container reveal">
 
-<div class="label">
-WEDDING VENUE
-</div>
+    <div class="label">
+        WEDDING VENUE
+    </div>
 
-<h2>
-Akad & Resepsi
-</h2>
+    <h2>
+        Akad & Resepsi
+    </h2>
 
-<div class="divider"></div>
+    <div class="divider"></div>
 
-<div class="venue-name">
-Vihara Sila Paramita
-</div>
+    <div class="venue-name">
+        Vihara Sila Paramita
+    </div>
 
-<div class="address">
-Jl. Cipinang Jaya Raya No. 1,<br>
-RT 9 RW 7, Cipinang Besar Selatan,<br>
-Kec. Jatinegara, Jakarta Timur
-</div>
+    <div class="address">
+        Jl. Cipinang Jaya Raya No. 1,<br>
+        RT 9 RW 7, Cipinang Besar Selatan,<br>
+        Kec. Jatinegara, Jakarta Timur
+    </div>
 
-<a
-href="https://www.google.com/maps/search/?api=1&query=Vihara+Sila+Paramita+Jakarta"
-target="_blank"
-class="map-btn">
-LIHAT LOKASI
-</a>
+    <a
+        href="https://www.google.com/maps/search/?api=1&query=Vihara+Sila+Paramita%2C+Jl.+Cipinang+Jaya+Raya+No.+1%2C+Jakarta+Timur"
+        target="_blank"
+        rel="noopener"
+        class="map-btn">
+        LIHAT LOKASI
+    </a>
 
 </div>
 
 </section>
 
 
-<!-- GIFT -->
+<!-- =========================
+     GALLERY
+========================= -->
+
+<section class="gallery">
+
+<div class="container reveal">
+
+    <div class="label">
+        OUR MOMENTS
+    </div>
+
+    <h2>
+        Love Story
+    </h2>
+
+    <div class="divider"></div>
+
+    <div class="gallery-grid">
+
+        <div class="gallery-item large"
+             onclick="openLightbox(this.querySelector('img').src)">
+            <img src="../C3.jpg" alt="Hadi & Riya">
+        </div>
+
+        <div class="gallery-item"
+             onclick="openLightbox(this.querySelector('img').src)">
+            <img src="../C2.jpg" alt="Hadi & Riya">
+        </div>
+
+        <div class="gallery-item"
+             onclick="openLightbox(this.querySelector('img').src)">
+            <img src="../F5.jpg" alt="Hadi & Riya">
+        </div>
+
+        <div class="gallery-item"
+             onclick="openLightbox(this.querySelector('img').src)">
+            <img src="../F8.jpg" alt="Hadi & Riya">
+        </div>
+
+        <div class="gallery-item"
+             onclick="openLightbox(this.querySelector('img').src)">
+            <img src="../F9.jpg" alt="Hadi & Riya">
+        </div>
+
+        <div class="gallery-item large"
+             onclick="openLightbox(this.querySelector('img').src)">
+            <img src="../F6.jpg" alt="Hadi & Riya">
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     WEDDING GIFT
+========================= -->
 
 <section class="gift">
 
-<div class="container">
+<div class="container reveal">
 
-<div class="label">
-WEDDING GIFT
-</div>
+    <div class="label">
+        WEDDING GIFT
+    </div>
 
-<h2>
-Tanda Kasih
-</h2>
+    <h2>
+        Tanda Kasih
+    </h2>
 
-<div class="divider"></div>
+    <div class="divider"></div>
 
-<div class="bank-card">
+    <div class="bank-card">
 
-<div class="bank-name">
-BCA
-</div>
+        <div class="bank-name">
+            BCA
+        </div>
 
-<div class="account">
-4960141968
-</div>
+        <div class="account">
+            4960141968
+        </div>
 
-<div class="account-owner">
-a.n. Hadianto Kurniawan Tan
-</div>
+        <div class="account-owner">
+            a.n. Hadianto Kurniawan Tan
+        </div>
 
-</div>
+        <button
+            class="copy-btn"
+            onclick="copyAccount('4960141968')">
+            SALIN NOMOR REKENING
+        </button>
+
+    </div>
 
 
-<div class="bank-card">
+    <div class="bank-card">
 
-<div class="bank-name">
-BCA
-</div>
+        <div class="bank-name">
+            BCA
+        </div>
 
-<div class="account">
-2680150420
-</div>
+        <div class="account">
+            2680150420
+        </div>
 
-<div class="account-owner">
-a.n. Ilmi Riadoh
-</div>
+        <div class="account-owner">
+            a.n. Ilmi Riadoh
+        </div>
 
-</div>
+        <button
+            class="copy-btn"
+            onclick="copyAccount('2680150420')">
+            SALIN NOMOR REKENING
+        </button>
+
+    </div>
 
 </div>
 
 </section>
 
 
-<!-- RSVP -->
+<!-- =========================
+     RSVP
+========================= -->
 
 <section class="rsvp">
 
-<div class="container">
+<div class="container reveal">
 
-<div class="label">
-RSVP
-</div>
+    <div class="label">
+        RSVP
+    </div>
 
-<h2>
-Konfirmasi Kehadiran
-</h2>
+    <h2>
+        Konfirmasi Kehadiran
+    </h2>
 
-<div class="divider"></div>
+    <div class="divider"></div>
 
-<p>
-Dengan penuh kebahagiaan,<br>
-kami menantikan kehadiran Anda.
-</p>
+    <p>
+        Dengan penuh kebahagiaan,<br>
+        kami menantikan kehadiran Anda<br>
+        di hari istimewa kami.
+    </p>
 
-<a
-href="https://wa.me/6281212000347?text=Halo%20Hadi%20%26%20Riya,%20saya%20ingin%20mengkonfirmasi%20kehadiran%20di%20acara%20pernikahan."
-target="_blank"
-class="rsvp-btn">
-KONFIRMASI VIA WHATSAPP
-</a>
+    <a
+        href="https://wa.me/6281212000347?text=Halo%20Hadi%20%26%20Riya%2C%20saya%20ingin%20mengkonfirmasi%20kehadiran%20di%20acara%20pernikahan%20tanggal%2012%20Desember%202026."
+        target="_blank"
+        rel="noopener"
+        class="rsvp-btn">
+        KONFIRMASI VIA WHATSAPP
+    </a>
 
 </div>
 
 </section>
 
-</div>
+</main>
 
 
-<!-- FOOTER -->
+<!-- =========================
+     FOOTER
+========================= -->
 
 <footer>
 
-<h3>
-Hadi & Riya
-</h3>
+    <h3>
+        Hadi & Riya
+    </h3>
 
-<p>
-12 • 12 • 2026
-</p>
+    <p>
+        12 • 12 • 2026
+    </p>
 
-<p>
-With Love
-</p>
+    <p>
+        With Love
+    </p>
 
 </footer>
+
+
+<!-- =========================
+     LIGHTBOX
+========================= -->
+
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+
+    <div class="close-lightbox">
+        ×
+    </div>
+
+    <img id="lightboxImage" src="" alt="Gallery">
+
+</div>
+
+
+<script>
+
+/* =========================
+   OPEN INVITATION
+========================= */
+
+function openInvitation(){
+
+    const opening = document.getElementById("opening");
+    const music = document.getElementById("weddingMusic");
+    const musicBtn = document.getElementById("musicBtn");
+
+    opening.classList.add("hide");
+
+    document.body.classList.remove("locked");
+
+    music.play().then(function(){
+
+        musicBtn.classList.add("playing");
+
+    }).catch(function(){
+
+        console.log("Musik membutuhkan interaksi pengguna.");
+
+    });
+
+}
+
+
+/* =========================
+   MUSIC
+========================= */
+
+function toggleMusic(){
+
+    const music = document.getElementById("weddingMusic");
+    const button = document.getElementById("musicBtn");
+
+    if(music.paused){
+
+        music.play().then(function(){
+
+            button.classList.add("playing");
+
+        });
+
+    }else{
+
+        music.pause();
+
+        button.classList.remove("playing");
+
+    }
+
+}
+
+
+/* =========================
+   COUNTDOWN
+========================= */
+
+const weddingDate = new Date("December 12, 2026 11:00:00").getTime();
+
+function updateCountdown(){
+
+    const now = new Date().getTime();
+    const distance = weddingDate - now;
+
+    if(distance <= 0){
+
+        document.getElementById("days").innerHTML = "0";
+        document.getElementById("hours").innerHTML = "0";
+        document.getElementById("minutes").innerHTML = "0";
+        document.getElementById("seconds").innerHTML = "0";
+
+        return;
+
+    }
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor(
+        (distance % (1000 * 60 * 60 * 24))
+        / (1000 * 60 * 60)
+    );
+
+    const minutes = Math.floor(
+        (distance % (1000 * 60 * 60))
+        / (1000 * 60)
+    );
+
+    const seconds = Math.floor(
+        (distance % (1000 * 60))
+        / 1000
+    );
+
+    document.getElementById("days").innerHTML = days;
+    document.getElementById("hours").innerHTML = hours;
+    document.getElementById("minutes").innerHTML = minutes;
+    document.getElementById("seconds").innerHTML = seconds;
+
+}
+
+updateCountdown();
+
+setInterval(updateCountdown,1000);
+
+
+/* =========================
+   COPY ACCOUNT
+========================= */
+
+function copyAccount(number){
+
+    if(navigator.clipboard){
+
+        navigator.clipboard.writeText(number).then(function(){
+
+            alert("Nomor rekening berhasil disalin: " + number);
+
+        }).catch(function(){
+
+            alert("Nomor rekening: " + number);
+
+        });
+
+    }else{
+
+        alert("Nomor rekening: " + number);
+
+    }
+
+}
+
+
+/* =========================
+   LIGHTBOX
+========================= */
+
+function openLightbox(src){
+
+    const lightbox = document.getElementById("lightbox");
+    const image = document.getElementById("lightboxImage");
+
+    image.src = src;
+
+    lightbox.classList.add("show");
+
+}
+
+function closeLightbox(){
+
+    document.getElementById("lightbox").classList.remove("show");
+
+}
+
+
+/* =========================
+   REVEAL ANIMATION
+========================= */
+
+const observer = new IntersectionObserver(function(entries){
+
+    entries.forEach(function(entry){
+
+        if(entry.isIntersecting){
+
+            entry.target.classList.add("show");
+
+        }
+
+    });
+
+},{
+    threshold:.15
+});
+
+
+document.querySelectorAll(".reveal").forEach(function(element){
+
+    observer.observe(element);
+
+});
+
+
+/* =========================
+   ESC CLOSE LIGHTBOX
+========================= */
+
+document.addEventListener("keydown",function(event){
+
+    if(event.key === "Escape"){
+
+        closeLightbox();
+
+    }
+
+});
+
+</script>
 
 </body>
 </html>
