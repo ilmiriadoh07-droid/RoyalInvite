@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#15110f">
+<title>Wedding Quest | Undangan Digital</title>
+<style>
+:root{
+  --bg:#100d0b;--card:#1b1512;--cream:#f8f0e4;--muted:#c8b9a7;
+  --gold:#d7b06a;--gold2:#f0d49a;--line:rgba(215,176,106,.28);
+}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--cream);font-family:Georgia,"Times New Roman",serif}
+button{font:inherit}.wrap{max-width:760px;margin:auto;min-height:100vh;background:
+radial-gradient(circle at 50% 0%,rgba(215,176,106,.13),transparent 34%),var(--bg)}
+.screen{min-height:100vh;padding:28px 18px 50px;display:flex;align-items:center;justify-content:center}
+.panel{width:100%;background:linear-gradient(145deg,rgba(35,27,22,.98),rgba(19,15,12,.98));
+border:1px solid var(--line);border-radius:30px;padding:30px 20px;box-shadow:0 20px 70px rgba(0,0,0,.35);position:relative;overflow:hidden}
+.orn{position:absolute;color:rgba(215,176,106,.25);font-size:90px;line-height:1}.o1{top:-28px;left:-12px}.o2{bottom:-35px;right:-8px;transform:rotate(180deg)}
+.kicker{text-align:center;color:var(--gold2);font:11px Arial,sans-serif;letter-spacing:.28em;text-transform:uppercase}
+h1{font-size:clamp(48px,13vw,88px);font-weight:400;line-height:.9;text-align:center;margin:22px 0 10px}
+.names{text-align:center;font-size:23px;color:var(--gold2)}.amp{font-style:italic;color:#fff}
+.lead{text-align:center;color:var(--muted);line-height:1.7;max-width:520px;margin:18px auto}
+.btn{display:block;width:min(100%,360px);margin:12px auto;padding:15px 20px;border-radius:999px;border:1px solid var(--gold);
+background:linear-gradient(100deg,#a9813f,#e4c47d);color:#1c1309;font-weight:700;cursor:pointer}
+.btn.ghost{background:transparent;color:var(--gold2)}.hidden{display:none!important}
+.card{background:rgba(255,255,255,.035);border:1px solid var(--line);border-radius:22px;padding:20px;margin:14px 0}
+.progress{height:7px;background:#2b211b;border-radius:99px;overflow:hidden;margin:15px 0 22px}.progress span{display:block;height:100%;width:0;background:var(--gold);transition:.35s}
+.question{text-align:center;font-size:25px;line-height:1.35}.choice{width:100%;margin:7px 0;padding:14px;border-radius:15px;border:1px solid var(--line);background:#241b16;color:var(--cream);text-align:left;cursor:pointer}
+.choice:hover{border-color:var(--gold)}.choice.good{background:#273126;border-color:#9db98e}.choice.bad{background:#34211f;border-color:#bd8072}
+.detail{display:grid;grid-template-columns:1fr 1fr;gap:10px}.detail div{border:1px solid var(--line);border-radius:16px;padding:14px}.label{display:block;font:10px Arial,sans-serif;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.photo{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:22px;border:1px solid var(--line);display:block}
+.gallery{display:grid;grid-template-columns:1fr 1fr;gap:10px}.gallery img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:16px}
+.count{display:flex;justify-content:center;gap:8px;flex-wrap:wrap}.count div{min-width:68px;text-align:center;border:1px solid var(--line);border-radius:15px;padding:10px 6px}.count b{display:block;font-size:25px;color:var(--gold2)}.count small{color:var(--muted);font:10px Arial,sans-serif}
+.quote{text-align:center;color:var(--muted);line-height:1.8;font-style:italic}
+.footer{text-align:center;color:#8f8070;font:11px Arial,sans-serif;letter-spacing:.12em;margin-top:25px}
+@media(max-width:500px){.detail{grid-template-columns:1fr}.panel{padding:25px 15px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<main class="screen">
+<div class="panel">
+<div class="orn o1">❦</div><div class="orn o2">❦</div>
+
+<!-- =========================
+     EDIT DATA DI BAGIAN INI
+     ========================= -->
+<script>
+const WEDDING = {
+  pria: "Hadi",
+  wanita: "Riya",
+
+  tanggal: "2026-12-20",
+  tanggalTampil: "Minggu, 20 Desember 2026",
+  akad: "10.00 WIB",
+  resepsi: "11.00 WIB",
+
+  venue: "Gedung Pernikahan Bahagia",
+  alamat: "Jl. Contoh Bahagia No. 123, Jakarta",
+
+  // Format: 628xxxxxxxxxx (tanpa + dan tanpa spasi)
+  whatsapp: "6281234567890",
+
+  fotoUtama: "B4.jpeg",
+  foto2: "B9.jpeg",
+  foto3: "B3.jpeg",
+
+  // Bisa diganti menjadi URL gambar online.
+  musik: "Ful.mp3"
+};
+</script>
+
+<section id="opening">
+  <div class="kicker">The Wedding Quest</div>
+  <h1><span id="priaA"></span><br><i class="amp">&amp;</i><br><span id="wanitaA"></span></h1>
+  <div class="names">Sebuah perjalanan menuju hari bahagia</div>
+  <p class="lead">Undangan ini dibuat seperti sebuah game kecil. Selesaikan misi untuk membuka seluruh cerita pernikahan.</p>
+  <button class="btn" id="startBtn">🎮 MULAI PETUALANGAN</button>
+  <button class="btn ghost" id="musicBtn">♫ NYALAKAN MUSIK</button>
+</section>
+
+<section id="game" class="hidden">
+  <div class="kicker">Wedding Quest</div>
+  <div class="progress"><span id="progress"></span></div>
+  <div id="questionBox"></div>
+  <div id="choices"></div>
+  <p id="gameMessage" class="lead"></p>
+</section>
+
+<section id="invitation" class="hidden">
+  <div class="kicker">Quest Complete</div>
+  <h2 style="text-align:center;font-size:36px;font-weight:400">Pintu Hari Bahagia Terbuka ✨</h2>
+
+  <img id="mainPhoto" class="photo" alt="Foto pasangan">
+
+  <div class="card">
+    <div class="kicker">The Couple</div>
+    <h2 id="couple" style="text-align:center;font-size:34px;font-weight:400"></h2>
+    <p class="quote">“Dan di antara tanda-tanda kebesaran-Nya ialah Dia menciptakan pasangan-pasangan untukmu...”</p>
+  </div>
+
+  <div class="card">
+    <div class="kicker">Save The Date</div>
+    <h2 id="dateText" style="text-align:center;font-size:27px;font-weight:400"></h2>
+    <div class="count" id="countdown"></div>
+  </div>
+
+  <div class="card">
+    <div class="kicker">Wedding Details</div>
+    <div class="detail">
+      <div><span class="label">Akad</span><strong id="akad"></strong></div>
+      <div><span class="label">Resepsi</span><strong id="resepsi"></strong></div>
+      <div><span class="label">Lokasi</span><strong id="venue"></strong></div>
+      <div><span class="label">Alamat</span><strong id="address"></strong></div>
+    </div>
+    <button class="btn" id="mapBtn">📍 BUKA LOKASI</button>
+  </div>
+
+  <div class="card">
+    <div class="kicker">Our Moments</div>
+    <div class="gallery">
+      <img id="photo2" alt="Momen pasangan 1">
+      <img id="photo3" alt="Momen pasangan 2">
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="kicker">RSVP</div>
+    <p class="lead">Mohon konfirmasi kehadiran melalui WhatsApp.</p>
+    <button class="btn" id="rsvpBtn">💬 KONFIRMASI KE WHATSAPP</button>
+  </div>
+
+  <button class="btn ghost" id="againBtn">↻ MAIN LAGI</button>
+  <div class="footer">MADE WITH LOVE • WEDDING QUEST TEMPLATE</div>
+</section>
+
+</div>
+</main>
+</div>
+
+<script>
+(function(){
+  /** @param {string} id */
+  const $ = (id) => document.getElementById(id);
+  const q = [
+    {title:"Misi 1 — Cincin", text:"Apa simbol yang paling sering digunakan untuk menandai ikatan pernikahan?", answers:["💍 Cincin","🎮 Konsol","🚗 Mobil"], correct:0},
+    {title:"Misi 2 — Dua Hati", text:"Dalam perjalanan pernikahan, apa yang menjadi fondasi penting?", answers:["🤝 Saling percaya","🍕 Pizza","🎲 Keberuntungan"], correct:0},
+    {title:"Misi 3 — Doa", text:"Apa yang paling indah diberikan kepada pasangan di hari bahagia?", answers:["💐 Doa dan ucapan bahagia","😴 Tidur","📦 Paket misterius"], correct:0}
+  ];
+  let level=0, audio=null;
+
+  function fillData(){
+    $("priaA").textContent=WEDDING.pria;
+    $("wanitaA").textContent=WEDDING.wanita;
+    $("couple").textContent=WEDDING.pria+" & "+WEDDING.wanita;
+    $("dateText").textContent=WEDDING.tanggalTampil;
+    $("akad").textContent=WEDDING.akad;
+    $("resepsi").textContent=WEDDING.resepsi;
+    $("venue").textContent=WEDDING.venue;
+    $("address").textContent=WEDDING.alamat;
+    $("mainPhoto").src=WEDDING.fotoUtama;
+    $("photo2").src=WEDDING.foto2;
+    $("photo3").src=WEDDING.foto3;
+  }
+
+  /** @param {string} section */
+  function show(section){
+    ["opening","game","invitation"].forEach(id=>$(id).classList.toggle("hidden",id!==section));
+  }
+
+  function renderGame(){
+    const item=q[level];
+    $("progress").style.width=(level/q.length*100)+"%";
+    $("questionBox").innerHTML='<div class="card"><div class="kicker">'+item.title+'</div><div class="question">'+item.text+'</div></div>';
+    $("choices").innerHTML="";
+    $("gameMessage").textContent="";
+    item.answers.forEach((answer,i)=>{
+      const b=document.createElement("button");
+      b.className="choice"; b.textContent=answer;
+      b.addEventListener("click",()=>{
+        [...$("choices").children].forEach(x=>x.disabled=true);
+        if(i===item.correct){
+          b.classList.add("good");
+          $("gameMessage").textContent="Benar! Misi berhasil.";
+          setTimeout(()=>{
+            level++;
+            if(level<q.length) renderGame();
+            else { $("progress").style.width="100%"; show("invitation"); }
+          },500);
+        }else{
+          b.classList.add("bad");
+          $("gameMessage").textContent="Belum tepat. Coba lagi.";
+          setTimeout(()=>{
+            b.classList.remove("bad");
+            [...$("choices").children].forEach(x=>x.disabled=false);
+          },500);
+        }
+      });
+      $("choices").appendChild(b);
+    });
+  }
+
+  function start(){
+    level=0; show("game"); renderGame();
+  }
+
+  function countdown(){
+    const target=new Date(WEDDING.tanggal+"T00:00:00");
+    const now=new Date(); let diff=Math.max(0,target-now);
+    const d=Math.floor(diff/86400000); diff%=86400000;
+    const h=Math.floor(diff/3600000); diff%=3600000;
+    const m=Math.floor(diff/60000); diff%=60000;
+    const s=Math.floor(diff/1000);
+    $("countdown").innerHTML=
+      '<div><b>'+d+'</b><small>HARI</small></div>'+
+      '<div><b>'+h+'</b><small>JAM</small></div>'+
+      '<div><b>'+m+'</b><small>MENIT</small></div>'+
+      '<div><b>'+s+'</b><small>DETIK</small></div>';
+  }
+
+  $("startBtn").addEventListener("click",start);
+  $("againBtn").addEventListener("click",start);
+
+  $("musicBtn").addEventListener("click",()=>{
+    if(!audio) audio=new Audio(WEDDING.musik);
+    if(audio.paused){audio.loop=true;audio.play().then(()=>{$("musicBtn").textContent="♫ MUSIK AKTIF"}).catch(()=>alert("Pastikan file musik.mp3 ada di folder yang sama dengan HTML."));}
+    else{audio.pause();$("musicBtn").textContent="♫ NYALAKAN MUSIK";}
+  });
+
+  $("rsvpBtn").addEventListener("click",()=>{
+    const text="Halo, saya ingin mengonfirmasi kehadiran di pernikahan "+WEDDING.pria+" & "+WEDDING.wanita+".";
+    window.open("https://wa.me/"+WEDDING.whatsapp+"?text="+encodeURIComponent(text),"_blank");
+  });
+
+  $("mapBtn").addEventListener("click",()=>{
+    window.open("https://www.google.com/maps/search/?api=1&query="+encodeURIComponent(WEDDING.alamat),"_blank");
+  });
+
+  fillData(); countdown(); setInterval(countdown,1000);
+})();
+</script>
+</body>
+</html>
