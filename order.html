@@ -1,27 +1,253 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Formulir Pemesanan — RoyalInvite</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --bg: #080604;
+    --gold: #d5aa5b;
+    --gold-light: #f0d79d;
+    --text: #f7efe2;
+    --muted: #a99d8b;
+    --border: rgba(213,170,91,.22);
+    --card: rgba(255,255,255,.025);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    background: radial-gradient(circle at top right, rgba(213,170,91,.08), transparent 30%), var(--bg);
+    color: var(--text);
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.7;
+}
+
+a { color: inherit; text-decoration: none; }
+
+.container {
+    width: min(800px, 92%);
+    margin: auto;
+    padding: 60px 0;
+}
+
+/* NAVBAR */
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(8,6,4,.92);
+    backdrop-filter: blur(18px);
+    border-bottom: 1px solid var(--border);
+}
+
+.nav-content {
+    min-height: 78px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: min(1180px, 92%);
+    margin: auto;
+}
+
+.logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--text);
+}
+
+.logo span { color: var(--gold); }
+
+/* FORM CONTAINER */
+.order-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+}
+
+.eyebrow {
+    display: inline-block;
+    margin-bottom: 10px;
+    color: var(--gold);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 38px;
+    margin-bottom: 25px;
+    color: var(--text);
+}
+
+.info-box {
+    background: rgba(213, 170, 91, 0.08);
+    border: 1px solid var(--border);
+    padding: 15px 20px;
+    border-radius: 12px;
+    margin-bottom: 30px;
+}
+
+.info-box p {
+    font-size: 14px;
+    color: var(--gold-light);
+    font-weight: 600;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 8px;
+}
+
+.form-control {
+    width: 100%;
+    padding: 14px 18px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    color: var(--text);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    outline: none;
+    transition: 0.3s;
+}
+
+.form-control:focus {
+    border-color: var(--gold);
+    background: rgba(255, 255, 255, 0.07);
+}
+
+.btn-submit {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    background: linear-gradient(135deg, #c8953f, #e4c77e);
+    color: #171008;
+    border: none;
+    border-radius: 30px;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 30px;
+}
+
+.btn-submit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(213, 170, 91, 0.3);
+}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<header class="navbar">
+    <div class="nav-content">
+        <a href="index.html" class="logo">Royal<span>Invite</span></a>
+        <a href="tema.html" style="color: var(--muted); font-size: 13px;">&larr; Kembali ke Tema</a>
+    </div>
+</header>
+
+<div class="container">
+    <div class="order-card">
+        <span class="eyebrow">Pemesanan Instan</span>
+        <h2>Lengkapi Data Undangan Anda</h2>
+
+        <!-- Kotak Informasi Tema Otomatis -->
+        <div class="info-box">
+            <p id="info-tema-terpilih">Memuat tema pilihan...</p>
+            <p id="info-harga-terpilih" style="font-size: 12px; color: var(--muted); margin-top: 4px;"></p>
+        </div>
+
+        <form id="formPemesanan" onsubmit="kirimWhatsApp(event)">
+            <div class="form-group">
+                <label>Nama Lengkap Mempelai Pria</label>
+                <input type="text" id="mempelaiPria" class="form-control" placeholder="Contoh: Hadi Pratama" required>
+            </div>
+
+            <div class="form-group">
+                <label>Nama Lengkap Mempelai Wanita</label>
+                <input type="text" id="mempelaiWanita" class="form-control" placeholder="Contoh: Riya Lestari" required>
+            </div>
+
+            <div class="form-group">
+                <label>Tanggal Acara Pernikahan</label>
+                <input type="date" id="tanggalAcara" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+                <label>Nomor WhatsApp Aktif (Untuk konfirmasi)</label>
+                <input type="tel" id="noWhatsApp" class="form-control" placeholder="Contoh: 081234567890" required>
+            </div>
+
+            <button type="submit" class="btn-submit">Pesan Sekarang via WhatsApp</button>
+        </form>
+    </div>
+</div>
+
 <script>
-// Fungsi untuk membaca data yang dikirim dari halaman tema atau harga
+// Menangkap data tema dari URL secara otomatis
 window.addEventListener('DOMContentLoaded', () => {
     const urlParams = new URLSearchParams(window.location.search);
     const selectedTema = urlParams.get('tema');
     const selectedHarga = urlParams.get('harga');
 
-    // Jika ada data tema di URL, tampilkan atau pilih secara otomatis di form
+    const infoTema = document.getElementById('info-tema-terpilih');
+    const infoHarga = document.getElementById('info-harga-terpilih');
+
     if (selectedTema) {
-        console.log("Tema terpilih: " + selectedTema);
-        // Anda bisa membuat elemen di form order.html untuk menampilkan teks tema terpilih
-        const infoTema = document.getElementById('info-tema-terpilih');
-        if (infoTema) {
-            infoTema.innerText = "Tema Pilihan: " + selectedTema.toUpperCase();
-        }
+        infoTema.innerText = "Tema Pilihan: " + selectedTema.toUpperCase().replace(/-/g, ' ');
+    } else {
+        infoTema.innerText = "Tema Pilihan: Standar / Umum";
     }
 
-    // Jika ada data harga di URL, tampilkan di ringkasan pembayaran
     if (selectedHarga) {
         const formatRupiah = new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', maximumFractionDigits: 0 }).format(selectedHarga);
-        const infoHarga = document.getElementById('info-harga-terpilih');
-        if (infoHarga) {
-            infoHarga.innerText = "Total Harga: " + formatRupiah;
-        }
+        infoHarga.innerText = "Estimasi Harga: " + formatRupiah;
     }
 });
+
+// Fungsi untuk mengirim pesanan langsung ke WhatsApp Anda
+function kirimWhatsApp(event) {
+    event.preventDefault();
+    
+    const urlParams = new URLSearchParams(window.location.search);
+    const tema = urlParams.get('tema') || 'Standar';
+    
+    const pria = document.getElementById('mempelaiPria').value;
+    const wanita = document.getElementById('mempelaiWanita').value;
+    const tanggal = document.getElementById('tanggalAcara').value;
+    const wa = document.getElementById('noWhatsApp').value;
+
+    // Ganti nomor WhatsApp di bawah dengan nomor WhatsApp Anda (awali dengan 62 tanpa angka 0 di depan)
+    const nomorAdmin = "6281234567890"; 
+
+    const pesan = `Halo Admin RoyalInvite, saya ingin memesan undangan digital:%0A%0A` +
+                  `- Tema: ${tema}%0A` +
+                  `- Mempelai Pria: ${pria}%0A` +
+                  `- Mempelai Wanita: ${wanita}%0A` +
+                  `- Tanggal Acara: ${tanggal}%0A` +
+                  `- No WhatsApp: ${wa}%0A%0A` +
+                  `Mohon informasi langkah selanjutnya. Terima kasih!`;
+
+    window.open(`https://wa.me/${nomorAdmin}?text=${pesan}`, '_blank');
+}
 </script>
+
+</body>
+</html>
